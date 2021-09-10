@@ -9,14 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CattoCat">
-        <activity android:name=".src.main.MainActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+
+        <activity
+            android:name=".src.splash.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".src.main.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".src.main.board.BoardActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".src.main.map.MapActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
