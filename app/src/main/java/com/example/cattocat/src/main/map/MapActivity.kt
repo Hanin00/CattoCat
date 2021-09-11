@@ -49,22 +49,20 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 LatLng(getLatitude, getLongitude),  // 위치 지정
                 9.0 // 줌 레벨
             )
-/*
-            //지도 위 사용자 위치 표시 객체
+            
+            //화면에서 표시하는 지도(카메라) 위치 조정
             val cameraUpdate = CameraUpdate.scrollTo(LatLng(getLatitude,getLongitude))
             naverMap.moveCamera(cameraUpdate)
-            */
+          
 
-            //카메라 위치 지정
+           /* //카메라 위치 지정
             naverMap.cameraPosition = cameraPosition
-            naverMap.locationSource = locationSource
-
+            naverMap.locationSource = locationSource*/
+            
+            //지도 위 사용자 위치 표시 객체
             val locationButton: LocationButtonView = binding.mapBtnLocation
             locationButton.map = naverMap
-
-
         }
-
     }
 
 
