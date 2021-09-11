@@ -62,8 +62,8 @@
                 app:progressMode="true"
                 app:selectedDotColor="@color/main_yellow" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/home_vp_ad"
+            <com.asksira.loopingviewpager.LoopingViewPager
+                android:id="@+id/home_vp_notice"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="10dp"
@@ -85,7 +85,7 @@
                 app:layout_constraintDimensionRatio="1:0.5"
                 app:layout_constraintEnd_toStartOf="@id/home_iv_menu2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/home_vp_ad"
+                app:layout_constraintTop_toBottomOf="@id/home_vp_notice"
                 app:layout_constraintWidth_percent="0.43" />
 
             <ImageView
@@ -98,7 +98,7 @@
                 app:layout_constraintDimensionRatio="1:0.5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/home_iv_menu1"
-                app:layout_constraintTop_toBottomOf="@id/home_vp_ad"
+                app:layout_constraintTop_toBottomOf="@id/home_vp_notice"
                 app:layout_constraintWidth_percent="0.43" />
 
             <ImageView
@@ -126,6 +126,19 @@
                 app:layout_constraintStart_toEndOf="@id/home_iv_menu3"
                 app:layout_constraintTop_toBottomOf="@id/home_iv_menu2"
                 app:layout_constraintWidth_percent="0.43" />
+
+            <com.asksira.loopingviewpager.LoopingViewPager
+                android:id="@+id/home_vp_ad"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingTop="10dp"
+                app:layout_constraintDimensionRatio="1:0.3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_iv_menu4" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

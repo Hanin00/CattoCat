@@ -39,6 +39,8 @@ android {
 
 dependencies {
 
+    //Looping ViewPager - https://github.com/siralam/LoopingViewPager
+    implementation 'com.asksira.android:loopingviewpager:1.4.1'
     // Indicator - https://github.com/tommybuonomo/dotsindicator
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
     //location - https://developers.google.com/android/guides/setup

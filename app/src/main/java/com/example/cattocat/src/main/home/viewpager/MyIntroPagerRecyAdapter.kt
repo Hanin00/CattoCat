@@ -1,14 +1,16 @@
 package com.example.cattocat.src.main.home.viewpager
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cattocat.R
+import com.example.cattocat.src.main.home.vpmodel.HomePostItem
 import kotlinx.android.synthetic.main.item_viewpager_home_post.view.*
 
-class MyIntroPagerRecyAdapter(private val pageList: ArrayList<PageItem>)
+class MyIntroPagerRecyAdapter(private val homePostList: ArrayList<HomePostItem>, private val context: Context, private val clickListener:(Int)->Unit)
     : RecyclerView.Adapter<MyIntroPagerRecyAdapter.MyIntroPagerViewHolder>() {
     inner class MyIntroPagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val itemImage = itemView.home_pager_item_image
@@ -17,12 +19,12 @@ class MyIntroPagerRecyAdapter(private val pageList: ArrayList<PageItem>)
         private val userNickname = itemView.home_pager_item_tv_user
 
         //   private val itemBg = itemView.pager_item_bg
-        fun bind(pageItem: PageItem) {
-            itemImage.setImageResource(pageItem.imageSrc)
-            itemtitle.text = pageItem.title
-            itemContent.text = pageItem.content
-            userNickname.text = pageItem.userNickname
-            val itemId = pageItem.id
+        fun bind(homePostItem: HomePostItem) {
+            itemImage.setImageResource(homePostItem.imageSrc)
+            itemtitle.text = homePostItem.title
+            itemContent.text = homePostItem.content
+            userNickname.text = homePostItem.userNickname
+            val itemId = homePostItem.id
             itemView.setOnClickListener {
 
                 Log.d("Test","MyIntroPagerRecyAdpater - clicked post id : $itemId")
@@ -50,13 +52,13 @@ class MyIntroPagerRecyAdapter(private val pageList: ArrayList<PageItem>)
     }
 
     override fun getItemCount(): Int {
-        return pageList.size
+        return homePostList.size
     }
 
     override fun onBindViewHolder(
         holder: MyIntroPagerViewHolder,
         position: Int
     ) {
-        holder.bind(pageList[position])
+        holder.bind(homePostList[position])
     }
 }
