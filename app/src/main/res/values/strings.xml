@@ -11,4 +11,18 @@
     <string name="btm_nav_map">지도</string>
     <string name="btm_nav_setting">설정</string>
 
+
+
+
+
+
+    <!-- Naver Map -->
+    <string name="naver_maps_client_id">hrli0edo76</string>
+    <string name="naver_maps_client_secret">PCDNFB9jx5sHgVq15IFSAm7Hg03HnPldr8n4iqOJ</string>
+
+    <!-- Naver Map -->
+    <string name="naver_maps_message_error_default">다시 시도해주세요.</string>
+
+
+
 </resources>

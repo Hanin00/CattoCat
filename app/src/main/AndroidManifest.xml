@@ -2,16 +2,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cattocat">
 
+    <!-- 위치 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- 인터넷 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:name=".config.ApiClient"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CattoCat">
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="hrli0edo76" />
 
         <activity
             android:name=".src.splash.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".src.main.map.MapActivity"
+            android:label="Map"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.main.MainActivity"
@@ -19,16 +34,17 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".src.main.board.BoardActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".src.main.map.MapActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+
+
+
+
+
     </application>
 
 </manifest>
