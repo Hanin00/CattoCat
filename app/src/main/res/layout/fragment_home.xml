@@ -4,47 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingBottom="80dp">
+
             <TextView
                 android:id="@+id/home_tv_main_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
                 android:text="오늘의 고양이"
+                android:textColor="@color/home_darkgray"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/home_darkgray"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.07"
-                android:layout_marginTop="20dp"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/home_vp_post"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintDimensionRatio="1:1"
-                android:paddingTop="10dp"
+                android:layout_marginTop="30dp"
                 android:clipToPadding="false"
                 android:overScrollMode="never"
+                android:paddingTop="10dp"
+                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="30dp"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
                 android:id="@+id/home_dots_indicator_post"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintWidth_percent="0.2"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="30dp"
@@ -53,15 +53,83 @@
                 app:dotsSize="10dp"
                 app:dotsSpacing="4dp"
                 app:dotsWidthFactor="2.5"
-                app:layout_constraintTop_toTopOf="@id/home_vp_post"
-                app:layout_constraintVertical_bias="0.99"
                 app:layout_constraintBottom_toBottomOf="@id/home_vp_post"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/home_vp_post"
+                app:layout_constraintVertical_bias="0.99"
+                app:layout_constraintWidth_percent="0.2"
                 app:progressMode="true"
                 app:selectedDotColor="@color/main_yellow" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/home_vp_ad"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingTop="10dp"
+                app:layout_constraintDimensionRatio="1:0.3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_vp_post" />
+
+            <ImageView
+                android:id="@+id/home_iv_menu1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/dummy_cat_09"
+                app:layout_constraintDimensionRatio="1:0.5"
+                app:layout_constraintEnd_toStartOf="@id/home_iv_menu2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_vp_ad"
+                app:layout_constraintWidth_percent="0.43" />
+
+            <ImageView
+                android:id="@+id/home_iv_menu2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/dummy_cat_09"
+                app:layout_constraintDimensionRatio="1:0.5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/home_iv_menu1"
+                app:layout_constraintTop_toBottomOf="@id/home_vp_ad"
+                app:layout_constraintWidth_percent="0.43" />
+
+            <ImageView
+                android:id="@+id/home_iv_menu3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/dummy_cat_09"
+                app:layout_constraintDimensionRatio="1:0.5"
+                app:layout_constraintEnd_toStartOf="@id/home_iv_menu4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_iv_menu1"
+                app:layout_constraintWidth_percent="0.43" />
+
+            <ImageView
+                android:id="@+id/home_iv_menu4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/dummy_cat_09"
+                app:layout_constraintDimensionRatio="1:0.5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/home_iv_menu3"
+                app:layout_constraintTop_toBottomOf="@id/home_iv_menu2"
+                app:layout_constraintWidth_percent="0.43" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
