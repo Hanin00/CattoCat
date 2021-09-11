@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -38,9 +39,11 @@ android {
 
 dependencies {
 
+    // Indicator - https://github.com/tommybuonomo/dotsindicator
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
+    //location - https://developers.google.com/android/guides/setup
     implementation 'com.google.android.gms:play-services-location:18.0.0'
-
-    // retrofit
+    // retrofit - https://square.github.io/retrofit/
     def retrofit_version = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
@@ -54,7 +57,7 @@ dependencies {
 
     //gson - https://github.com/google/gson
     implementation 'com.google.code.gson:gson:2.8.8'
-    // 네이버 지도 SDK
+    // 네이버 지도 SDK - https://navermaps.github.io/android-map-sdk/guide-ko/1.html
     implementation 'com.naver.maps:map-sdk:3.12.0'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

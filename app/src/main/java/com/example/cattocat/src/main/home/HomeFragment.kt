@@ -1,16 +1,23 @@
 package com.example.cattocat.src.main.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
+import com.example.cattocat.R
 import com.example.cattocat.databinding.FragmentHomeBinding
-import com.example.cattocat.databinding.FragmentMycatBinding
+import com.example.cattocat.src.main.home.viewpager.MyIntroPagerRecyAdapter
+import com.example.cattocat.src.main.home.viewpager.PageItem
+import java.lang.Math.abs
 
 //main Home
 class HomeFragment : Fragment() {
     private lateinit var binding : FragmentHomeBinding
+    private var pageItemList = ArrayList<PageItem>()
+    private lateinit var myIntroPagerRecyclerAdapter: MyIntroPagerRecyAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,6 +27,77 @@ class HomeFragment : Fragment() {
 
         binding = FragmentHomeBinding.inflate(inflater, container,false)
         //각 View에 접근(ex/ binding.myTextView.text = "바인딩이 잘 되었어요!!"
+
+
+        pageItemList.add(PageItem( R.drawable.dummy_cat_01, "고양이가 야옹야옹","고양이가 야옹하면 강아지는 멍멍", 1,1, "야생의 캔따개"))
+        pageItemList.add(PageItem( R.drawable.dummy_cat_02, "우리 주인님만 이러나요?","스트릿 출신이 아니라서 고마움을 모르는 것 같아요", 1,2,"우리집 고양이 턱시도 고양이"))
+        pageItemList.add(PageItem( R.drawable.dummy_cat_03, "걷다가 마주친 냥이","캔따개가 되거나 집사가 되거나", 1,6 ,"휴지"))
+        pageItemList.add(PageItem( R.drawable.dummy_cat_04, "고양이 댄스댄스","원투 냥냥냥, 원투 차차차", 8,17 ,"먼지"))
+        pageItemList.add(PageItem( R.drawable.dummy_cat_05, "고양이가 이상하게 자요","안녕하세요. 다름이 아니라 고양이가 너무 이상하게 자요", 17,20 ,"체다"))
+        pageItemList.add(PageItem( R.drawable.dummy_cat_06, "간식 말고 이상한걸 주워먹어요","템테이션 하늘색이 유명하다는데 풀을 자꾸먹어요ㅠㅠ", 21,19 ,"고등어 집사"))
+
+
+        setListWithData(pageItemList)
+
+        // 뷰페이저에 설정
+        binding.homeVpPost.apply {
+            adapter = myIntroPagerRecyclerAdapter
+            //띄우는 페이지 수 default = 1
+            offscreenPageLimit = 4
+            val offsetBetweenPages = resources.getDimensionPixelOffset(R.dimen.offsetBetweenPages).toFloat()
+            setPageTransformer { page, position ->
+                val myOffset = position * -(2 * offsetBetweenPages)
+                if (position < -1) {
+                    page.translationX = -myOffset
+                } else if (position <= 1) {
+                    // Paging 시 Y축 Animation 배경색을 약간 연하게 처리
+                    val scaleFactor = 0.8f.coerceAtLeast(1 - abs(position))
+                    page.translationX = myOffset
+                    page.scaleY = scaleFactor
+                    page.alpha = scaleFactor
+                } else {
+                    page.alpha = 0f
+                    page.translationX = myOffset
+                }
+            }
+
+            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    Log.d("HomeFragment - ViewPager", "Page ${position+1}")
+                }
+            })
+
+
+
+
+
+
+            orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+
+
+
+
+
+
+//            this.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+//                override fun onPageSelected(position: Int) {
+//                    super.onPageSelected(position)
+////                    supportActionBar?.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.colorBlue)))
+//                }
+//            })
+            binding.homeDotsIndicatorPost.setViewPager2(this)
+        }
         return binding.root
+    }
+
+    private fun setListWithData(datalist: ArrayList<PageItem>){
+        myIntroPagerRecyclerAdapter = MyIntroPagerRecyAdapter(pageItemList)
+        myIntroPagerRecyclerAdapter.notifyDataSetChanged()
+    }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
     }
 }

@@ -14,6 +14,11 @@
     <color name="homeMenuNameColor">#626262</color>
     <color name="main_yellow">#ffcc00</color>
 
+    <color name="home_lightgray">#e2e2e2</color>
+    <color name="home_darkgray">#626262</color>
+    <color name="home_half_darkgray">#87626262</color>
+    <color name="home_indicator_yellow">#ffcc00</color>
+
 
 
 </resources>
