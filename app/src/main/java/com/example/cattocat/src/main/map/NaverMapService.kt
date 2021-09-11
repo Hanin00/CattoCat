@@ -1,7 +1,7 @@
 package com.example.cattocat.src.main.map
 
 import com.example.cattocat.R
-import com.example.cattocat.config.ApiClient
+import com.example.cattocat.config.MyApplication
 import com.example.cattocat.src.main.map.model.NaverMapResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,7 +12,7 @@ class NaverMapService(val view: NaverMapView){
     fun getAddress(location: String) {
   //  fun getSelectLocationLatLon(location: String) {
         val mapRetrofitInterface =
-            ApiClient.naverRetrofit.create(NaverMapRetrofitInterface::class.java)
+            MyApplication.naverRetrofit.create(NaverMapRetrofitInterface::class.java)
         mapRetrofitInterface.getNaverMapAddress(location).enqueue(object : Callback<NaverMapResponse> {
                 override fun onResponse(
                     call: Call<NaverMapResponse>,

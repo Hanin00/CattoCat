@@ -1,11 +1,7 @@
 package com.example.cattocat.src.main.map
 
-import com.example.cattocat.config.ApiClient
 import com.example.cattocat.src.main.map.model.NaverMapResponse
-import okhttp3.OkHttpClient
 import retrofit2.Call
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 

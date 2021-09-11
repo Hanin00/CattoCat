@@ -1,6 +1,7 @@
 package com.example.cattocat.config
 
 import android.app.Application
+import com.naver.maps.map.NaverMapSdk
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -9,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 //앱 실행 시에 한 번 실행됨
-class ApiClient : Application(){
+class MyApplication : Application(){
     val NAVER_CEOCODING_URL = "https://naveropenapi.apigw.ntruss.com/"
 
     companion object{
@@ -18,9 +19,9 @@ class ApiClient : Application(){
 
     override fun onCreate() {
         super.onCreate()
-        initNaverGeocodingRetrofitInstance()
+        NaverMapSdk.getInstance(this).client =
+            NaverMapSdk.NaverCloudPlatformClient("hrli0edo76")
     }
-
 
 
     private fun initNaverGeocodingRetrofitInstance() {
