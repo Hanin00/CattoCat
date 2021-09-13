@@ -17,6 +17,9 @@
     <!-- Board Activity-->
     <string name="board_title">게시판</string>
 
+    <!-- Post Activity-->
+    <string name="post_title">게시판</string>
+
 
 
 

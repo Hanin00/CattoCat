@@ -3,6 +3,7 @@ package com.example.cattocat.src.main.board.adapter
 import android.content.Context
 import android.content.Intent
 import android.text.Layout
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,10 +50,11 @@ private val context: Context
             boardLocate.text = item.boardLocate
             content.text = item.content
 
-            menuBtn.setOnClickListener{
+            itemView.setOnClickListener{
                 val intent = Intent(context, PostActivity::class.java)
                 intent.putExtra("isUserIdx",item.userIdx)
                 intent.putExtra("isPostIdx",item.contentIdx)
+                Log.d("Test","화면전환")
                 itemView.context.startActivity(intent)
             }
 

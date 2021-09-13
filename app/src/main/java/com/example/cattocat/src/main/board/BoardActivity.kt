@@ -47,8 +47,4 @@ class BoardActivity : AppCompatActivity() {
             boardRecyAdapter.notifyDataSetChanged()
         }
     }
-
-
-
-
 }
