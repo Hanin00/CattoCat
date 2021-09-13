@@ -2,14 +2,22 @@
     <string name="app_name">CattoCat</string>
 
 
+    <!-- Shared Item -->
+
+
 
     <!-- Main Activity - Bottom Nav-->
-
     <string name="btm_nav_home">홈</string>
     <string name="btm_nav_board">게시판</string>
     <string name="btm_nav_mycat">내 고양이</string>
     <string name="btm_nav_map">지도</string>
     <string name="btm_nav_setting">설정</string>
+
+
+    <!-- Board Activity-->
+    <string name="board_title">게시판</string>
+
+
 
 
 

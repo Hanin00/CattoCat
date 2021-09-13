@@ -1,6 +1,7 @@
 package com.example.cattocat.src.main.home.viewpager
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,9 +35,10 @@ class NoticeRecyAdapter(itemList: ArrayList<HomeNoticeItem>,
 */
 
         noticeImgView.setOnClickListener {
-            val hospitalIdx = itemList?.get(listPosition)?.id
-            if (hospitalIdx != null) {
-                clickListener(hospitalIdx)
+            val noticeIdx = itemList?.get(listPosition)?.id
+            if (noticeIdx != null) {
+                clickListener(noticeIdx)
+                Log.d("Test", "AdViewRecyAdapter - adIdx :  ${noticeIdx}")
             }
         }
     }

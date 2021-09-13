@@ -41,6 +41,11 @@
             android:name=".src.main.board.BoardActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity android:name="com.example.cattocat.src.main.home.model.ad.AdActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".src.main.home.model.notice.NoticeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
 
 
 

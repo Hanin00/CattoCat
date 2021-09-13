@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:padding="10dp"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:elevation="15dp"
+        app:cardCornerRadius="@dimen/cardview_radius">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_board_cl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="20dp">
+
+            <ImageView
+                android:id="@+id/item_board_iv_user"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                android:src="@mipmap/ic_launcher_round"
+                android:layout_marginStart="20dp"
+                app:layout_constraintWidth_percent="0.12"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/item_board_iv_menu"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:2"
+                android:src="@mipmap/ic_launcher_round"
+                android:paddingVertical="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="item_board_tv_user_locate" />
+
+
+            <TextView
+                android:id="@+id/item_board_tv_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="야생의 집사"
+                android:textSize="@dimen/board_item_user"
+                android:layout_marginStart="@dimen/board_userinfo_magin_start"
+                app:layout_constraintStart_toEndOf="@id/item_board_iv_user"
+                app:layout_constraintTop_toTopOf="@id/item_board_iv_user" />
+
+            <TextView
+                android:id="@+id/item_board_tv_user_locate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="노원구"
+                android:layout_marginStart="10dp"
+                android:textSize="@dimen/board_item_user_locate"
+                app:layout_constraintStart_toEndOf="@id/item_board_tv_user"
+                app:layout_constraintBottom_toBottomOf="@id/item_board_tv_user" />
+
+            <TextView
+                android:id="@+id/item_board_tv_locate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="고양이 쉼터"
+                android:textSize="@dimen/board_item_locate"
+                app:layout_constraintStart_toStartOf="@id/item_board_tv_user"
+                app:layout_constraintTop_toBottomOf="@id/item_board_tv_user"
+                app:layout_constraintBottom_toBottomOf="@id/item_board_iv_user"/>
+
+            <TextView
+                android:id="@+id/item_board_tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="고양이 밥 자꾸 주지 마세요"
+                android:textStyle="bold"
+                android:textSize="@dimen/board_item_title"
+                android:layout_marginTop="@dimen/board_titletovp_magin_top"
+                app:layout_constraintStart_toStartOf="@id/item_board_iv_user"
+                app:layout_constraintTop_toBottomOf="@id/item_board_iv_user" />
+            <TextView
+                android:id="@+id/item_board_tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2021.09.24"
+                android:layout_marginTop="2dp"
+                android:textSize="@dimen/board_item_date"
+                app:layout_constraintStart_toStartOf="@id/item_board_tv_title"
+                app:layout_constraintTop_toBottomOf="@id/item_board_tv_title" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/item_board_vp_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/item_board_tv_date"
+                />
+
+            <TextView
+                android:id="@+id/item_board_tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주는 분 엄청 많아서 1일 8끼ㅠ"
+                android:textStyle="normal"
+                android:textSize="@dimen/board_item_content"
+                android:layout_marginTop="@dimen/board_userinfo_magin_top"
+                app:layout_constraintStart_toStartOf="@id/item_board_iv_user"
+                app:layout_constraintTop_toBottomOf="@id/item_board_vp_images" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

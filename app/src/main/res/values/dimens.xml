@@ -6,4 +6,25 @@
     <dimen name="offsetBetweenPages">20dp</dimen>
     <!--  각 페이지의 양 옆 margin  -->
     <dimen name="pageMargin">40dp</dimen>
+
+
+    <!-- Board, Home Banner-->
+    <dimen name="cardview_radius">12dp</dimen>
+
+
+    <!-- Board Item -->
+    <dimen name="board_item_user">14sp</dimen>
+    <dimen name="board_item_user_locate">14sp</dimen>
+    <dimen name="board_item_locate">14sp</dimen>
+    <dimen name="board_item_date">14sp</dimen>
+    <dimen name="board_item_title">20sp</dimen>
+    <dimen name="board_item_content">18sp</dimen>
+
+
+    <dimen name="board_userinfo_magin_top">10dp</dimen>
+    <dimen name="board_titletovp_magin_top">15dp</dimen>
+    <dimen name="board_userinfo_magin_start">10dp</dimen>
+
+
+
 </resources>
