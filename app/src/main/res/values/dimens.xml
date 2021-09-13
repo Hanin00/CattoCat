@@ -13,12 +13,12 @@
 
 
     <!-- Board Item -->
-    <dimen name="board_item_user">14sp</dimen>
-    <dimen name="board_item_user_locate">14sp</dimen>
-    <dimen name="board_item_locate">14sp</dimen>
-    <dimen name="board_item_date">14sp</dimen>
-    <dimen name="board_item_title">20sp</dimen>
-    <dimen name="board_item_content">18sp</dimen>
+    <dimen name="board_item_user">12sp</dimen>
+    <dimen name="board_item_user_locate">12sp</dimen>
+    <dimen name="board_item_locate">12sp</dimen>
+    <dimen name="board_item_date">12sp</dimen>
+    <dimen name="board_item_title">16sp</dimen>
+    <dimen name="board_item_content">14sp</dimen>
 
 
     <dimen name="board_userinfo_magin_top">10dp</dimen>
@@ -27,17 +27,20 @@
 
 
     <!-- Post Activity -->
-    <dimen name="post_item_user">14sp</dimen>
-    <dimen name="post_item_user_locate">14sp</dimen>
-    <dimen name="post_item_locate">14sp</dimen>
-    <dimen name="post_item_date">14sp</dimen>
-    <dimen name="post_item_title">20sp</dimen>
-    <dimen name="post_item_content">18sp</dimen>
+    <dimen name="post_item_user">12sp</dimen>
+    <dimen name="post_item_user_locate">12sp</dimen>
+    <dimen name="post_item_locate">12sp</dimen>
+    <dimen name="post_item_date">12sp</dimen>
+    <dimen name="post_item_title">16sp</dimen>
+    <dimen name="post_item_content">14sp</dimen>
 
 
     <dimen name="post_userinfo_magin_top">10dp</dimen>
     <dimen name="post_titletovp_magin_top">15dp</dimen>
     <dimen name="post_userinfo_magin_start">10dp</dimen>
+
+    <!-- Reply Activity -->
+    <dimen name="reply_magin_top">5dp</dimen>
 
 
 </resources>

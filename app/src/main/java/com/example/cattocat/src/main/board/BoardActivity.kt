@@ -22,7 +22,6 @@ class BoardActivity : AppCompatActivity() {
 
 
 
-
         boardItemList.add(BoardItem(1,1,"야생의 고양이","고양이 쉼터",
         "모현동","고양이 왈츠","2019-12-12","고양이 차차 고양이 차차",R.drawable.dummy_muner,R.drawable.dummy_cat_05))
         boardItemList.add(BoardItem(2,3,"턱시도 고양이","캣 휠 위",

@@ -95,7 +95,7 @@ class HomeFragment : Fragment() {
             HomePostItem(
                 R.drawable.dummy_cat_06,
                 "간식 말고 이상한걸 주워먹어요",
-                "템테이션 하늘색이 유명하다는데 풀을 자꾸먹어요ㅠㅠ",
+                "고양이가 풀도 먹나요? 어디서 자꾸 챱챱 소리가 들려서 가면 풀을 먹고있어요ㅠㅠ",
                 21,
                 19,
                 "고등어 집사"
