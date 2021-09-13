@@ -1,4 +1,4 @@
-package com.example.cattocat.src.main.home.model.notice
+package com.example.cattocat.src.main.home.notice
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
