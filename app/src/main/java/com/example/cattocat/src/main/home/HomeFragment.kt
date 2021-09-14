@@ -11,13 +11,13 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.cattocat.R
 import com.example.cattocat.databinding.FragmentHomeBinding
 import com.example.cattocat.src.main.home.ad.AdActivity
-import com.example.cattocat.src.main.setting.notice.noticeview.NoticeActivity
 import com.example.cattocat.src.main.home.viewpager.AdViewRecyAdapter
 import com.example.cattocat.src.main.home.viewpager.MyIntroPagerRecyAdapter
 import com.example.cattocat.src.main.home.viewpager.NoticeRecyAdapter
 import com.example.cattocat.src.main.home.vpmodel.HomeAdItem
 import com.example.cattocat.src.main.home.vpmodel.HomeNoticeItem
 import com.example.cattocat.src.main.home.vpmodel.HomePostItem
+import com.example.cattocat.src.main.setting.notice.noticeview.NoticeViewActivity
 import com.example.cattocat.util.Constants
 import java.lang.Math.abs
 
@@ -172,7 +172,7 @@ class HomeFragment : Fragment() {
     }
 
     private val noticeClickListener = { noticeIdx: Int ->
-        val intent = Intent(context, NoticeActivity::class.java)
+        val intent = Intent(context, NoticeViewActivity::class.java)
           intent.putExtra(Constants.NOTICE_IDX, noticeIdx)
           intent.putExtra(Constants.FROM_AD_BANNER, true)
           startActivity(intent)

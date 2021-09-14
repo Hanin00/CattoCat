@@ -2,19 +2,40 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/notice_iv_back"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@id/notice_tv_title"
+        app:layout_constraintBottom_toBottomOf="@id/notice_tv_title"
+        android:src="@mipmap/ic_launcher_round"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/notice_def_vertical"/>
 
     <TextView
         android:id="@+id/notice_tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="notice Banner"
-        android:textSize="25sp"
-        android:textColor="@color/purple_200"
+        android:layout_marginHorizontal="@dimen/shared_def_horizontal"
+        android:layout_marginVertical="@dimen/shared_def_vertical"
+        android:text="@string/notice_title"
+        android:textSize="@dimen/shared_title"
+        android:textColor="@color/black"
         android:textStyle="bold"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notice_recy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/notice_tv_title"
+        android:layout_marginTop="@dimen/shared_def_vertical"
+        tools:listitem="@layout/item_notice"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <!-- 인터넷 -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".config.MyApplication"
@@ -30,8 +30,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.main.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -41,17 +41,19 @@
             android:name=".src.main.board.BoardActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name="com.example.cattocat.src.main.home.ad.AdActivity"
+        <activity
+            android:name="com.example.cattocat.src.main.home.ad.AdActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.example.cattocat.src.main.setting.notice.noticeview.NoticeViewActivity"
+        <activity
+            android:name="com.example.cattocat.src.main.setting.notice.noticeview.NoticeViewActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".src.main.setting.notice.NoticeActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".src.main.board.posting.PostActivity"
+        <activity
+            android:name=".src.main.setting.notice.NoticeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-
-
+        <activity
+            android:name=".src.main.board.posting.PostActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
 
     </application>
