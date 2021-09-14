@@ -11,7 +11,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.cattocat.R
 import com.example.cattocat.databinding.FragmentHomeBinding
 import com.example.cattocat.src.main.home.ad.AdActivity
-import com.example.cattocat.src.main.home.notice.NoticeActivity
+import com.example.cattocat.src.main.setting.notice.noticeview.NoticeActivity
 import com.example.cattocat.src.main.home.viewpager.AdViewRecyAdapter
 import com.example.cattocat.src.main.home.viewpager.MyIntroPagerRecyAdapter
 import com.example.cattocat.src.main.home.viewpager.NoticeRecyAdapter

@@ -13,12 +13,12 @@
     <color name="shared_title_yellow">#ffcc22</color>
     <color name="shared_title_black">#222222</color>
     <color name="shared_title_white">#FFFFFFFF</color>
+    <color name="main_yellow">#ffcc00</color>
 
 
     <!-- Home Fragment -->
 
     <color name="homeMenuNameColor">#626262</color>
-    <color name="main_yellow">#ffcc00</color>
 
     <color name="home_lightgray">#e2e2e2</color>
     <color name="home_darkgray">#626262</color>
@@ -27,15 +27,16 @@
 
 
     <!-- Board Activity-->
-    <color name="board_title">#e2e2e2</color>
+    <color name="board_title">#e2e2e2</color>f
     <color name="board_user">#e2e2e2</color>
     <color name="board_text">#e2e2e2</color>
 
 
 
 
-    <!-- Board Item -->
-
+    <!-- Setting Item -->
+    <color name="setting_text_black">#000000</color>
+    <color name="setting_sub_yellow">#ffcc00</color>
 
 
 </resources>

@@ -20,6 +20,10 @@
     <!-- Post Activity-->
     <string name="post_title">게시판</string>
 
+    <!-- Setting Activity -->
+    <string name="setting_title">설정</string>
+    <string name="setting_info">cattocat version 1.1.0</string>
+
 
 
 

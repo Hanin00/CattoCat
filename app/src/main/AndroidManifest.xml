@@ -43,7 +43,9 @@
 
         <activity android:name="com.example.cattocat.src.main.home.ad.AdActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.example.cattocat.src.main.home.notice.NoticeActivity"
+        <activity android:name="com.example.cattocat.src.main.setting.notice.noticeview.NoticeViewActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".src.main.setting.notice.NoticeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".src.main.board.posting.PostActivity"
             android:theme="@style/AppTheme.NoActionBar" />
