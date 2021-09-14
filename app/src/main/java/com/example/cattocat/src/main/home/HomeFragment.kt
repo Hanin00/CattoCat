@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
                 R.drawable.dummy_cat_01,
                 "고양이가 야옹야옹",
                 "고양이가 야옹하면 강아지는 멍멍",
-                1,
+                2,
                 1,
                 "야생의 캔따개"
             )
@@ -55,8 +55,7 @@ class HomeFragment : Fragment() {
             HomePostItem(
                 R.drawable.dummy_cat_02,
                 "우리 주인님만 이러나요?",
-                "스트릿 출신이 아니라서 고마움을 모르는 것 같아요",
-                1,
+                "스트릿 출신이 아니라서 고마움을 모르는 것 같아요", 31,
                 2,
                 "우리집 고양이 턱시도 고양이"
             )
@@ -66,7 +65,7 @@ class HomeFragment : Fragment() {
                 R.drawable.dummy_cat_03,
                 "걷다가 마주친 냥이",
                 "캔따개가 되거나 집사가 되거나",
-                1,
+                22,
                 6,
                 "휴지"
             )
@@ -76,7 +75,7 @@ class HomeFragment : Fragment() {
                 R.drawable.dummy_cat_04,
                 "고양이 댄스댄스",
                 "원투 냥냥냥, 원투 차차차",
-                8,
+                82,
                 17,
                 "먼지"
             )

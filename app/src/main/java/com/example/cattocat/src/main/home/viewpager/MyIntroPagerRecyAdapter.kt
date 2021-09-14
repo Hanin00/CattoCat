@@ -1,13 +1,17 @@
 package com.example.cattocat.src.main.home.viewpager
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cattocat.R
+import com.example.cattocat.src.main.board.BoardActivity
+import com.example.cattocat.src.main.board.posting.PostActivity
 import com.example.cattocat.src.main.home.vpmodel.HomePostItem
+import com.example.cattocat.src.main.setting.notice.noticeview.NoticeViewActivity
 import kotlinx.android.synthetic.main.item_viewpager_home_post.view.*
 
 class MyIntroPagerRecyAdapter(private val homePostList: ArrayList<HomePostItem>, private val context: Context, private val clickListener:(Int)->Unit)
@@ -24,10 +28,14 @@ class MyIntroPagerRecyAdapter(private val homePostList: ArrayList<HomePostItem>,
             itemtitle.text = homePostItem.title
             itemContent.text = homePostItem.content
             userNickname.text = homePostItem.userNickname
-            val itemId = homePostItem.id
-            itemView.setOnClickListener {
+            val itemIdx = homePostItem.id
 
-                Log.d("Test","MyIntroPagerRecyAdpater - clicked post id : $itemId")
+            itemView.setOnClickListener {
+                val intent = Intent(context, PostActivity::class.java)
+                intent.putExtra("itemIdx", itemIdx)
+                Log.d("Test","MyIntroPagerRecyAdpater - clicked post id : ${homePostItem.id}")
+                Log.d("Test","MyIntroPagerRecyAdpater - clicked post id : ${itemIdx}")
+                itemView.context.startActivity(intent)
             }
 
           /*  if(pageItem.itemImage != "-1")
