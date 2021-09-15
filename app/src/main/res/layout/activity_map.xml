@@ -4,6 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <ImageView
+        android:id="@+id/map_iv_back"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/notice_def_vertical"
+        android:scaleType="fitXY"
+        app:layout_constraintWidth_percent="0.08"
+        android:src="@drawable/icon_back"
+        android:paddingVertical="5dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="@dimen/shared_def_vertical"
+        app:layout_goneMarginStart="@dimen/shared_def_horizontal"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.naver.maps.map.widget.LocationButtonView
         android:id="@+id/map_btn_location"
         android:layout_width="0dp"

@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.cattocat.R
-import com.example.cattocat.databinding.FragmentMycatBinding
 import com.example.cattocat.databinding.FragmentSettingBinding
 import com.example.cattocat.src.main.setting.notice.NoticeActivity
 

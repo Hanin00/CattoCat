@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    >
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_mycat_cdv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="50dp"
+        >
+
+        <ImageView
+            android:id="@+id/item_mycat_img"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/dummy_cat_05"
+      />
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/item_mycat_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLength="5"
+        android:maxLines="1"
+        android:text="체다가체고시다"
+        android:textColor="@color/shared_title_black"
+        android:textSize="@dimen/item_mycat_title"
+        app:layout_constraintEnd_toEndOf="@id/item_mycat_cdv"
+        app:layout_constraintStart_toStartOf="@id/item_mycat_cdv"
+        app:layout_constraintTop_toBottomOf="@id/item_mycat_cdv" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,18 +5,17 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.cattocat.R
-import com.example.cattocat.databinding.ActivityBoardBinding
 import com.example.cattocat.databinding.ActivityMainBinding
 import com.example.cattocat.src.main.board.BoardActivity
 import com.example.cattocat.src.main.home.HomeFragment
 import com.example.cattocat.src.main.map.MapActivity
-import com.example.cattocat.src.main.mycat.MyCatFragment
+import com.example.cattocat.src.main.mycat.MyCatActivity
 import com.example.cattocat.src.main.setting.SettingFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 //bottom Nav
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -34,15 +33,14 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     R.id.menu_main_btm_nav_board -> {
-                       // loginCheck(BoardActivity())
+                        // loginCheck(BoardActivity())
                         val intent = Intent(this, BoardActivity::class.java)
                         startActivity(intent)
                         return@OnNavigationItemSelectedListener true
                     }
                     R.id.menu_main_btm_nav_mycat -> {
-                       // loginCheck(MyCatFragment())
-                        replaceFragment(MyCatFragment())
-                        return@OnNavigationItemSelectedListener true
+                        val intent = Intent(this, MyCatActivity::class.java)
+                        startActivity(intent)
                     }
                     R.id.menu_main_btm_nav_map -> {
                         val intent = Intent(this, MapActivity::class.java)

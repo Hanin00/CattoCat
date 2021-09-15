@@ -34,12 +34,11 @@
 
 
     <!-- Notice Activity -->
-
     <string name="notice_title">공지사항</string>
 
+    <!-- MyCat Activity -->
+    <string name="mycat_title">내 고양이</string>
 
-
-    <!-- NoticeView Activity -->
 
 
 

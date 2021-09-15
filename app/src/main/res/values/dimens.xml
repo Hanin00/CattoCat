@@ -60,11 +60,21 @@
     <dimen name="shared_def_vertical">17dp</dimen>
     <dimen name="shared_def_horizontal">25dp</dimen>
 
+    <dimen name="shared_sub_vertical">14dp</dimen>
+
     <!-- Notice Activity -->
     <dimen name="notice_def_vertical">17dp</dimen>
     <dimen name="notice_def_horizontal">25dp</dimen>
 
     <!-- NoticeView Activity -->
+    <!-- MyCat Activity -->
+
+    <dimen name="item_mycat_title">12sp</dimen>
+
+    <dimen name="item_mycat_margin">17dp</dimen>
+
+    <!-- MyCatInfo Activity -->
+    <dimen name="mycatinfo_img_text_margins">8dp</dimen>
 
 
 </resources>
