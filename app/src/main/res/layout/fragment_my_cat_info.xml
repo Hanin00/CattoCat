@@ -19,7 +19,7 @@
                 android:id="@+id/mycatinfo_iv_name"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:src="@drawable/icon_paw_bldpi"
                 app:layout_constraintBottom_toBottomOf="@id/mycatinfo_text_name"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
                 android:id="@+id/mycatinfo_iv_eye"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:src="@drawable/icon_paw_bldpi"
                 app:layout_constraintBottom_toBottomOf="@id/mycatinfo_text_eye"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="@id/mycatinfo_iv_name"
@@ -93,7 +93,7 @@
                 android:id="@+id/mycatinfo_iv_hair"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:src="@drawable/icon_paw_bldpi"
                 app:layout_constraintBottom_toBottomOf="@id/mycatinfo_text_hair"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="@id/mycatinfo_iv_name"
@@ -131,7 +131,7 @@
                 android:id="@+id/mycatinfo_iv_socks"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:src="@drawable/icon_paw_bldpi"
                 app:layout_constraintBottom_toBottomOf="@id/mycatinfo_text_socks"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="@id/mycatinfo_iv_name"
@@ -169,7 +169,7 @@
                 android:id="@+id/mycatinfo_iv_locate"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:src="@drawable/icon_paw_bldpi"
                 app:layout_constraintBottom_toBottomOf="@id/mycatinfo_text_locate"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -205,7 +205,7 @@
                 android:id="@+id/mycatinfo_iv_catmom"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:src="@drawable/icon_paw_bldpi"
                 app:layout_constraintBottom_toBottomOf="@id/mycatinfo_text_catmom"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -243,7 +243,7 @@
                 android:id="@+id/mycatinfo_iv_tnr"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:src="@drawable/icon_paw_bldpi"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/mycatinfo_text_tnr"
@@ -279,9 +279,9 @@
 
             <ImageView
                 android:id="@+id/mycatinfo_iv_prefer"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:layout_width="18dp"
+                android:layout_height="17dp"
+                android:src="@drawable/icon_paw_bldpi"
                 app:layout_constraintBottom_toBottomOf="@id/mycatinfo_text_prefer"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -302,9 +302,10 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/mycatinfo_cl_prefer"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@id/mycatinfo_text_prefer"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mycatinfo_text_prefer">
 
                 <EditText
@@ -315,9 +316,13 @@
                     android:layout_marginEnd="25dp"
                     android:background="@android:color/transparent"
                     android:hint="템테이션 하늘색 / 낚시 장난감"
+                    android:text="템테이션 하늘색 / 낚시 장난감"
                     android:textColor="@color/shared_title_black"
                     android:textSize="@dimen/shared_sub_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                 />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -325,7 +330,7 @@
                 android:id="@+id/mycatinfo_iv_special"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:src="@drawable/icon_paw_bldpi"
                 app:layout_constraintBottom_toBottomOf="@id/mycatinfo_text_special"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -341,12 +346,12 @@
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintStart_toEndOf="@id/mycatinfo_iv_prefer"
-                app:layout_constraintTop_toBottomOf="@id/mycatinfo_text_prefer" />
+                app:layout_constraintTop_toBottomOf="@id/mycatinfo_cl_prefer" />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/mycatinfo_cl_special"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@id/mycatinfo_text_special"
                 app:layout_constraintTop_toBottomOf="@id/mycatinfo_text_special">
@@ -361,9 +366,10 @@
                     android:hint="쫄보임 / 애교 많음 / 슬금슬금 다가옴 / 말많음"
                     android:textColor="@color/shared_title_black"
                     android:textSize="@dimen/shared_sub_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

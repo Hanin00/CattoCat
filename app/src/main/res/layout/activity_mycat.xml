@@ -65,18 +65,4 @@
         />
 
 
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/mycat_fbtn_menu"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginVertical="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.1" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

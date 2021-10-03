@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="false"
     android:background="@color/home_lightgray">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="false"
+        android:clipToPadding="false"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="false"
+            android:clipToPadding="false"
             >
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:clickable="false"
+                android:clipToPadding="false"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
@@ -45,8 +49,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"
                     android:layout_marginVertical="15dp"
-                    android:clipToPadding="false"
                     android:elevation="30dp"
+                    android:clipToPadding="false"
                     app:cardCornerRadius="@dimen/cardview_radius"
                     app:layout_constraintTop_toBottomOf="@id/setting_text_title">
 
@@ -70,9 +74,9 @@
                             android:id="@+id/setting_btn_info_modify"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/dummy_cat_09"
-                            app:layout_constraintDimensionRatio="1:2"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/icon_dotldpi"
+                            app:layout_constraintDimensionRatio="1:1"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintWidth_percent="0.06" />
@@ -153,9 +157,9 @@
                             android:layout_height="0dp"
                             android:layout_marginStart="@dimen/setting_user_divider_margin"
                             android:layout_marginTop="@dimen/setting_user_divider_margin"
-                            android:scaleType="fitXY"
-                            android:src="@mipmap/ic_launcher_round"
-                            app:layout_constraintDimensionRatio="1:0.8"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/icon_pawldpi"
+                            app:layout_constraintDimensionRatio="1:1"
                             app:layout_constraintStart_toStartOf="@id/setting_user_divider"
                             app:layout_constraintTop_toBottomOf="@id/setting_user_divider"
                             app:layout_constraintWidth_percent="0.2" />
@@ -165,9 +169,9 @@
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_marginTop="@dimen/setting_user_divider_margin"
-                            android:scaleType="fitXY"
-                            android:src="@mipmap/ic_launcher_round"
-                            app:layout_constraintDimensionRatio="1:0.8"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/icon_like_rldpi"
+                            app:layout_constraintDimensionRatio="1:1"
                             app:layout_constraintEnd_toStartOf="@id/setting_iv_menu3"
                             app:layout_constraintStart_toEndOf="@id/setting_iv_menu1"
                             app:layout_constraintTop_toBottomOf="@id/setting_user_divider"
@@ -179,9 +183,9 @@
                             android:layout_height="0dp"
                             android:layout_marginTop="@dimen/setting_user_divider_margin"
                             android:layout_marginEnd="@dimen/setting_user_divider_margin"
-                            android:scaleType="fitXY"
-                            android:src="@mipmap/ic_launcher_round"
-                            app:layout_constraintDimensionRatio="1:0.8"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/icon_marker_bldpi"
+                            app:layout_constraintDimensionRatio="1:1"
                             app:layout_constraintEnd_toEndOf="@id/setting_user_divider"
                             app:layout_constraintTop_toBottomOf="@id/setting_user_divider"
                             app:layout_constraintWidth_percent="0.2" />

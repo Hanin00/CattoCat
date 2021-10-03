@@ -54,8 +54,8 @@
 
 
     <!-- Shared Value -->
-    <dimen name="shared_title">20sp</dimen>
-    <dimen name="shared_sub_title">16sp</dimen>
+    <dimen name="shared_title">18sp</dimen>
+    <dimen name="shared_sub_title">14sp</dimen>
 
     <dimen name="shared_def_vertical">17dp</dimen>
     <dimen name="shared_def_horizontal">25dp</dimen>

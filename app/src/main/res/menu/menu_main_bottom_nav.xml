@@ -5,7 +5,7 @@
     <item
         android:id="@+id/menu_main_btm_nav_home"
         android:checkable="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon_home_blank"
         android:title="@string/btm_nav_home"
         android:enabled="true"
         app:showAsAction="always" />
@@ -13,28 +13,28 @@
     <item
         android:id="@+id/menu_main_btm_nav_board"
         android:checkable="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon_replyldpi"
         android:title="@string/btm_nav_board"
         android:enabled="true"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_main_btm_nav_mycat"
         android:checkable="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon_pawldpi"
         android:title="@string/btm_nav_mycat"
         android:enabled="true"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_main_btm_nav_map"
         android:checkable="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon_mapldpi"
         android:title="@string/btm_nav_map"
         android:enabled="true"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_main_btm_nav_setting"
         android:checkable="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon_settings_2ldpi"
         android:title="@string/btm_nav_setting"
         android:enabled="true"
         app:showAsAction="always" />
