@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            >
+            <ImageView
+                android:id="@+id/addcat_iv_close"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/icon_close"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="10dp"
+                app:layout_constraintWidth_percent="0.1"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <ImageView
+                android:id="@+id/addcat_iv_profile"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintWidth_percent="0.3"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="70dp"
+                android:src="@drawable/dummy_cat_01"/>
+
+            <ImageView
+                android:id="@+id/addcat_iv_name"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/icon_paw_bldpi"
+                app:layout_constraintBottom_toBottomOf="@id/addcat_text_name"
+                app:layout_constraintDimensionRatio="1:1"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/addcat_iv_profile" />
+
+            <TextView
+                android:id="@+id/addcat_text_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/addcat_img_text_margins"
+                android:text="이름"
+                android:textColor="@color/shared_title_black"
+                android:textSize="@dimen/shared_sub_title"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toEndOf="@id/addcat_iv_name"
+                app:layout_constraintTop_toBottomOf="@id/addcat_iv_profile" />
+
+            <EditText
+                android:id="@+id/addcat_ed_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="25dp"
+                android:background="@android:color/transparent"
+                android:hint="김막시무스 안드레아 2세"
+                android:maxLength="20"
+                android:textColor="@color/shared_title_black"
+                android:textSize="@dimen/shared_sub_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/addcat_text_name"
+                app:layout_constraintTop_toTopOf="@id/addcat_text_name" />
+
+            <ImageView
+                android:id="@+id/addcat_iv_eye"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/icon_paw_bldpi"
+                app:layout_constraintBottom_toBottomOf="@id/addcat_text_eye"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="@id/addcat_iv_name"
+                app:layout_constraintTop_toTopOf="@id/addcat_text_eye" />
+
+            <TextView
+                android:id="@+id/addcat_text_eye"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/addcat_img_text_margins"
+                android:layout_marginTop="@dimen/shared_def_vertical"
+                android:text="눈 색 "
+                android:textColor="@color/shared_title_black"
+                android:textSize="@dimen/shared_sub_title"
+                app:layout_constraintStart_toEndOf="@id/addcat_iv_eye"
+                app:layout_constraintTop_toBottomOf="@id/addcat_text_name" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addcat_cl_eye"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/addcat_text_eye"
+                app:layout_constraintTop_toBottomOf="@id/addcat_text_eye">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="임시"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/addcat_iv_hair"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/icon_paw_bldpi"
+                app:layout_constraintBottom_toBottomOf="@id/addcat_text_hair"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="@id/addcat_iv_name"
+                app:layout_constraintTop_toTopOf="@id/addcat_text_hair" />
+
+            <TextView
+                android:id="@+id/addcat_text_hair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/addcat_img_text_margins"
+                android:layout_marginTop="@dimen/shared_def_vertical"
+                android:text="털 색 "
+                android:textColor="@color/shared_title_black"
+                android:textSize="@dimen/shared_sub_title"
+                app:layout_constraintStart_toEndOf="@id/addcat_iv_hair"
+                app:layout_constraintTop_toBottomOf="@id/addcat_cl_eye" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addcat_cl_hair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/addcat_text_hair"
+                app:layout_constraintTop_toBottomOf="@id/addcat_text_hair">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="임시"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/addcat_iv_socks"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/icon_paw_bldpi"
+                app:layout_constraintBottom_toBottomOf="@id/addcat_text_socks"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="@id/addcat_iv_name"
+                app:layout_constraintTop_toTopOf="@id/addcat_text_socks" />
+
+            <TextView
+                android:id="@+id/addcat_text_socks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/addcat_img_text_margins"
+                android:layout_marginTop="@dimen/shared_def_vertical"
+                android:text="양말 색"
+                android:textColor="@color/shared_title_black"
+                android:textSize="@dimen/shared_sub_title"
+                app:layout_constraintStart_toEndOf="@id/addcat_iv_socks"
+                app:layout_constraintTop_toBottomOf="@id/addcat_cl_hair" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addcat_cl_socks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/addcat_text_socks"
+                app:layout_constraintTop_toBottomOf="@id/addcat_text_socks">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="임시"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/addcat_iv_locate"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/icon_paw_bldpi"
+                app:layout_constraintBottom_toBottomOf="@id/addcat_text_locate"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/addcat_text_locate" />
+
+            <TextView
+                android:id="@+id/addcat_text_locate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/addcat_img_text_margins"
+                android:layout_marginTop="@dimen/shared_def_vertical"
+                android:text="위치"
+                android:textColor="@color/shared_title_black"
+                android:textSize="@dimen/shared_sub_title"
+                app:layout_constraintStart_toEndOf="@id/addcat_iv_name"
+                app:layout_constraintTop_toBottomOf="@id/addcat_cl_socks" />
+
+            <EditText
+                android:id="@+id/addcat_ed_locate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="25dp"
+                android:background="@android:color/transparent"
+                android:hint="푸른 상가 서쪽 정문"
+                android:textColor="@color/shared_title_black"
+                android:textSize="@dimen/shared_sub_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/addcat_text_locate"
+                app:layout_constraintTop_toTopOf="@id/addcat_text_locate" />
+
+            <ImageView
+                android:id="@+id/addcat_iv_catmom"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/icon_paw_bldpi"
+                app:layout_constraintBottom_toBottomOf="@id/addcat_text_catmom"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/addcat_text_catmom" />
+
+            <TextView
+                android:id="@+id/addcat_text_catmom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/addcat_img_text_margins"
+                android:layout_marginTop="@dimen/shared_def_vertical"
+                android:text="캣맘 유무"
+                android:textColor="@color/shared_title_black"
+                android:textSize="@dimen/shared_sub_title"
+                app:layout_constraintStart_toEndOf="@id/addcat_iv_catmom"
+                app:layout_constraintTop_toBottomOf="@id/addcat_text_locate" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addcat_cl_catmom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/addcat_text_catmom"
+                app:layout_constraintTop_toBottomOf="@id/addcat_text_catmom">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="임시"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/addcat_iv_tnr"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/icon_paw_bldpi"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/addcat_text_tnr"
+                app:layout_constraintTop_toTopOf="@id/addcat_text_tnr" />
+
+            <TextView
+                android:id="@+id/addcat_text_tnr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/addcat_img_text_margins"
+                android:layout_marginTop="@dimen/shared_def_vertical"
+                android:text="중성화 여부"
+                android:textColor="@color/shared_title_black"
+                android:textSize="@dimen/shared_sub_title"
+                app:layout_constraintStart_toEndOf="@id/addcat_iv_tnr"
+                app:layout_constraintTop_toBottomOf="@id/addcat_cl_catmom" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addcat_cl_tnr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/addcat_text_tnr"
+                app:layout_constraintTop_toBottomOf="@id/addcat_text_tnr">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : 포획 / 중성화 / 방사 게이지바 "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/addcat_iv_prefer"
+                android:layout_width="18dp"
+                android:layout_height="17dp"
+                android:src="@drawable/icon_paw_bldpi"
+                app:layout_constraintBottom_toBottomOf="@id/addcat_text_prefer"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/addcat_text_prefer" />
+
+            <TextView
+                android:id="@+id/addcat_text_prefer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/addcat_img_text_margins"
+                android:layout_marginTop="@dimen/shared_def_vertical"
+                android:text="선호간식"
+                android:textColor="@color/shared_title_black"
+                android:textSize="@dimen/shared_sub_title"
+                app:layout_constraintStart_toEndOf="@id/addcat_iv_prefer"
+                app:layout_constraintTop_toBottomOf="@id/addcat_cl_tnr" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addcat_cl_prefer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/addcat_text_prefer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/addcat_text_prefer">
+
+                <EditText
+                    android:id="@+id/addcat_ed_prefer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@android:color/transparent"
+                    android:hint="템테이션 하늘색 / 낚시 장난감"
+                    android:textColor="@color/shared_title_black"
+                    android:textSize="@dimen/shared_sub_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/addcat_iv_special"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/icon_paw_bldpi"
+                app:layout_constraintBottom_toBottomOf="@id/addcat_text_special"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/addcat_text_special" />
+
+            <TextView
+                android:id="@+id/addcat_text_special"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/addcat_img_text_margins"
+                android:layout_marginTop="@dimen/shared_def_vertical"
+                android:text="특징"
+                android:textColor="@color/shared_title_black"
+                android:textSize="@dimen/shared_sub_title"
+                app:layout_constraintStart_toEndOf="@id/addcat_iv_prefer"
+                app:layout_constraintTop_toBottomOf="@id/addcat_cl_prefer" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addcat_cl_special"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/addcat_text_special"
+                app:layout_constraintTop_toBottomOf="@id/addcat_text_special">
+
+                <EditText
+                    android:id="@+id/addcat_ed_special"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@android:color/transparent"
+                    android:hint="쫄보임 / 애교 많음 / 슬금슬금 다가옴 / 말많음"
+                    android:textColor="@color/shared_title_black"
+                    android:textSize="@dimen/shared_sub_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

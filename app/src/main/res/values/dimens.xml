@@ -76,5 +76,8 @@
     <!-- MyCatInfo Activity -->
     <dimen name="mycatinfo_img_text_margins">8dp</dimen>
 
+    <!-- AddCat Activity -->
+    <dimen name="addcat_img_text_margins">8dp</dimen>
+
 
 </resources>

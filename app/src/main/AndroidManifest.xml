@@ -54,9 +54,12 @@
         <activity
             android:name=".src.main.board.posting.PostActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".src.main.mycat.MyCatActivity"
+        <activity
+            android:name=".src.main.mycat.MyCatActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity
+            android:name=".src.addcat.AddCatActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 
