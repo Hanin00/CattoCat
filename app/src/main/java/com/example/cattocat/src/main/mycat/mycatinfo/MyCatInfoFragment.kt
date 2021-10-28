@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cattocat.R
+import com.example.cattocat.databinding.FragmentExBinding
 import com.example.cattocat.databinding.FragmentMyCatInfoBinding
 import com.example.cattocat.src.main.home.vpmodel.HomePostItem
 import com.example.cattocat.src.main.mycat.adapter.MyCatRecyAdapter
@@ -18,6 +19,7 @@ import okhttp3.internal.notify
 class MyCatInfoFragment : Fragment() {
 
     private lateinit var binding : FragmentMyCatInfoBinding
+   // private lateinit var binding : FragmentExBinding
     private lateinit var catInfoRecyAdapter: MyCatInfoRecyAdapter
     private var catInfoItemList = ArrayList<CatInfoItem>()
 
@@ -27,7 +29,8 @@ class MyCatInfoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMyCatInfoBinding.inflate(inflater,container, false)
+       binding = FragmentMyCatInfoBinding.inflate(inflater,container, false)
+        //    binding = FragmentExBinding.inflate(inflater,container, false)
 
 
         catInfoItemList.add(CatInfoItem(1,"문어", R.drawable.dummy_cat_05))
@@ -37,7 +40,7 @@ class MyCatInfoFragment : Fragment() {
         catInfoItemList.add(CatInfoItem(14,"콜로소", R.drawable.dummy_cat_11))
         catInfoItemList.add(CatInfoItem(41,"페페", R.drawable.dummy_cat_07))
 
-        catInfoRecyAdapter(catInfoItemList)
+       // catInfoRecyAdapter(catInfoItemList)
 
 
         return binding.root
@@ -50,7 +53,7 @@ class MyCatInfoFragment : Fragment() {
           startActivity(intent)*/
     }
 
-    private fun catInfoRecyAdapter(catInfoItem : ArrayList<CatInfoItem>){
+/*    private fun catInfoRecyAdapter(catInfoItem : ArrayList<CatInfoItem>){
         catInfoRecyAdapter = MyCatInfoRecyAdapter(catInfoItem, requireContext(), catClickListener)
         binding.mycatInfoRecy.apply {
             adapter = catInfoRecyAdapter
@@ -60,7 +63,7 @@ class MyCatInfoFragment : Fragment() {
             )
             catInfoRecyAdapter.notifyDataSetChanged()
         }
-    }
+    }*/
 
 
 }

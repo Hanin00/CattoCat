@@ -12,7 +12,7 @@ import java.io.IOException
 //앱 실행 시에 한 번 실행됨
 class MyApplication : Application(){
     val NAVER_CEOCODING_URL = "https://naveropenapi.apigw.ntruss.com/"
-    val API_URL = "https://haeunlee.pythonanywhere.com/"
+    val API_URL = "https://haeunlee.pythonanywhere.com"
 
 
     companion object{
