@@ -108,6 +108,7 @@
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_eye">
 
                 <TextView
+                    android:id="@+id/addcat_ed_eye"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="임시"
@@ -146,6 +147,7 @@
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_hair">
 
                 <TextView
+                    android:id="@+id/addcat_ed_hair"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="임시"
@@ -184,6 +186,7 @@
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_socks">
 
                 <TextView
+                    android:id="@+id/addcat_ed_socks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="임시"
@@ -258,6 +261,7 @@
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_catmom">
 
                 <TextView
+                    android:id="@+id/addcat_ed_mom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="임시"
@@ -296,6 +300,7 @@
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_tnr">
 
                 <TextView
+                    android:id="@+id/addcat_ed_tnr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" : 포획 / 중성화 / 방사 게이지바 "

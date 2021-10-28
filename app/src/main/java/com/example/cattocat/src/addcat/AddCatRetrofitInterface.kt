@@ -11,8 +11,12 @@ import retrofit2.http.POST
 interface AddCatRetrofitInterface {
     @FormUrlEncoded
     @POST("cats/totalcat/")
+<<<<<<< HEAD
     fun postAddCat(@Body addCatInfo: ArrayList<AddCatInfo>): Call<AddCatInfo>
 
 
+=======
+    fun postAddCat(@Body addCatInfo: AddCatInfo): Call<ArrayList<AddCatInfo>>
+>>>>>>> b713d9c (등록 api 연결 시도)
 }
 
