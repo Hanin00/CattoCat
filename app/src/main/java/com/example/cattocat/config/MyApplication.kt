@@ -37,6 +37,8 @@ class MyApplication : Application(){
         super.onCreate()
         NaverMapSdk.getInstance(this).client =
             NaverMapSdk.NaverCloudPlatformClient("hrli0edo76")
+        initRetrofit()
+       // initNaverGeocodingRetrofitInstance()
     }
 
 

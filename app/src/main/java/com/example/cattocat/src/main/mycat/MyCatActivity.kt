@@ -1,10 +1,12 @@
 package com.example.cattocat.src.main.mycat
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cattocat.R
 import com.example.cattocat.databinding.ActivityMycatBinding
+import com.example.cattocat.src.addcat.AddCatActivity
 import com.example.cattocat.src.main.mycat.adapter.MyCatRecyAdapter
 import com.example.cattocat.src.main.mycat.model.MyCatItem
 import com.example.cattocat.src.main.mycat.mycatinfo.MyCatInfoFragment
@@ -29,6 +31,11 @@ class MyCatActivity: AppCompatActivity() {
 
         val transaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.mycat_fl_info, fragmentA).commitAllowingStateLoss()
+
+        binding.mycatClAdd.setOnClickListener {
+            val intent = Intent(this, AddCatActivity::class.java)
+            startActivity(intent)
+        }
 
 
 
