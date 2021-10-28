@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Semester21-2/Final/cattocat1003/app/src/main/res/layout/activity_ad.xml" value="0.36614583333333334" />
         <entry key="..\:/Semester21-2/Final/cattocat1003/app/src/main/res/layout/activity_add_cat.xml" value="0.36614583333333334" />
         <entry key="..\:/Semester21-2/Final/cattocat1003/app/src/main/res/layout/activity_auth.xml" value="0.36614583333333334" />
@@ -25,6 +26,15 @@
         <entry key="..\:/Semester21-2/Final/cattocat1003/app/src/main/res/layout/item_post_reply.xml" value="0.36614583333333334" />
         <entry key="..\:/Semester21-2/Final/cattocat1003/app/src/main/res/layout/item_viewpager_home_post.xml" value="0.36614583333333334" />
         <entry key="..\:/Semester21-2/Final/cattocat1003/app/src/main/res/menu/menu_main_bottom_nav.xml" value="0.36614583333333334" />
+=======
+        <entry key="..\:/Hanin/CattoCat/app/src/main/res/layout/activity_auth.xml" value="0.15989583333333332" />
+        <entry key="..\:/Hanin/CattoCat/app/src/main/res/layout/activity_board.xml" value="0.15989583333333332" />
+        <entry key="..\:/Hanin/CattoCat/app/src/main/res/layout/activity_mycat.xml" value="0.33" />
+        <entry key="..\:/Hanin/CattoCat/app/src/main/res/layout/fragment_my_cat_info.xml" value="0.5" />
+        <entry key="..\:/Hanin/CattoCat/app/src/main/res/layout/fragment_setting.xml" value="0.33" />
+        <entry key="..\:/Hanin/CattoCat/app/src/main/res/layout/item_board.xml" value="0.17708333333333334" />
+        <entry key="..\:/Hanin/CattoCat/app/src/main/res/layout/item_mycat_mycat.xml" value="0.17708333333333334" />
+>>>>>>> 01dd988 (no message)
       </map>
     </option>
   </component>
