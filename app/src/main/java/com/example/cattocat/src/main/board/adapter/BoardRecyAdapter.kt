@@ -40,19 +40,19 @@ private val context: Context
                 .into(iEventImg)*/
 
 
-            userImg.setImageResource(item.userImg)
-            dummyImg.setImageResource(item.dummyImg)
+           // userImg.setImageResource(item.)
+          //  dummyImg.setImageResource(item.dummyImg)
 
-            userName.text = item.userName
-            userLocate.text = item.userLocate
+         //   userName.text = item.u
+           // userLocate.text = item.userLocate
             title.text = item.title
-            date.text = item.date
-            boardLocate.text = item.boardLocate
+            date.text = item.created_at
+            //boardLocate.text = item.
             content.text = item.content
 
             itemView.setOnClickListener{
                 val intent = Intent(context, PostActivity::class.java)
-                intent.putExtra("isUserIdx",item.userIdx)
+                intent.putExtra("isUserIdx",item.post_id)
                 intent.putExtra("isPostIdx",item.contentIdx)
                 Log.d("Test","화면전환")
                 itemView.context.startActivity(intent)

@@ -1,9 +1,16 @@
 package com.example.cattocat.src.main.board.model
 
-data class BoardItem(val userIdx: Int,val contentIdx : Int,
-                     val userName: String,val boardLocate: String,
-                     val userLocate: String, val title: String,
-                     val date: String, val content: String, val dummyImg: Int, val userImg: Int,  )
+import com.google.gson.annotations.SerializedName
+
+data class BoardItem(
+    @SerializedName("post_id") val post_id: Int,
+    @SerializedName("contentIdx") val contentIdx: Int,
+    @SerializedName("title") val title: String,
+    @SerializedName("content") val content: String,
+    @SerializedName("image") val image: String,
+    @SerializedName("is_active") val is_active: String,
+    @SerializedName("created_at") val created_at: String
+)
 
 
 //사진들 안들어왔음
