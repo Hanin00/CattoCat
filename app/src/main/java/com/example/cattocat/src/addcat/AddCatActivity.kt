@@ -71,12 +71,8 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
                         ylocation
                     )
                 )
-
-
             }
-
         }
-
     }
 
     override fun onPostAddCatSuccess(result: AddCatInfo) {

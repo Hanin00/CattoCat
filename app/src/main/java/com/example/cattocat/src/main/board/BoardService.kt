@@ -13,12 +13,19 @@ class BoardService(val view: BoardView) {
    // fun tryGetBoard(boardResponse: BoardResponse){
     fun tryGetBoard(){
         val boardRetrofitInterface = MyApplication.mRetrofit.create(BoardRetrofitInterface::class.java)
-        boardRetrofitInterface.getBoard().enqueue(object:
+
+       boardRetrofitInterface.getBoard().enqueue(object:
             Callback<BoardResponse> {
-            override fun onResponse(call: Call<BoardResponse>, response: Response<BoardResponse>) {
+            override fun onResponse(call: Call<BoardResponse?>, response: Response<BoardResponse?>) {
                 view.onGetBoardSuccess(response.body() as BoardResponse)
 
                 //exceptions 필요 -400
+                
+                if(response!=null){
+                    
+                }else{
+                    Log.d("Test","값 없음")
+                }
 
                 if(response.code()==400){
                     Log.d("Test","--")

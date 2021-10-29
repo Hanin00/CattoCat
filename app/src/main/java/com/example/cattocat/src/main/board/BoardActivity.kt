@@ -6,11 +6,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cattocat.databinding.ActivityBoardBinding
-import com.example.cattocat.src.addcat.model.AddCatInfo
 import com.example.cattocat.src.main.board.adapter.BoardRecyAdapter
 import com.example.cattocat.src.main.board.model.BoardItem
 import com.example.cattocat.src.main.board.model.BoardResponse
-import com.example.cattocat.src.main.home.model.HomePostItem
 
 //게시판
 class BoardActivity : AppCompatActivity(),BoardView {
@@ -41,7 +39,7 @@ class BoardActivity : AppCompatActivity(),BoardView {
 
     }
 
-    fun boardRecyAdapter(boardItem : ArrayList<BoardItem>){
+    fun boardRecyAdapter(boardItem: ArrayList<BoardItem>){
         boardRecyAdapter = BoardRecyAdapter(boardItem, this)
         binding.boardRecy.apply {
             adapter = boardRecyAdapter
@@ -56,9 +54,13 @@ class BoardActivity : AppCompatActivity(),BoardView {
     override fun onGetBoardSuccess(result: BoardResponse) {
         Toast.makeText(this, "정상연결.", Toast.LENGTH_SHORT).show()
         Log.d("Test", "정상연결")
-        Log.d("Test", "${result.postlist}")
+        Log.d("Test", "${result}")
 
-        boardRecyAdapter(result.postlist)
+        if(result.postlist != null){
+            boardRecyAdapter(result.postlist)
+        }else{
+            Log.d("Test","등록된 게시글 X")
+        }
 
     }
 
