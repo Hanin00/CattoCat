@@ -73,6 +73,7 @@ private val context: Context
         }
     }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoardViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_board, parent, false)

@@ -1,5 +1,6 @@
 package com.example.cattocat.src.main.board
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cattocat.databinding.ActivityBoardBinding
 import com.example.cattocat.src.main.board.adapter.BoardRecyAdapter
+import com.example.cattocat.src.main.board.createpost.CreatePostActivity
 import com.example.cattocat.src.main.board.model.BoardItem
 import com.example.cattocat.src.main.board.model.BoardResponse
 
@@ -19,10 +21,13 @@ class BoardActivity : AppCompatActivity(),BoardView {
         super.onCreate(savedInstanceState)
         binding = ActivityBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        boardRecyAdapter(boardItemList)
 
-        BoardService(this).tryGetBoard()
+        binding.boardBtnCreate.setOnClickListener {
 
+            val intent = Intent(this, CreatePostActivity::class.java)
+            startActivity(intent)
+
+        }
 
 
 
@@ -37,6 +42,13 @@ class BoardActivity : AppCompatActivity(),BoardView {
             "중앙동","이거 무슨 사료에요?","2021-12-12","코 박고 먹는데요?",R.drawable.dummy_cat_07,R.drawable.dummy_cat_03))
 */
 
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        boardRecyAdapter(boardItemList)
+        BoardService(this).tryGetBoard()
     }
 
     fun boardRecyAdapter(boardItem: ArrayList<BoardItem>){

@@ -12,5 +12,4 @@ import retrofit2.http.POST
 interface BoardRetrofitInterface {
     @GET("cats/post/")
     fun getBoard(): Call<BoardResponse>
-
 }

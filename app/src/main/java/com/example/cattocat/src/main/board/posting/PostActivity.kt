@@ -54,4 +54,11 @@ class PostActivity : AppCompatActivity() {
             replyAdapter.notifyDataSetChanged()
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+
+
+
+    }
 }
