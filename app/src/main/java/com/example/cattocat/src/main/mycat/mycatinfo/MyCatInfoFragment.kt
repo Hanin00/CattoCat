@@ -5,16 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cattocat.R
-import com.example.cattocat.databinding.FragmentExBinding
 import com.example.cattocat.databinding.FragmentMyCatInfoBinding
-import com.example.cattocat.src.main.home.vpmodel.HomePostItem
-import com.example.cattocat.src.main.mycat.adapter.MyCatRecyAdapter
-import com.example.cattocat.src.main.mycat.model.MyCatItem
 import com.example.cattocat.src.main.mycat.mycatinfo.adapter.MyCatInfoRecyAdapter
 import com.example.cattocat.src.main.mycat.mycatinfo.model.CatInfoItem
-import okhttp3.internal.notify
 
 class MyCatInfoFragment : Fragment() {
 

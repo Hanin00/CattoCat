@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class BoardItem(
     @SerializedName("post_id") val post_id: Int,
-    @SerializedName("contentIdx") val contentIdx: Int,
+    @SerializedName("user_id") val user_id: Int,
     @SerializedName("title") val title: String,
     @SerializedName("content") val content: String,
     @SerializedName("image") val image: String,

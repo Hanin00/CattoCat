@@ -52,8 +52,8 @@ private val context: Context
 
             itemView.setOnClickListener{
                 val intent = Intent(context, PostActivity::class.java)
-                intent.putExtra("isUserIdx",item.post_id)
-                intent.putExtra("isPostIdx",item.contentIdx)
+                intent.putExtra("isUserIdx",item.user_id)
+                intent.putExtra("isPostIdx",item.post_id)
                 Log.d("Test","화면전환")
                 itemView.context.startActivity(intent)
             }

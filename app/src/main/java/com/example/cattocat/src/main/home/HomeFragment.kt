@@ -14,9 +14,9 @@ import com.example.cattocat.src.main.home.ad.AdActivity
 import com.example.cattocat.src.main.home.viewpager.AdViewRecyAdapter
 import com.example.cattocat.src.main.home.viewpager.MyIntroPagerRecyAdapter
 import com.example.cattocat.src.main.home.viewpager.NoticeRecyAdapter
-import com.example.cattocat.src.main.home.vpmodel.HomeAdItem
-import com.example.cattocat.src.main.home.vpmodel.HomeNoticeItem
-import com.example.cattocat.src.main.home.vpmodel.HomePostItem
+import com.example.cattocat.src.main.home.model.HomeAdItem
+import com.example.cattocat.src.main.home.model.HomeNoticeItem
+import com.example.cattocat.src.main.home.model.HomePostItem
 import com.example.cattocat.src.main.setting.notice.noticeview.NoticeViewActivity
 import com.example.cattocat.util.Constants
 import java.lang.Math.abs

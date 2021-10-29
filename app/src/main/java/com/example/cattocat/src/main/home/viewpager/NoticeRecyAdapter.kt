@@ -6,11 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.recyclerview.widget.RecyclerView
 import com.asksira.loopingviewpager.LoopingPagerAdapter
 import com.example.cattocat.R
-import com.example.cattocat.src.main.home.vpmodel.HomeNoticeItem
-import kotlinx.android.synthetic.main.item_viewpager_home_post.view.*
+import com.example.cattocat.src.main.home.model.HomeNoticeItem
 
 class NoticeRecyAdapter(itemList: ArrayList<HomeNoticeItem>,
                         isInfinite: Boolean, private val context: Context, private val clickListener:(Int)->Unit) : LoopingPagerAdapter<HomeNoticeItem>(itemList, isInfinite) {

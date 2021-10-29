@@ -5,14 +5,12 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cattocat.R
 import com.example.cattocat.databinding.ActivityBoardBinding
-import com.example.cattocat.src.addcat.AddCatService
 import com.example.cattocat.src.addcat.model.AddCatInfo
 import com.example.cattocat.src.main.board.adapter.BoardRecyAdapter
 import com.example.cattocat.src.main.board.model.BoardItem
 import com.example.cattocat.src.main.board.model.BoardResponse
-import com.example.cattocat.src.main.home.vpmodel.HomePostItem
+import com.example.cattocat.src.main.home.model.HomePostItem
 
 //게시판
 class BoardActivity : AppCompatActivity(),BoardView {

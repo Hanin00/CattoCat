@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.asksira.loopingviewpager.LoopingPagerAdapter
 import com.example.cattocat.R
-import com.example.cattocat.src.main.home.vpmodel.HomeAdItem
+import com.example.cattocat.src.main.home.model.HomeAdItem
 
 
 class AdViewRecyAdapter(
