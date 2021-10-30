@@ -10,7 +10,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class BoardService(val view: BoardView) {
-   // fun tryGetBoard(boardResponse: BoardResponse){
     fun tryGetBoard(){
         val boardRetrofitInterface = MyApplication.mRetrofit.create(BoardRetrofitInterface::class.java)
 

@@ -1,41 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:clipToPadding="false"
-    android:padding="10dp">
-
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/post_nsv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="60dp"
         app:layout_constraintTop_toTopOf="parent">
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
             android:clipToPadding="false"
             android:elevation="15dp"
-            app:cardCornerRadius="@dimen/cardview_radius">
+            android:layout_margin="3dp"
+            app:cardCornerRadius="@dimen/cardview_radius"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/post_cl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="20dp">
+                android:paddingVertical="20dp"
+
+                app:layout_constraintEnd_toEndOf="@+id/post_tv_content"
+                app:layout_constraintStart_toEndOf="@+id/post_tv_content">
 
                 <ImageView
                     android:id="@+id/post_iv_user"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintDimensionRatio="1:1"
-                    android:src="@mipmap/ic_launcher_round"
                     android:layout_marginStart="20dp"
                     android:scaleType="fitXY"
-                    app:layout_constraintWidth_percent="0.12"
+                    android:src="@mipmap/ic_launcher_round"
+                    app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.12" />
 
                 <ImageView
                     android:id="@+id/post_iv_menu"
@@ -54,9 +58,9 @@
                     android:id="@+id/post_tv_user"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/post_userinfo_magin_start"
                     android:text="야생의 집사"
                     android:textSize="@dimen/post_item_user"
-                    android:layout_marginStart="@dimen/post_userinfo_magin_start"
                     app:layout_constraintStart_toEndOf="@id/post_iv_user"
                     app:layout_constraintTop_toTopOf="@id/post_iv_user" />
 
@@ -64,72 +68,71 @@
                     android:id="@+id/post_tv_user_locate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="노원구"
                     android:layout_marginStart="10dp"
+                    android:text="노원구"
                     android:textSize="@dimen/post_item_user_locate"
-                    app:layout_constraintStart_toEndOf="@id/post_tv_user"
-                    app:layout_constraintBottom_toBottomOf="@id/post_tv_user" />
+                    app:layout_constraintBottom_toBottomOf="@id/post_tv_user"
+                    app:layout_constraintStart_toEndOf="@id/post_tv_user" />
 
                 <TextView
                     android:id="@+id/post_tv_locate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:gravity="left"
                     android:text="고양이 쉼터"
                     android:textSize="@dimen/post_item_locate"
-                    android:gravity="left"
-                    app:layout_constraintStart_toStartOf="@id/post_tv_user"
+                    app:layout_constraintBottom_toBottomOf="@id/post_iv_user"
                     app:layout_constraintEnd_toStartOf="@id/post_tv_date"
-                    app:layout_constraintTop_toBottomOf="@id/post_tv_user"
-                    app:layout_constraintBottom_toBottomOf="@id/post_iv_user"/>
+                    app:layout_constraintStart_toStartOf="@id/post_tv_user"
+                    app:layout_constraintTop_toBottomOf="@id/post_tv_user" />
 
                 <TextView
                     android:id="@+id/post_tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="고양이 밥 자꾸 주지 마세요"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/post_item_title"
                     android:layout_marginTop="@dimen/post_titletovp_magin_top"
+                    android:text="고양이 밥 자꾸 주지 마세요"
+                    android:textSize="@dimen/post_item_title"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@id/post_iv_user"
                     app:layout_constraintTop_toBottomOf="@id/post_iv_user" />
+
                 <TextView
                     android:id="@+id/post_tv_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2021.09.24"
                     android:layout_marginEnd="@dimen/post_userinfo_magin_start"
+                    android:text="2021.09.24"
                     android:textSize="@dimen/post_item_date"
-                   app:layout_constraintEnd_toStartOf="@id/post_iv_menu"
+                    app:layout_constraintEnd_toStartOf="@id/post_iv_menu"
                     app:layout_constraintTop_toTopOf="@id/post_tv_locate" />
 
                 <ImageView
                     android:id="@+id/post_iv_dummy"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    app:layout_constraintDimensionRatio="1:1"
                     android:layout_marginTop="10dp"
                     android:scaleType="centerCrop"
-                    app:layout_constraintTop_toBottomOf="@id/post_tv_date"
-                    app:layout_constraintBottom_toTopOf="@id/post_tv_content"
                     android:src="@drawable/dummy_cat_09"
-                    />
+                    app:layout_constraintBottom_toTopOf="@id/post_tv_content"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintTop_toBottomOf="@id/post_tv_title" />
 
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/post_vp_images"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/post_tv_date"
-                    />
+                    app:layout_constraintTop_toBottomOf="@id/post_tv_date" />
 
                 <TextView
                     android:id="@+id/post_tv_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="주는 분 엄청 많아서 1일 8끼ㅠ"
-                    android:textStyle="normal"
-                    android:textSize="@dimen/post_item_content"
                     android:layout_marginTop="@dimen/post_userinfo_magin_top"
+                    android:text="주는 분 엄청 많아서 1일 8끼ㅠ"
+                    android:textSize="@dimen/post_item_content"
+                    android:textStyle="normal"
                     app:layout_constraintStart_toStartOf="@id/post_iv_user"
                     app:layout_constraintTop_toBottomOf="@id/post_iv_dummy" />
 
@@ -137,36 +140,35 @@
                     android:id="@+id/post_iv_like"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintDimensionRatio="1:1"
-                    android:src="@mipmap/ic_launcher_round"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
-                    app:layout_constraintWidth_percent="0.07"
+                    android:src="@mipmap/ic_launcher_round"
+                    app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/post_tv_content" />
+                    app:layout_constraintTop_toBottomOf="@id/post_tv_content"
+                    app:layout_constraintWidth_percent="0.07" />
 
                 <ImageView
                     android:id="@+id/post_iv_reply"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintDimensionRatio="1:1"
-                    android:src="@mipmap/ic_launcher_round"
                     android:layout_marginStart="10dp"
                     android:background="@android:color/transparent"
-                    app:layout_constraintWidth_percent="0.07"
+                    android:src="@mipmap/ic_launcher_round"
+                    app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintStart_toEndOf="@id/post_iv_like"
-                    app:layout_constraintTop_toTopOf="@id/post_iv_like" />
+                    app:layout_constraintTop_toTopOf="@id/post_iv_like"
+                    app:layout_constraintWidth_percent="0.07" />
 
 
                 <View
                     android:id="@+id/divider"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/home_darkgray"
                     android:layout_marginTop="10dp"
-                    app:layout_constraintTop_toBottomOf="@id/post_iv_like"
-                    />
+                    android:background="@color/home_darkgray"
+                    app:layout_constraintTop_toBottomOf="@id/post_iv_like" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/post_recy_reply"
@@ -174,10 +176,42 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     app:layout_constraintTop_toBottomOf="@id/divider"
-                    tools:listitem="@layout/item_post_reply"/>
+                    tools:listitem="@layout/item_post_reply" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.core.widget.NestedScrollView>
+
+
+    <EditText
+
+        android:id="@+id/post_ed_reply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:background="@color/home_lightgray"
+        android:gravity="top|left"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="20dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/post_btn_reply"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/home_indicator_yellow"
+        android:gravity="center"
+        android:text="확인"
+        android:textSize="12sp"
+        app:layout_constraintDimensionRatio="1:0.6"
+        app:layout_constraintEnd_toEndOf="@id/post_ed_reply"
+        app:layout_constraintTop_toTopOf="@id/post_ed_reply"
+        app:layout_constraintWidth_percent="0.16" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

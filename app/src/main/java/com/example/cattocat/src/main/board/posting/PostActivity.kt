@@ -1,49 +1,70 @@
 package com.example.cattocat.src.main.board.posting
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cattocat.R
 import com.example.cattocat.databinding.ActivityPostBinding
-import com.example.cattocat.src.main.board.model.BoardItem
 import com.example.cattocat.src.main.board.model.ReplyItem
 import com.example.cattocat.src.main.board.posting.adapter.ReplyRecyAdapter
+import com.example.cattocat.src.main.board.posting.model.PostInfoItem
+import com.example.cattocat.src.main.board.posting.model.PostResponse
+import com.example.cattocat.src.main.board.posting.model.ReplyListItem
+import com.example.cattocat.src.main.board.posting.model.UserInfoItem
+import okhttp3.internal.notify
+import okhttp3.internal.notifyAll
+import retrofit2.adapter.rxjava2.Result.response
 
-class PostActivity : AppCompatActivity() {
+
+class PostActivity : AppCompatActivity(), PostView {
     private lateinit var binding: ActivityPostBinding
     private var replyItem = ArrayList<ReplyItem>()
     private lateinit var replyAdapter: ReplyRecyAdapter
 
-    private var itemIdx = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
-        if(intent.hasExtra("itemIdx")){
-            itemIdx = intent.getIntExtra("itemIdx",0)
-            Log.d("Test","if 안 PostActivity - itemIdx from home - ${itemIdx}")
+        if (intent.hasExtra("isUserIdx")) {
+            val isPostIdx = intent.getIntExtra("isPostIdx", 0)
+            val isUserIdx = intent.getIntExtra("isUserIdx", 0)
+            Log.d("Test", "if 안 PostActivity - itemIdx from home - ${isUserIdx}")
+            Log.d("Test", "if 안 PostActivity - itemIdx from home - ${isPostIdx}")
+
+            PostService(this, isPostIdx, isUserIdx).tryGetPostSingle(isPostIdx, isUserIdx)
+
+
+            binding.postBtnReply.setOnClickListener {
+                val content = binding.postEdReply.text.toString()
+                //todo User_id - 로그인 되어있는
+                PostService(this, isPostIdx, isUserIdx).tryPostReply(
+                    ReplyListItem(
+                        null,
+                        isUserIdx,
+                        isPostIdx.toInt(),
+                        content,
+                        null
+                    )
+                )
+                softkeyboardHide()
+                binding.postEdReply.setText("")
+
+                PostService(this, isPostIdx, isUserIdx).tryGetPostSingle(isPostIdx, isUserIdx)
+
+
+            }
         }
-        Log.d("Test","if 밖 PostActivity - itemIdx from home - ${itemIdx}")
-
-
-
-        replyRecyAdapter(replyItem)
-        replyItem.add(ReplyItem(1,23,"흰양말신은고양이", R.drawable.dummy_cat_05, "헐 넘넘 기여워용", "2021-09-24"))
-        replyItem.add(ReplyItem(2,11,"검은 양말 턱시도", R.drawable.dummy_cat_07, "치즈 고양이 최고져", "2021-09-24"))
-        replyItem.add(ReplyItem(3,7,"모자 한 번만 써주라", R.drawable.dummy_cat_08, "되게 순하네요. 우리집 고양이는 오늘도 긁었어요ㅠㅠ 스트릿 출신이 아니라서 예의가 없는 걸까요? 맨날 좋은것만 먹였더니 아주 양심도 없구ㅠㅠ 근데 또 귀여우니까 참아요ㅠㅠ", "2021-09-24"))
-        replyItem.add(ReplyItem(4,2,"넥타이 한 번 만 해주라", R.drawable.dummy_cat_12, "고양이도 즐거운 추석", "2021-09-24"))
-
-
-
-
     }
 
 
-    private fun replyRecyAdapter(replyItem: ArrayList<ReplyItem>) {
+    private fun ReplyRecyAdapter(replyItem: ArrayList<ReplyListItem>) {
         replyAdapter = ReplyRecyAdapter(replyItem, this)
         binding.postRecyReply.apply {
             adapter = replyAdapter
@@ -55,10 +76,65 @@ class PostActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onGetPostInfoSuccess(result: PostResponse) {
+        Toast.makeText(this, "정상연결.", Toast.LENGTH_SHORT).show()
+        Log.d("Test", "정상연결")
+        Log.d("Test", "${result}")
 
+        if (result.replylist.size >= 1) {
+            Log.d("test", "replylist.size >=1")
+            val replyItem = result.replylist as ArrayList<ReplyListItem>
+            ReplyRecyAdapter(replyItem)
+        }
 
+        if (result.userinfo.size >= 1) {
+            Log.d("test", "userinfo.size >=1")
+
+            val userInfoItem = result.userinfo as ArrayList<UserInfoItem>
+            //user
+            userInfoItem[0].uname?.let { binding.postTvUser.setText(it) }
+            userInfoItem[0].uname?.let { binding.postTvUserLocate.setText(it) }
+            /*    userInfoItem.uname?.let { binding.postTvUser.setText(it) }
+                userInfoItem.city?.let { binding.postTvUserLocate.setText(it) }*/
+
+            //binding.postIvUser.Glider esult.userinfo.city)
+
+        }
+
+        if (result.post.size >= 1) {
+            Log.d("test", "post.size >=1")
+            //post
+            val postInfoItem = result.post as ArrayList<PostInfoItem>
+            val created_at = postInfoItem[0].created_at
+            binding.postTvDate.setText(created_at?.substring(0, 11))
+
+            //todo glide 연결
+            // binding.postIvDummy.glide
+            binding.postTvTitle.setText(postInfoItem[0].title)
+            binding.postTvContent.setText(postInfoItem[0].content)
+
+        }
+    }
+
+    override fun onGetPostInfoFailure(message: String) {
+        Log.e("Test", "onGetPostInfoFailure: $message")
+    }
+
+    override fun onPostReplySuccess(result: ReplyListItem) {
+        Toast.makeText(this, "정상연결.", Toast.LENGTH_SHORT).show()
+        Log.d("Test", "댓글 입력됨")
 
     }
+
+    override fun onPostReplyFailure(message: String) {
+        Log.e("Test", "onPostReplyFailure: $message")
+    }
+
+    //키보드 내리기
+    fun softkeyboardHide() {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+    }
+
+
 }
