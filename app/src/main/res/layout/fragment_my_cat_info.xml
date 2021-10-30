@@ -44,6 +44,7 @@
                 android:layout_marginEnd="25dp"
                 android:background="@android:color/transparent"
                 android:hint="김막시무스 안드레아 2세"
+                android:paddingEnd="10dp"
                 android:maxLength="20"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
@@ -67,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/mycatinfo_img_text_margins"
                 android:layout_marginTop="@dimen/shared_def_vertical"
-                android:text="눈 색 "
+                android:text="눈색 "
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintStart_toEndOf="@id/mycatinfo_iv_eye"
@@ -80,11 +81,17 @@
                 app:layout_constraintStart_toStartOf="@id/mycatinfo_text_eye"
                 app:layout_constraintTop_toBottomOf="@id/mycatinfo_text_eye">
 
-                <TextView
+                <EditText
+                    android:id="@+id/mycat_ed_eye"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="임시"
+                    android:hint="ex) 하늘색"
+                    android:background="@android:color/transparent"
+                    android:textSize="@dimen/shared_sub_title"
+                    android:paddingEnd="10dp"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -106,6 +113,7 @@
                 android:layout_marginStart="@dimen/mycatinfo_img_text_margins"
                 android:layout_marginTop="@dimen/shared_def_vertical"
                 android:text="털 색 "
+                android:hint="ex) 고등어"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintStart_toEndOf="@id/mycatinfo_iv_hair"
@@ -118,10 +126,14 @@
                 app:layout_constraintStart_toStartOf="@id/mycatinfo_text_hair"
                 app:layout_constraintTop_toBottomOf="@id/mycatinfo_text_hair">
 
-                <TextView
+                <EditText
+                    android:id="@+id/mycat_ed_hair"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="임시"
+                    android:textSize="14sp"
+                    android:paddingEnd="10dp"
+                    android:background="@android:color/transparent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -156,10 +168,15 @@
                 app:layout_constraintStart_toStartOf="@id/mycatinfo_text_socks"
                 app:layout_constraintTop_toBottomOf="@id/mycatinfo_text_socks">
 
-                <TextView
+                <EditText
+                    android:id="@+id/mycat_ed_socks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="임시"
+                    android:hint="ex) 앞발만 신음"
+                    android:textSize="14sp"
+                    android:paddingEnd="10dp"
+                    android:background="@android:color/transparent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -193,8 +210,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="25dp"
+                android:paddingEnd="10dp"
                 android:background="@android:color/transparent"
-                android:hint="푸른 상가 서쪽 정문"
+                android:hint="ex) 푸른 상가 서쪽 정문"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -230,10 +248,15 @@
                 app:layout_constraintStart_toStartOf="@id/mycatinfo_text_catmom"
                 app:layout_constraintTop_toBottomOf="@id/mycatinfo_text_catmom">
 
-                <TextView
+                <EditText
+                    android:id="@+id/mycatinfo_ed_mom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="임시"
+                    android:hint="ex) X"
+                    android:textSize="14sp"
+                    android:paddingEnd="10dp"
+                    android:background="@android:color/transparent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -244,9 +267,9 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:src="@drawable/icon_paw_bldpi"
+                app:layout_constraintBottom_toBottomOf="@id/mycatinfo_text_tnr"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/mycatinfo_text_tnr"
                 app:layout_constraintTop_toTopOf="@id/mycatinfo_text_tnr" />
 
             <TextView
@@ -268,10 +291,14 @@
                 app:layout_constraintStart_toStartOf="@id/mycatinfo_text_tnr"
                 app:layout_constraintTop_toBottomOf="@id/mycatinfo_text_tnr">
 
-                <TextView
+                <EditText
+                    android:id="@+id/mycat_ed_tnr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:paddingEnd="20dp"
                     android:text=" : 포획 / 중성화 / 방사 게이지바 "
+                    android:background="@android:color/transparent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -304,8 +331,8 @@
                 android:id="@+id/mycatinfo_cl_prefer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/mycatinfo_text_prefer"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/mycatinfo_text_prefer"
                 app:layout_constraintTop_toBottomOf="@id/mycatinfo_text_prefer">
 
                 <EditText
@@ -314,16 +341,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="25dp"
+                    android:paddingEnd="10dp"
                     android:background="@android:color/transparent"
-                    android:hint="템테이션 하늘색 / 낚시 장난감"
+                    android:hint="ex) 템테이션 하늘색 / 낚시 장난감"
                     android:text="템테이션 하늘색 / 낚시 장난감"
                     android:textColor="@color/shared_title_black"
-                    android:textSize="@dimen/shared_sub_title"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
@@ -360,18 +387,27 @@
                     android:id="@+id/mycatinfo_ed_special"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="25dp"
                     android:background="@android:color/transparent"
-                    android:hint="쫄보임 / 애교 많음 / 슬금슬금 다가옴 / 말많음"
+                    android:hint="ex) 쫄보임 / 애교 많음 / 슬금슬금 다가옴 / 말많음"
                     android:textColor="@color/shared_title_black"
                     android:textSize="@dimen/shared_sub_title"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:paddingEnd="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
+            <ImageView
+                android:id="@+id/mycat_btn_modify"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/icon_paw_bldpi"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintWidth_percent="0.13"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mycatinfo_cl_special"
+                android:layout_marginTop="50dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
@@ -384,9 +420,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/item_mycat_mycat" />
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -71,15 +71,23 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
                         ylocation
                     )
                 )
+
+
+
             }
         }
     }
 
     override fun onPostAddCatSuccess(result: AddCatInfo) {
         Toast.makeText(this, "등록되었습니다.", Toast.LENGTH_SHORT).show()
+
+        finish()
     }
 
     override fun onPostAddCatFailure(message: String) {
         Log.e("Test", "onPostAddCatFailure: $message")
     }
+
+
+
 }

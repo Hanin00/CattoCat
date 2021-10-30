@@ -43,19 +43,7 @@ private val context: Context
            // userImg.setImageResource(item.)
           //  dummyImg.setImageResource(item.dummyImg)
 
-         //
-            //
-            //
-            //
-            //
-            //   '
-            //
-            //
-            //
-            //
-            //
 
-            
             //   userName.text = item.u
            // userLocate.text = item.userLocate
             title.text = item.title

@@ -2,18 +2,22 @@ package com.example.cattocat.src.main.mycat
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cattocat.Companion.Companion.USERID
 import com.example.cattocat.R
 import com.example.cattocat.databinding.ActivityMycatBinding
 import com.example.cattocat.src.addcat.AddCatActivity
 import com.example.cattocat.src.main.mycat.adapter.MyCatRecyAdapter
 import com.example.cattocat.src.main.mycat.model.MyCatItem
+import com.example.cattocat.src.main.mycat.model.MyCatResponse
 import com.example.cattocat.src.main.mycat.mycatinfo.MyCatInfoFragment
 
 
 //my cat
-class MyCatActivity: AppCompatActivity() {
+class MyCatActivity: AppCompatActivity(),MyCatView {
     private lateinit var binding : ActivityMycatBinding
     private lateinit var myCatRecyAdapter: MyCatRecyAdapter
     private var myCatItemList = ArrayList<MyCatItem>()
@@ -37,38 +41,28 @@ class MyCatActivity: AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
-        myCatItemList.add(
-            MyCatItem(1,"체다치즈", R.drawable.dummy_cat_05,"우리집","노란색 턱시도",
-            "템테이션 하늘색","하늘색",1,13,"야생의 집사"))
-        myCatItemList.add(
-            MyCatItem(1,"양안드레아", R.drawable.dummy_cat_07,"우리집","노란색 턱시도",
-                "템테이션 하늘색","하늘색",1,13,"야생의 집사"))
-        myCatItemList.add(
-            MyCatItem(1,"막시무스", R.drawable.dummy_cat_12,"우리집","노란색 턱시도",
-                "템테이션 하늘색","하늘색",1,13,"야생의 집사"))
-        myCatItemList.add(
-            MyCatItem(1,"고다치즈", R.drawable.dummy_cat_11,"우리집","노란색 턱시도",
-                "템테이션 하늘색","하늘색",1,13,"야생의 집사"))
-        myCatItemList.add(
-            MyCatItem(1,"고앵고앵", R.drawable.dummy_cat_08,"우리집","노란색 턱시도",
-                "템테이션 하늘색","하늘색",1,13,"야생의 집사"))
-        myCatItemList.add(
-            MyCatItem(1,"황태", R.drawable.dummy_cat_09,"우리집","노란색 턱시도",
-                "템테이션 하늘색","하늘색",1,13,"야생의 집사"))
-        myCatItemList.add(
-            MyCatItem(1,"복실복실", R.drawable.dummy_cat_11,"우리집","노란색 턱시도",
-                "템테이션 하늘색","하늘색",1,13,"야생의 집사"))
-        myCatItemList.add(
-            MyCatItem(1,"솜솜", R.drawable.dummy_cat_03,"우리집","노란색 턱시도",
-                "템테이션 하늘색","하늘색",1,13,"야생의 집사"))
-
-
     }
 
     private fun myCatRecyAdapter(myCatItem : ArrayList<MyCatItem>){
-        myCatRecyAdapter = MyCatRecyAdapter(myCatItem, this)
+        myCatRecyAdapter = MyCatRecyAdapter(myCatItem, this){myCatItem ->
+
+            var fragment = MyCatInfoFragment()
+            var bundle = Bundle()
+            bundle.putInt("cid",myCatItem.cat_id)
+            bundle.putString("cname",myCatItem.cat_name)
+            bundle.putString("ceye",myCatItem.cat_eye)
+            bundle.putString("chair",myCatItem.cat_hair)
+            bundle.putString("csocks",myCatItem.cat_socks)
+            bundle.putString("clocate",myCatItem.cat_locate)
+            bundle.putString("cmom",myCatItem.cat_mom.toString())
+            bundle.putString("ctnr",myCatItem.cat_tnr.toString())
+            bundle.putString("cprefer",myCatItem.cat_prefer)
+            bundle.putString("cspecial",myCatItem.cat_special)
+
+            fragment.arguments = bundle
+            this.supportFragmentManager!!.beginTransaction().replace(R.id.mycat_fl_info, fragment)
+                .commit()
+        }
         binding.mycatRecyMycatProfile.apply {
             adapter = myCatRecyAdapter
             layoutManager = LinearLayoutManager(
@@ -78,4 +72,32 @@ class MyCatActivity: AppCompatActivity() {
             myCatRecyAdapter.notifyDataSetChanged()
         }
     }
+
+    override fun onGetCatSuccess(result: MyCatResponse) {
+        Toast.makeText(this, "정상연결.", Toast.LENGTH_SHORT).show()
+        Log.d("Test", "정상연결")
+        Log.d("Test", "${result}")
+
+        if(result.content != null){
+            val myCatItem = result.content as ArrayList<MyCatItem>
+            myCatRecyAdapter(myCatItem)
+
+
+        }else{
+            Log.d("Test","추가한고양이 없음 X")
+        }
+
+    }
+
+    override fun onGetCatFailure(message: String) {
+        Log.e("Test", "onGetCatFailure: $message")
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        MyCatService(this, USERID).tryGetMyCat()
+    }
+
+
 }

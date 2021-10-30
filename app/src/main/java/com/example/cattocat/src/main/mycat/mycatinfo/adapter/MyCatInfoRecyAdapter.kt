@@ -19,8 +19,8 @@ class MyCatInfoRecyAdapter(var myCatItem: ArrayList<CatInfoItem>,
         private val catName = itemView.findViewById<TextView>(R.id.item_mycat_name)
 
         fun bind(item: CatInfoItem) {
-            catImg.setImageResource(item.catImg)
-            catName.text = item.catName
+           // catImg.setImageResource(item.cat_prof_img)
+            catName.text = item.cat_name
         }
     }
 

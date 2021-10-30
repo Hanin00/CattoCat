@@ -14,15 +14,17 @@ import com.example.cattocat.src.main.mycat.model.MyCatItem
 
 class MyCatRecyAdapter(
     var myCatItem: ArrayList<MyCatItem>,
-    private val context: Context
+    private val context: Context,
+    val itemClick:(MyCatItem) -> Unit
 ) : RecyclerView.Adapter<MyCatRecyAdapter.MyCatViewHolder>() {
-    inner class MyCatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MyCatViewHolder(itemView: View, itemClick: (MyCatItem) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val  catImg = itemView.findViewById<ImageView>(R.id.item_mycat_img)
         private val catName = itemView.findViewById<TextView>(R.id.item_mycat_name)
 
         fun bind(item: MyCatItem) {
-            catImg.setImageResource(item.catImg)
-            catName.text = item.catName
+            catName.text = item.cat_name
+
+            catImg.setOnClickListener { itemClick(item) }
 
         }
 
@@ -31,7 +33,7 @@ class MyCatRecyAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyCatViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_mycat_mycat,parent, false)
-        return MyCatViewHolder(view)
+        return MyCatViewHolder(view,itemClick)
     }
 
     override fun onBindViewHolder(holder: MyCatViewHolder, position: Int) {
