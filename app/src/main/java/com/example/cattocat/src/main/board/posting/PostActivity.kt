@@ -85,6 +85,7 @@ class PostActivity : AppCompatActivity(), PostView {
             Log.d("test", "replylist.size >=1")
             val replyItem = result.replylist as ArrayList<ReplyListItem>
             ReplyRecyAdapter(replyItem)
+            binding.postTvReply.setText(result.replylist.size.toString())
         }
 
         if (result.userinfo.size >= 1) {
@@ -106,7 +107,7 @@ class PostActivity : AppCompatActivity(), PostView {
             //post
             val postInfoItem = result.post as ArrayList<PostInfoItem>
             val created_at = postInfoItem[0].created_at
-            binding.postTvDate.setText(created_at?.substring(0, 11))
+            binding.postTvDate.setText(created_at?.substring(0, 10))
 
             //todo glide 연결
             // binding.postIvDummy.glide

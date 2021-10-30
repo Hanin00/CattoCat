@@ -54,10 +54,16 @@ private val context: Context
             //
             //
             //
+
+            
             //   userName.text = item.u
            // userLocate.text = item.userLocate
             title.text = item.title
-            date.text = item.created_at
+            val created_at =  item.created_at
+
+            if (created_at != null) {
+                date.text = created_at.substring(0,10)
+            }
             //boardLocate.text = item.
             content.text = item.content
 
