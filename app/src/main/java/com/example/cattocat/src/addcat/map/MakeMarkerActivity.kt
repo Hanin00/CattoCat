@@ -4,11 +4,10 @@ import android.Manifest
 import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.cattocat.databinding.ActivityMakeMarkerBinding
-import com.example.cattocat.src.addcat.AddCatView
-import com.example.cattocat.src.addcat.model.AddCatInfo
 import com.example.cattocat.src.main.map.MapActivity
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
@@ -37,8 +36,11 @@ class MakeMarkerActivity : AppCompatActivity(),OnMapReadyCallback {
         mapView = binding.makemarkerMap
         mapView.onCreate(savedInstanceState)
 
+
         binding.makemarkerMap.getMapAsync(this)
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
+
+
 
     }
     override fun onMapReady(map: NaverMap) {
@@ -59,12 +61,23 @@ class MakeMarkerActivity : AppCompatActivity(),OnMapReadyCallback {
             //화면에서 표시하는 지도(카메라) 위치 조정
             val cameraUpdate = CameraUpdate.scrollTo(LatLng(getLatitude,getLongitude))
             naverMap.moveCamera(cameraUpdate)
-
             //지도 위 사용자 위치 표시 객체
         //    val locationButton: LocationButtonView = binding.makemarkerBtnLocation
          //   locationButton.map = naverMap
+
+            //onMapClick()
+        }
+
+
+        naverMap.setOnMapClickListener { point, coord ->
+            Toast.makeText(this, "${coord.latitude}, ${coord.longitude}",
+                Toast.LENGTH_SHORT).show()
         }
     }
+
+
+
+
 
 
     override fun onStart() {
