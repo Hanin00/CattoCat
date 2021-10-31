@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.example.cattocat.Companion.Companion.USERID
 import com.example.cattocat.R
 import com.example.cattocat.databinding.FragmentMyCatInfoBinding
@@ -16,6 +18,7 @@ import com.example.cattocat.src.main.mycat.MyCatActivity
 import com.example.cattocat.src.main.mycat.model.MyCatItem
 import com.example.cattocat.src.main.mycat.mycatinfo.adapter.MyCatInfoRecyAdapter
 import com.example.cattocat.src.main.mycat.mycatinfo.model.CatInfoItem
+import okhttp3.internal.notify
 import okhttp3.internal.notifyAll
 
 class MyCatInfoFragment : Fragment(), MyCatInfoView {
@@ -91,18 +94,18 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
                 val mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_cat_modify, null)
                 val mBuilder = AlertDialog.Builder(context)
                     .setView(mDialogView)
-                    .setTitle("Login Form")
+                  //  .setTitle("Login Form")
 
                 val  mAlertDialog = mBuilder.show()
 
                 val okButton = mDialogView.findViewById<AppCompatButton>(R.id.dialog_modify_btn)
                 okButton.setOnClickListener {
                     mAlertDialog.dismiss()
+                    // Fragment 클래스에서 사용 시
+
                 }
             }
         }
-
-
         return binding.root
     }
 
@@ -110,11 +113,9 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
         Log.d("Test", "변경되었음")
         var fragment = MyCatInfoFragment()
 
-
-
-
-
     }
+
+
 
     override fun onPutCatInfoFailure(message: String) {
 

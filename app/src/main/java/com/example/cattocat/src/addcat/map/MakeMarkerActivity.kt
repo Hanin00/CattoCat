@@ -1,13 +1,20 @@
 package com.example.cattocat.src.addcat.map
 
 import android.Manifest
+import android.app.AlertDialog
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
+import com.example.cattocat.R
 import com.example.cattocat.databinding.ActivityMakeMarkerBinding
+import com.example.cattocat.src.addcat.AddCatActivity
+import com.example.cattocat.src.addcat.model.AddCatInfo
 import com.example.cattocat.src.main.map.MapActivity
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
@@ -16,6 +23,10 @@ import com.naver.maps.map.widget.LocationButtonView
 import com.naver.maps.map.overlay.OverlayImage
 
 import com.naver.maps.map.overlay.Marker
+import com.example.cattocat.src.main.MainActivity
+
+
+
 
 
 class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -83,7 +94,31 @@ class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
                 marker.position = LatLng(coord.latitude, coord.longitude)
                 marker.map = naverMap
 
-                
+                val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog_cat_locate, null)
+                val mBuilder = AlertDialog.Builder(this)
+                    .setView(mDialogView)
+
+                val  mAlertDialog = mBuilder.show()
+
+                val yesBtn = mDialogView.findViewById<AppCompatButton>(R.id.dialog_map_yes)
+                val noBtn = mDialogView.findViewById<AppCompatButton>(R.id.dialog_map_no)
+                yesBtn.setOnClickListener {
+                    // Fragment 클래스에서 사용 시
+                    val intent = Intent(this, AddCatActivity::class.java)
+                    intent.putExtra("xLocation",coord.longitude)
+                    intent.putExtra("yLocation",coord.latitude)
+
+                    mAlertDialog.dismiss()
+                    startActivity(intent)
+                    finish()
+                }
+                noBtn.setOnClickListener {
+                    mAlertDialog.dismiss()
+                    // Fragment 클래스에서 사용 시
+                }
+
+
+
             }
         } else {
             clearMarkers()

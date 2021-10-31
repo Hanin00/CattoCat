@@ -14,10 +14,9 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
     private lateinit var binding: ActivityAddCatBinding
     private var addCatInfolist = listOf<AddCatInfo>()
 
-    private val xlocation = ""
-    private val ylocation = ""
+    private var xlocation = ""
+    private var ylocation = ""
     private val locatefrommap = ""
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,14 +26,11 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
         setContentView(binding.root)
 
         binding.addcatIvMarker.setOnClickListener {
-            val intent = Intent(this,MakeMarkerActivity::class.java )
+            val intent = Intent(this, MakeMarkerActivity::class.java)
             startActivity(intent)
 
 
-
         }
-
-
 
 
         val userId = 1
@@ -68,11 +64,12 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
             //val tnr= binding.addcatEdTnr.text.toString().toInt()
 
 
-
             val prefer = binding.addcatEdPrefer.text.toString()
             val special = binding.addcatEdSpecial.text.toString()
 
             if (name != "") {
+                Log.d("Test","xLocation : $xlocation")
+                Log.d("Test","yLocation : $ylocation")
                 AddCatService(this).tryPostAddCat(
                     AddCatInfo(
                         userId,
@@ -93,19 +90,15 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
                 )
 
 
-
             }
         }
     }
 
-    override fun onRestart() {
-        super.onRestart()
-        if(intent.hasExtra("xlocation")){
-
-
-
-
-
+    override fun onResume() {
+        super.onResume()
+        if (intent.hasExtra("xLocation")) {
+            xlocation = intent.getStringExtra("xLocation").toString()
+            ylocation = intent.getStringExtra("yLocation").toString()
         }
     }
 
@@ -119,7 +112,6 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
     override fun onPostAddCatFailure(message: String) {
         Log.e("Test", "onPostAddCatFailure: $message")
     }
-
 
 
 }
