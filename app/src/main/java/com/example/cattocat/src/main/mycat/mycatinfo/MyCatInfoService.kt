@@ -18,7 +18,6 @@ class MyCatInfoService(val view: MyCatInfoFragment, val cat_id:Int, val body: My
              //   view.onPutCatInfoSuccess(response.body() as MyCatItem)
 
                 if(response!=null){
-                    Log.d("Test","NULL 아님")
                     Log.d("Test","body ${response.body()}")
                     Log.d("Test","response.isSuccessful ${response.isSuccessful()}")
                     Log.d("Test","response.code ${response.code()}")

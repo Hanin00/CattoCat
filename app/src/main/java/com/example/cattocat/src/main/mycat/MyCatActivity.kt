@@ -25,13 +25,10 @@ class MyCatActivity: AppCompatActivity(),MyCatView {
         super.onCreate(savedInstanceState)
         binding = ActivityMycatBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         myCatRecyAdapter(myCatItemList)
 
         val fragmentManager = supportFragmentManager
-
         val fragmentA = MyCatInfoFragment()
-
 
         val transaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.mycat_fl_info, fragmentA).commitAllowingStateLoss()

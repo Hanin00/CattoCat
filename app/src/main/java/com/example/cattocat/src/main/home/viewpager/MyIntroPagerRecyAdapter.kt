@@ -12,7 +12,7 @@ import com.example.cattocat.src.main.board.posting.PostActivity
 import com.example.cattocat.src.main.home.model.HomePostItem
 import kotlinx.android.synthetic.main.item_viewpager_home_post.view.*
 
-class MyIntroPagerRecyAdapter(private val homePostList: ArrayList<HomePostItem>, private val context: Context, private val clickListener:(Int)->Unit)
+class MyIntroPagerRecyAdapter(private val homePostList: ArrayList<HomePostItem?>, private val context: Context, private val clickListener:(Int)->Unit)
     : RecyclerView.Adapter<MyIntroPagerRecyAdapter.MyIntroPagerViewHolder>() {
     inner class MyIntroPagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val itemImage = itemView.home_pager_item_image
@@ -22,16 +22,18 @@ class MyIntroPagerRecyAdapter(private val homePostList: ArrayList<HomePostItem>,
 
         //   private val itemBg = itemView.pager_item_bg
         fun bind(homePostItem: HomePostItem) {
-            itemImage.setImageResource(homePostItem.imageSrc)
-            itemtitle.text = homePostItem.title
-            itemContent.text = homePostItem.content
-            userNickname.text = homePostItem.userNickname
-            val itemIdx = homePostItem.id
+           //todo 사진 연결, 유저 이름 연결
+         //   itemImage.setImageResource(homePostItem.imageSrc)
+            itemImage.setImageResource(R.drawable.dummy_cat_01)
+            itemtitle?.text = homePostItem.title
+            itemContent?.text = homePostItem.content
+            //userNickname.text = homePostItem.user_id
+            val itemIdx = homePostItem.post_id
 
             itemView.setOnClickListener {
                 val intent = Intent(context, PostActivity::class.java)
                 intent.putExtra("itemIdx", itemIdx)
-                Log.d("Test","MyIntroPagerRecyAdpater - clicked post id : ${homePostItem.id}")
+                Log.d("Test","MyIntroPagerRecyAdpater - clicked post id : ${homePostItem.post_id}")
                 Log.d("Test","MyIntroPagerRecyAdpater - clicked post id : ${itemIdx}")
                 itemView.context.startActivity(intent)
             }
@@ -65,6 +67,6 @@ class MyIntroPagerRecyAdapter(private val homePostList: ArrayList<HomePostItem>,
         holder: MyIntroPagerViewHolder,
         position: Int
     ) {
-        holder.bind(homePostList[position])
+        homePostList[position]?.let { holder.bind(it) }
     }
 }

@@ -10,18 +10,19 @@ import com.asksira.loopingviewpager.LoopingPagerAdapter
 import com.example.cattocat.R
 import com.example.cattocat.src.main.home.model.HomeNoticeItem
 
-class NoticeRecyAdapter(itemList: ArrayList<HomeNoticeItem>,
-                        isInfinite: Boolean, private val context: Context, private val clickListener:(Int)->Unit) : LoopingPagerAdapter<HomeNoticeItem>(itemList, isInfinite) {
+class NoticeRecyAdapter(
+    itemList: List<HomeNoticeItem?>,
+    isInfinite: Boolean, private val context: Context, private val clickListener:(Int)->Unit) : LoopingPagerAdapter<HomeNoticeItem>(
+    itemList as List<HomeNoticeItem>, isInfinite) {
     override fun bindView(convertView: View, listPosition: Int, viewType: Int) {
 
         val noticeImgView= convertView.findViewById<ImageView>(R.id.item_notice_vp_image)
-        val noticeImg = itemList?.get(listPosition)?.imageSrc
+        //val noticeImg = itemList?.get(listPosition)?.banner_image
 
 
-        noticeImgView.setImageResource(
-            context.getResources()
-                .getIdentifier("drawable/${noticeImg}", null, context.getPackageName())
-        )
+      /*  noticeImgView.setImageResource(
+            context.getResources().getIdentifier("drawable/${noticeImg}", null, context.getPackageName())
+        )*/
 
 /*
         Glide.with(context)
@@ -33,7 +34,7 @@ class NoticeRecyAdapter(itemList: ArrayList<HomeNoticeItem>,
 */
 
         noticeImgView.setOnClickListener {
-            val noticeIdx = itemList?.get(listPosition)?.id
+            val noticeIdx = itemList?.get(listPosition)?.notice_id
             if (noticeIdx != null) {
                 clickListener(noticeIdx)
                 Log.d("Test", "AdViewRecyAdapter - adIdx :  ${noticeIdx}")

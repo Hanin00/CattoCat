@@ -10,7 +10,9 @@ import retrofit2.http.Query
 
 
 interface MyCatInfoRetrofitInterface {
-    @PUT("cats/catdetail/{cat_id}")
-    fun modifyCatInfo(@Path("cat_id") user_id: Int,
-    @Body mycatInfo : MyCatItem): Call<MyCatItem>
+    @PUT("cats/catdetail/{cat_id}/")
+    fun modifyCatInfo(
+        @Path("cat_id") user_id: Int,
+        @Body mycatInfo: MyCatItem
+    ): Call<MyCatItem>
 }

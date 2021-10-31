@@ -60,9 +60,13 @@ class PostActivity : AppCompatActivity(), PostView {
 
 
             }
+
         }
     }
-
+    override fun onBackPressed() {
+        // 뒤로가기 버튼 클릭
+        finish()
+    }
 
     private fun ReplyRecyAdapter(replyItem: ArrayList<ReplyListItem>) {
         replyAdapter = ReplyRecyAdapter(replyItem, this)
