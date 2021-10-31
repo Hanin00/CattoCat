@@ -1,23 +1,23 @@
-package com.example.cattocat.src.main.map
+package com.example.cattocat.src.addcat.map
 
 import android.Manifest
-import android.content.ContentValues.TAG
-import android.content.pm.PackageManager
+import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.example.cattocat.Companion.Companion.LOCATION_PERMISSION_REQUEST_CODE
-import com.example.cattocat.databinding.ActivityMapBinding
+import com.example.cattocat.databinding.ActivityMakeMarkerBinding
+import com.example.cattocat.src.addcat.AddCatView
+import com.example.cattocat.src.addcat.model.AddCatInfo
+import com.example.cattocat.src.main.map.MapActivity
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.util.FusedLocationSource
 import com.naver.maps.map.widget.LocationButtonView
 
+class MakeMarkerActivity : AppCompatActivity(),OnMapReadyCallback {
 
-//map
-class MapActivity : AppCompatActivity(), OnMapReadyCallback {
-    private lateinit var binding: ActivityMapBinding
+    private lateinit var binding: ActivityMakeMarkerBinding
     private lateinit var mapView: MapView
     private lateinit var naverMap: NaverMap
     private var getLatitude: Double = 37.5548732
@@ -25,17 +25,22 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var locationSource: FusedLocationSource //사용자 현재 위치
 
 
+    private val xlocation = ""
+    private val ylocation = ""
+    private val locatefrommap = ""
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMapBinding.inflate(layoutInflater)
+        binding = ActivityMakeMarkerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        mapView = binding.mapNavermap
+        mapView = binding.makemarkerMap
         mapView.onCreate(savedInstanceState)
 
-        binding.mapNavermap.getMapAsync(this)
+        binding.makemarkerMap.getMapAsync(this)
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
-    }
 
+    }
     override fun onMapReady(map: NaverMap) {
         naverMap = map
         naverMap.let {
@@ -50,14 +55,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 LatLng(getLatitude, getLongitude),  // 위치 지정
                 9.0 // 줌 레벨
             )
-            
+
             //화면에서 표시하는 지도(카메라) 위치 조정
             val cameraUpdate = CameraUpdate.scrollTo(LatLng(getLatitude,getLongitude))
             naverMap.moveCamera(cameraUpdate)
 
             //지도 위 사용자 위치 표시 객체
-            val locationButton: LocationButtonView = binding.mapBtnLocation
-            locationButton.map = naverMap
+        //    val locationButton: LocationButtonView = binding.makemarkerBtnLocation
+         //   locationButton.map = naverMap
         }
     }
 
@@ -105,9 +110,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     )
 
     //위치 권한
-//    companion object {
-//        private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
-//    }
+    companion object {
+        private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
+    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -120,10 +125,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             )
         ) {
             if (!locationSource.isActivated) { // 권한 거부됨
-                Log.d(TAG, "MainActivity - onRequestPermissionsResult 권한 거부됨")
+                Log.d(ContentValues.TAG, "MainActivity - onRequestPermissionsResult 권한 거부됨")
                 naverMap.locationTrackingMode = LocationTrackingMode.None
             } else {
-                Log.d(TAG, "MainActivity - onRequestPermissionsResult 권한 승인됨")
+                Log.d(ContentValues.TAG, "MainActivity - onRequestPermissionsResult 권한 승인됨")
                 naverMap.locationTrackingMode = LocationTrackingMode.Follow // 현위치 버튼 컨트롤 활성
             }
             return
@@ -140,5 +145,4 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
-
 }

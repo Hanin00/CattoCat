@@ -224,12 +224,23 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="25dp"
                 android:background="@android:color/transparent"
-                android:hint="푸른 상가 서쪽 정문"
+                android:hint="아이콘을 눌러 위치를 저장하세요:>"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/addcat_text_locate"
                 app:layout_constraintTop_toTopOf="@id/addcat_text_locate" />
+
+            <ImageView
+                android:id="@+id/addcat_iv_marker"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/icon_mapldpi"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/addcat_ed_locate"
+                app:layout_constraintTop_toTopOf="@id/addcat_ed_locate" />
+
 
             <ImageView
                 android:id="@+id/addcat_iv_catmom"
@@ -251,7 +262,7 @@
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintStart_toEndOf="@id/addcat_iv_catmom"
-                app:layout_constraintTop_toBottomOf="@id/addcat_text_locate" />
+                app:layout_constraintTop_toBottomOf="@id/addcat_iv_marker" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/addcat_cl_catmom"

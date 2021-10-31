@@ -65,6 +65,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".src.main.setting.myreply.MyPostActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".src.addcat.map.MakeMarkerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 

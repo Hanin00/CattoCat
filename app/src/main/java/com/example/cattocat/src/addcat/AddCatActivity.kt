@@ -1,10 +1,12 @@
 package com.example.cattocat.src.addcat
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cattocat.databinding.ActivityAddCatBinding
+import com.example.cattocat.src.addcat.map.MakeMarkerActivity
 import com.example.cattocat.src.addcat.model.AddCatInfo
 
 
@@ -12,12 +14,28 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
     private lateinit var binding: ActivityAddCatBinding
     private var addCatInfolist = listOf<AddCatInfo>()
 
+    private val xlocation = ""
+    private val ylocation = ""
+    private val locatefrommap = ""
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         binding = ActivityAddCatBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.addcatIvMarker.setOnClickListener {
+            val intent = Intent(this,MakeMarkerActivity::class.java )
+            startActivity(intent)
+
+
+
+        }
+
+
+
 
         val userId = 1
         /*
@@ -35,8 +53,6 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
      */
         val profImg = ""
         val image = ""
-        val xlocation = ""
-        val ylocation = ""
 
         binding.addcatBtnSend.setOnClickListener {
 
@@ -47,8 +63,12 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
             val locate = binding.addcatEdLocate.text.toString()
             val catmom = 1
             val tnr = 1
+
             //val catmom = binding.addcatEdMom.text.toString().toInt()
             //val tnr= binding.addcatEdTnr.text.toString().toInt()
+
+
+
             val prefer = binding.addcatEdPrefer.text.toString()
             val special = binding.addcatEdSpecial.text.toString()
 
@@ -77,6 +97,18 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
             }
         }
     }
+
+    override fun onRestart() {
+        super.onRestart()
+        if(intent.hasExtra("xlocation")){
+
+
+
+
+
+        }
+    }
+
 
     override fun onPostAddCatSuccess(result: AddCatInfo) {
         Toast.makeText(this, "등록되었습니다.", Toast.LENGTH_SHORT).show()
