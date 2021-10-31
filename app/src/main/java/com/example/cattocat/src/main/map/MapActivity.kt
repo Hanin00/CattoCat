@@ -10,12 +10,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.cattocat.Companion
 import com.example.cattocat.Companion.Companion.LOCATION_PERMISSION_REQUEST_CODE
+import com.example.cattocat.Companion.Companion.USERID
 import com.example.cattocat.databinding.ActivityMapBinding
 import com.example.cattocat.src.main.map.catmarker.CatMarkerService
 import com.example.cattocat.src.main.map.catmarker.CatMarkerView
 import com.example.cattocat.src.main.map.catmarker.model.CatMarkerItem
+import com.example.cattocat.src.main.map.catmarker.model.CatMyResponse
 import com.example.cattocat.src.main.mycat.MyCatService
+import com.example.cattocat.src.main.mycat.MyCatView
 import com.example.cattocat.src.main.mycat.model.MyCatItem
+import com.example.cattocat.src.main.mycat.model.MyCatResponse
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
@@ -47,7 +51,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
         binding.mapNavermap.getMapAsync(this)
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 
-        CatMarkerService(this).tryTotalCat()
+
+        binding.mapBtnAll.setOnClickListener {
+            CatMarkerService(this,USERID).tryTotalCat()
+        }
+        binding.mapBtnMy.setOnClickListener {
+            CatMarkerService(this,USERID).tryMyCat()
+        }
+
 
     }
 
@@ -138,6 +149,37 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
         }
     }
 
+    override fun onGetTotalFailure(message: String) {
+        Log.e("Test", "onGetTotalFailure: $message")
+    }
+
+    override fun onGetMyCatSuccess(result: CatMyResponse) {
+        Log.d("Test", "정상연결")
+        Log.d("Test", "${result}")
+
+        if (result != null) {
+            catTotalInfo = result.content as ArrayList<CatMarkerItem>
+            //todo viewpager 연결
+
+            if (catTotalInfo.size > 0) {
+                //     viewPager.visibility = View.VISIBLE
+
+                clearMarkers()
+                setRefreshMap(catTotalInfo)
+                moveCamera()
+                binding.mapNavermap.getMapAsync(this)
+
+            }
+        }
+    }
+
+    override fun onGetMyFailure(message: String) {
+        Log.e("Test", "onGetMyFailure: $message")
+    }
+
+
+
+
 
     private fun clearMarkers() {
         for (i in 0..markers.size - 1) {
@@ -175,10 +217,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
                     height = Marker.SIZE_AUTO
                     captionText = catTotalInfo[i].cat_name.toString()
 
-                    captionMinZoom = 12.0 //최소 줌
+                    captionMinZoom = 8.0 //최소 줌
                     captionMaxZoom = 16.0//최대 줌
                     tag = catTotalInfo[i].cat_id
-              //      onClickListener = this@MapActivity
+                    //      onClickListener = this@MapActivity
                 }
             }
         }
@@ -198,12 +240,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
         naverMap.moveCamera(cameraUpdate)
     }
 
-    override fun onGetTotalFailure(message: String) {
-        {
-            Log.e("Test", "onGetTotalFailure: $message")
-        }
 
-    }
 
     //todo viewpager 와 연동 필요
     override fun onClick(p0: Overlay): Boolean {
@@ -225,7 +262,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
         }*/
         return true
     }
-
 
 
     override fun onStart() {
@@ -262,5 +298,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
         super.onLowMemory()
         mapView.onLowMemory()
     }
+
+
 
 }

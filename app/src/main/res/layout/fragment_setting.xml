@@ -63,11 +63,14 @@
                             android:id="@+id/setting_iv_user_img"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
+                            app:layout_constraintWidth_percent="0.2"
                             android:scaleType="fitXY"
                             android:src="@mipmap/ic_launcher_round"
-                            app:layout_constraintBottom_toBottomOf="@id/setting_iv_user_cat1"
                             app:layout_constraintDimensionRatio="1:1"
                             app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            android:layout_marginBottom="@dimen/setting_user_divider_margin"
                             app:layout_constraintTop_toTopOf="@id/setting_tv_user_name" />
 
                         <ImageView
@@ -76,6 +79,7 @@
                             android:layout_height="0dp"
                             android:scaleType="fitCenter"
                             android:src="@drawable/icon_dotldpi"
+
                             app:layout_constraintDimensionRatio="1:1"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
@@ -91,57 +95,23 @@
                             android:textColor="@color/setting_text_black"
                             android:textSize="@dimen/setting_user_name"
                             android:textStyle="bold"
+                            android:paddingTop="5dp"
                             app:layout_constraintEnd_toStartOf="@id/setting_btn_info_modify"
                             app:layout_constraintStart_toEndOf="@id/setting_iv_user_img"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="@id/setting_iv_user_img" />
 
                         <TextView
                             android:id="@+id/setting_tv_user_locate"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="강남구"
+                            android:text="충주시"
                             android:textColor="@color/setting_text_black"
                             android:textSize="@dimen/setting_user_name"
+                            android:paddingBottom="5dp"
                             app:layout_constraintStart_toEndOf="@id/setting_iv_user_img"
                             app:layout_constraintStart_toStartOf="@id/setting_tv_user_name"
-                            app:layout_constraintTop_toBottomOf="@id/setting_tv_user_name" />
-
-                        <ImageView
-                            android:id="@+id/setting_iv_user_cat1"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_marginTop="5dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/dummy_cat_09"
-                            app:layout_constraintDimensionRatio="1:1"
-                            app:layout_constraintStart_toStartOf="@id/setting_tv_user_name"
-                            app:layout_constraintTop_toBottomOf="@id/setting_tv_user_locate"
-                            app:layout_constraintWidth_percent="0.1" />
-
-                        <ImageView
-                            android:id="@+id/setting_iv_user_cat2"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_marginStart="5dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/dummy_cat_09"
-                            app:layout_constraintDimensionRatio="1:1"
-                            app:layout_constraintStart_toEndOf="@id/setting_iv_user_cat1"
-                            app:layout_constraintTop_toTopOf="@id/setting_iv_user_cat1"
-                            app:layout_constraintWidth_percent="0.1" />
-
-                        <ImageView
-                            android:id="@+id/setting_iv_user_cat3"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_marginStart="5dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/dummy_cat_09"
-                            app:layout_constraintDimensionRatio="1:1"
-                            app:layout_constraintStart_toEndOf="@id/setting_iv_user_cat2"
-                            app:layout_constraintTop_toTopOf="@id/setting_iv_user_cat1"
-                            app:layout_constraintWidth_percent="0.1" />
+                            app:layout_constraintBottom_toBottomOf="@id/setting_iv_user_img" />
 
                         <View
                             android:id="@+id/setting_user_divider"
@@ -149,7 +119,7 @@
                             android:layout_height="1dp"
                             android:layout_marginTop="@dimen/setting_user_divider_margin"
                             android:background="@color/home_lightgray"
-                            app:layout_constraintTop_toBottomOf="@id/setting_iv_user_cat1" />
+                            app:layout_constraintTop_toBottomOf="@id/setting_tv_user_locate" />
 
                         <ImageView
                             android:id="@+id/setting_iv_menu1"

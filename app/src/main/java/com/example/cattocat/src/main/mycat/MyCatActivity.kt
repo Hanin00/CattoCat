@@ -81,23 +81,17 @@ class MyCatActivity : AppCompatActivity(), MyCatView {
         if (result.content != null) {
             val myCatItem = result.content as ArrayList<MyCatItem>
             myCatRecyAdapter(myCatItem)
-
         } else {
             Log.d("Test", "추가한고양이 없음 X")
         }
-
     }
-
 
     override fun onGetCatFailure(message: String) {
         Log.e("Test", "onGetCatFailure: $message")
     }
 
-
     override fun onResume() {
         super.onResume()
         MyCatService(this, USERID).tryGetMyCat()
     }
-
-
 }

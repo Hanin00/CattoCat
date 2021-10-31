@@ -25,6 +25,12 @@ import com.naver.maps.map.overlay.OverlayImage
 
 import com.naver.maps.map.overlay.Marker
 import com.example.cattocat.src.main.MainActivity
+import android.view.KeyEvent
+
+import android.view.View
+
+
+
 
 class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -53,6 +59,9 @@ class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
 
         binding.makemarkerMap.getMapAsync(this)
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
+
+        binding.makemarkerEdName.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER) true else false })
 
 
     }
