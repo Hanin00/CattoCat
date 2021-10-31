@@ -62,8 +62,6 @@ private val context: Context
                 Log.d("Test","화면전환")
                 itemView.context.startActivity(intent)
             }
-
-
         }
     }
 

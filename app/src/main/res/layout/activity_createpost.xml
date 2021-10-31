@@ -27,6 +27,8 @@
         android:ellipsize="end"
         android:gravity="left"
         android:hint="제목"
+        android:singleLine="true"
+        android:lines="1"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/crpost_tv_title"

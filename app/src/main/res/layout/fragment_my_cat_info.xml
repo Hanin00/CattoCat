@@ -44,10 +44,12 @@
                 android:layout_marginEnd="25dp"
                 android:background="@android:color/transparent"
                 android:hint="김막시무스 안드레아 2세"
-                android:paddingEnd="10dp"
                 android:maxLength="20"
+                android:paddingEnd="10dp"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
+                android:singleLine="true"
+                android:lines="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/mycatinfo_text_name"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -68,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/mycatinfo_img_text_margins"
                 android:layout_marginTop="@dimen/shared_def_vertical"
-                android:text="눈색 "
+                android:text="눈 색 "
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintStart_toEndOf="@id/mycatinfo_iv_eye"
@@ -85,13 +87,15 @@
                     android:id="@+id/mycat_ed_eye"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="임시"
-                    android:hint="ex) 하늘색"
                     android:background="@android:color/transparent"
-                    android:textSize="@dimen/shared_sub_title"
+                    android:hint="ex) 하늘색"
                     android:paddingEnd="10dp"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="임시"
+                    android:singleLine="true"
+                    android:lines="1"
+                    android:textSize="@dimen/shared_sub_title"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -112,8 +116,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/mycatinfo_img_text_margins"
                 android:layout_marginTop="@dimen/shared_def_vertical"
-                android:text="털 색 "
                 android:hint="ex) 고등어"
+                android:text="털 색 "
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintStart_toEndOf="@id/mycatinfo_iv_hair"
@@ -130,10 +134,12 @@
                     android:id="@+id/mycat_ed_hair"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="임시"
-                    android:textSize="14sp"
-                    android:paddingEnd="10dp"
                     android:background="@android:color/transparent"
+                    android:paddingEnd="10dp"
+                    android:text="임시"
+                    android:singleLine="true"
+                    android:lines="1"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -172,11 +178,13 @@
                     android:id="@+id/mycat_ed_socks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="임시"
-                    android:hint="ex) 앞발만 신음"
-                    android:textSize="14sp"
-                    android:paddingEnd="10dp"
                     android:background="@android:color/transparent"
+                    android:hint="ex) 앞발만 신음"
+                    android:paddingEnd="10dp"
+                    android:text="임시"
+                    android:singleLine="true"
+                    android:lines="1"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -210,9 +218,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="25dp"
-                android:paddingEnd="10dp"
                 android:background="@android:color/transparent"
+                android:singleLine="true"
+                android:lines="1"
                 android:hint="ex) 푸른 상가 서쪽 정문"
+                android:paddingEnd="10dp"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -248,18 +258,38 @@
                 app:layout_constraintStart_toStartOf="@id/mycatinfo_text_catmom"
                 app:layout_constraintTop_toBottomOf="@id/mycatinfo_text_catmom">
 
-                <EditText
-                    android:id="@+id/mycatinfo_ed_mom"
+                <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/segmented1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="임시"
-                    android:hint="ex) X"
-                    android:textSize="14sp"
-                    android:paddingEnd="10dp"
-                    android:background="@android:color/transparent"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    segmentedgroup:sc_border_width="2dp"
+                    segmentedgroup:sc_corner_radius="10dp">
 
+                    <RadioButton
+                        android:id="@+id/catmom_seg1"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="없음" />
+
+                    <RadioButton
+                        android:id="@+id/catmom_seg2"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="있음" />
+
+                    <RadioButton
+                        android:id="@+id/catmom_seg3"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="나" />
+                </info.hoang8f.android.segmented.SegmentedGroup>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
@@ -291,16 +321,39 @@
                 app:layout_constraintStart_toStartOf="@id/mycatinfo_text_tnr"
                 app:layout_constraintTop_toBottomOf="@id/mycatinfo_text_tnr">
 
-                <EditText
-                    android:id="@+id/mycat_ed_tnr"
+
+                <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/segmented2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:paddingEnd="20dp"
-                    android:text=" : 포획 / 중성화 / 방사 게이지바 "
-                    android:background="@android:color/transparent"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    segmentedgroup:sc_border_width="2dp"
+                    segmentedgroup:sc_corner_radius="10dp">
+
+                    <RadioButton
+                        android:id="@+id/cattnr_seg1"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="안함" />
+
+                    <RadioButton
+                        android:id="@+id/cattnr_seg2"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="진행" />
+
+                    <RadioButton
+                        android:id="@+id/cattnr_seg3"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="완료" />
+                </info.hoang8f.android.segmented.SegmentedGroup>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -341,10 +394,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="25dp"
-                    android:paddingEnd="10dp"
                     android:background="@android:color/transparent"
                     android:hint="ex) 템테이션 하늘색 / 낚시 장난감"
+                    android:paddingEnd="10dp"
                     android:text="템테이션 하늘색 / 낚시 장난감"
+                    android:singleLine="true"
+                    android:lines="1"
                     android:textColor="@color/shared_title_black"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -389,25 +444,28 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:hint="ex) 쫄보임 / 애교 많음 / 슬금슬금 다가옴 / 말많음"
+                    android:paddingEnd="10dp"
                     android:textColor="@color/shared_title_black"
                     android:textSize="@dimen/shared_sub_title"
-                    android:paddingEnd="10dp"
+                    android:singleLine="true"
+                    android:lines="1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <ImageView
                 android:id="@+id/mycat_btn_modify"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginTop="50dp"
                 android:src="@drawable/icon_paw_bldpi"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintWidth_percent="0.13"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mycatinfo_cl_special"
-                android:layout_marginTop="50dp"/>
+                app:layout_constraintWidth_percent="0.13" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

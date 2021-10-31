@@ -44,20 +44,29 @@ class PostActivity : AppCompatActivity(), PostView {
             binding.postBtnReply.setOnClickListener {
                 val content = binding.postEdReply.text.toString()
                 //todo User_id - 로그인 되어있는
-                PostService(this, isPostIdx, isUserIdx).tryPostReply(
-                    ReplyListItem(
-                        null,
-                        isUserIdx,
-                        isPostIdx.toInt(),
-                        content,
-                        null
+
+                if(content != ""){
+
+
+                    PostService(this, isPostIdx, isUserIdx).tryPostReply(
+                        ReplyListItem(
+                            null,
+                            isUserIdx,
+                            isPostIdx.toInt(),
+                            content,
+                            null
+                        )
                     )
-                )
-                softkeyboardHide()
-                binding.postEdReply.setText("")
+                    softkeyboardHide()
+                    binding.postEdReply.setText("")
 
-                PostService(this, isPostIdx, isUserIdx).tryGetPostSingle(isPostIdx, isUserIdx)
+                    PostService(this, isPostIdx, isUserIdx).tryGetPostSingle(isPostIdx, isUserIdx)
 
+
+
+                }else{
+                    Toast.makeText(this, "댓글을 입력해주세요.",Toast.LENGTH_SHORT).show()
+                }
 
             }
 

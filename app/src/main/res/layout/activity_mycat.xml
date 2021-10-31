@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <ImageView
         android:id="@+id/mycat_iv_back"
         android:layout_width="0dp"
@@ -46,81 +47,94 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mycat_tv_title" />
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/mycat_nscroll_recy"
+    <com.baoyz.widget.PullRefreshLayout
+        android:id="@+id/mycat_refresh_mycat_profile"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mycat_tv_sub1">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/mycat_recy_mycat_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/item_mycat_mycat" />
-
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/mycat_nscroll_recy"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mycat_tv_sub1">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/mycat_cl_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                app:layout_constraintStart_toStartOf="@id/mycat_recy_mycat_profile"
-                app:layout_constraintTop_toBottomOf="@id/mycat_recy_mycat_profile">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/item_mycat_cdv"
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mycat_recy_mycat_profile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="50dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/item_mycat_mycat" />
 
-                    <ImageView
-                        android:id="@+id/item_mycat_img"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/icon_paw_bldpi" />
-                </androidx.cardview.widget.CardView>
-
-
-                <TextView
-                    android:id="@+id/item_mycat_name"
+                <FrameLayout
+                    android:id="@+id/mycat_fl_info"
                     android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/mycat_recy_mycat_profile"
+                    app:layout_constraintTop_toTopOf="@id/mycat_recy_mycat_profile" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mycat_cl_add"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLength="5"
-                    android:maxLines="1"
-                    android:text="추가"
-                    android:textColor="@color/shared_title_black"
-                    android:textSize="@dimen/item_mycat_title"
-                    app:layout_constraintEnd_toEndOf="@id/item_mycat_cdv"
-                    app:layout_constraintStart_toStartOf="@id/item_mycat_cdv"
-                    app:layout_constraintTop_toBottomOf="@id/item_mycat_cdv" />
+                    android:layout_marginHorizontal="10dp"
+                    app:layout_constraintStart_toStartOf="@id/mycat_recy_mycat_profile"
+                    app:layout_constraintTop_toBottomOf="@id/mycat_recy_mycat_profile">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/item_mycat_cdv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="50dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/item_mycat_img"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/icon_paw_bldpi" />
+                    </androidx.cardview.widget.CardView>
 
 
+                    <TextView
+                        android:id="@+id/item_mycat_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLength="5"
+                        android:maxLines="1"
+                        android:text="추가"
+                        android:textColor="@color/shared_title_black"
+                        android:textSize="@dimen/item_mycat_title"
+                        app:layout_constraintEnd_toEndOf="@id/item_mycat_cdv"
+                        app:layout_constraintStart_toStartOf="@id/item_mycat_cdv"
+                        app:layout_constraintTop_toBottomOf="@id/item_mycat_cdv" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.core.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
-    <FrameLayout
-        android:id="@+id/mycat_fl_info"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/mycat_nscroll_recy"
-        app:layout_constraintTop_toTopOf="@id/mycat_nscroll_recy" />
+    </com.baoyz.widget.PullRefreshLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.baoyz.widget.PullRefreshLayout
 import com.example.cattocat.Companion.Companion.USERID
 import com.example.cattocat.R
 import com.example.cattocat.databinding.ActivityMycatBinding
@@ -25,6 +26,7 @@ class MyCatActivity : AppCompatActivity(), MyCatView {
     private lateinit var binding: ActivityMycatBinding
     private lateinit var myCatRecyAdapter: MyCatRecyAdapter
     private var myCatItemList = ArrayList<MyCatItem>()
+    private lateinit var refreshLayout : PullRefreshLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMycatBinding.inflate(layoutInflater)
@@ -37,11 +39,27 @@ class MyCatActivity : AppCompatActivity(), MyCatView {
         val transaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.mycat_fl_info, fragmentA).commitAllowingStateLoss()
 
+        refreshLayout = binding.mycatRefreshMycatProfile
+        refreshLayout.setOnRefreshListener {
+            onRefresh()
+        }
+
         binding.mycatClAdd.setOnClickListener {
             val intent = Intent(this, MakeMarkerActivity::class.java)
             startActivity(intent)
         }
 
+    }
+
+    fun onRefresh() {
+        Log.d("Test", "Main - Refresh")
+
+        // 새로고침
+        MyCatService(this, USERID).tryGetMyCat()
+         myCatRecyAdapter.notifyDataSetChanged()
+
+        //refresh Icon 삭제
+        refreshLayout.setRefreshing(false)
     }
 
     private fun myCatRecyAdapter(myCatItem: ArrayList<MyCatItem>) {

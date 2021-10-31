@@ -28,10 +28,21 @@ class CreatePostActivity : AppCompatActivity(), CreatePostView {
             val user_id = 1
             val image = "url~"
 
-            val request = CreatePostRequest(user_id, title, content, image,null)
+            val request = CreatePostRequest(user_id, title, content, image, null)
 
-            //retrofit 달기
-            CreatePostService(this, request).tryPostCreatePost()
+            if (title != "") {
+                if (content != "") {
+
+                    //retrofit 달기
+                    CreatePostService(this, request).tryPostCreatePost()
+                } else {
+                    Toast.makeText(this, "내용을 입력해주세요", Toast.LENGTH_SHORT).show()
+                }
+
+            } else {
+                Toast.makeText(this, "제목을 입력해주세요", Toast.LENGTH_SHORT).show()
+            }
+
 
         }
         binding.crpostBtnUpload

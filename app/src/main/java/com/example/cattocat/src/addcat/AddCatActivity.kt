@@ -57,9 +57,39 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
             val hair = binding.addcatEdHair.text.toString()
             val socks = binding.addcatEdSocks.text.toString()
             val locate = binding.addcatEdLocate.text.toString()
-            val catmom = 1
-            val tnr = 1
+            val cmom = 1
+            val ctnr = 1
 
+            if (cmom == 0) {
+                binding.catmomSeg1.isChecked = true
+                binding.catmomSeg2.isChecked = false
+                binding.catmomSeg3.isChecked = false
+            }else if (cmom == 1) {
+                binding.catmomSeg1.isChecked = false
+                binding.catmomSeg2.isChecked = true
+                binding.catmomSeg3.isChecked = false
+
+            } else {
+                binding.catmomSeg1.isChecked = false
+                binding.catmomSeg2.isChecked = false
+                binding.catmomSeg3.isChecked = true
+            }
+
+
+            if (ctnr == 0) {
+                binding.cattnrSeg1.isChecked = true
+                binding.cattnrSeg2.isChecked = false
+                binding.cattnrSeg3.isChecked = false
+            }else if (ctnr == 1) {
+                binding.cattnrSeg1.isChecked = false
+                binding.cattnrSeg2.isChecked = true
+                binding.cattnrSeg3.isChecked = false
+
+            } else {
+                binding.cattnrSeg1.isChecked = false
+                binding.cattnrSeg2.isChecked = false
+                binding.cattnrSeg3.isChecked = true
+            }
             //val catmom = binding.addcatEdMom.text.toString().toInt()
             //val tnr= binding.addcatEdTnr.text.toString().toInt()
 
@@ -82,8 +112,8 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
                                     hair,
                                     socks,
                                     locate,
-                                    catmom,
-                                    tnr,
+                                    cmom,
+                                    ctnr,
                                     prefer,
                                     special,
                                     profImg,

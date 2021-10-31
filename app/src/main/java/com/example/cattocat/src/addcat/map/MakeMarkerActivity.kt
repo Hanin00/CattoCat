@@ -3,6 +3,7 @@ package com.example.cattocat.src.addcat.map
 import android.Manifest
 import android.app.AlertDialog
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -28,8 +29,8 @@ import com.example.cattocat.src.main.MainActivity
 import android.view.KeyEvent
 
 import android.view.View
-
-
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 
 
 class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -60,8 +61,19 @@ class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
         binding.makemarkerMap.getMapAsync(this)
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 
-        binding.makemarkerEdName.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER) true else false })
+
+        //Edittext 키보드 내리기
+        binding.makemarkerEdName.setOnEditorActionListener{ textView, action, event ->
+            var handled = false
+
+            if (action == EditorInfo.IME_ACTION_DONE) {
+                // 키보드 내리기
+                val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(binding.makemarkerEdName.windowToken, 0)
+                handled = true
+            }
+            handled
+        }
 
 
     }
@@ -141,6 +153,12 @@ class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
             height = Marker.SIZE_AUTO
 
         }
+    }
+
+    //키보드 내리기
+    fun softkeyboardHide() {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
     }
 
 

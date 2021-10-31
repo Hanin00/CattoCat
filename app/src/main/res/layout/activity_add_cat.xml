@@ -71,6 +71,8 @@
                 android:layout_marginEnd="25dp"
                 android:background="@android:color/transparent"
                 android:hint="김막시무스 안드레아 2세"
+                android:singleLine="true"
+                android:lines="1"
                 android:maxLength="20"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
@@ -115,6 +117,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="임시"
+                    android:singleLine="true"
+                    android:lines="1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -156,6 +160,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="임시"
+                    android:singleLine="true"
+                    android:lines="1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -197,6 +203,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="임시"
+                    android:singleLine="true"
+                    android:lines="1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -231,6 +239,8 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="25dp"
                 android:background="@android:color/transparent"
+                android:singleLine="true"
+                android:lines="1"
                 android:hint="아이콘을 눌러 위치를 저장하세요:>"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
@@ -278,14 +288,38 @@
                 app:layout_constraintStart_toStartOf="@id/addcat_text_catmom"
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_catmom">
 
-                <TextView
-                    android:id="@+id/addcat_ed_mom"
+                <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/segmented1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="1"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    segmentedgroup:sc_border_width="2dp"
+                    segmentedgroup:sc_corner_radius="10dp">
 
+                    <RadioButton
+                        android:id="@+id/catmom_seg1"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="없음" />
+
+                    <RadioButton
+                        android:id="@+id/catmom_seg2"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="있음" />
+
+                    <RadioButton
+                        android:id="@+id/catmom_seg3"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="나" />
+                </info.hoang8f.android.segmented.SegmentedGroup>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
@@ -317,14 +351,39 @@
                 app:layout_constraintStart_toStartOf="@id/addcat_text_tnr"
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_tnr">
 
-                <TextView
-                    android:id="@+id/addcat_ed_tnr"
+
+                <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/segmented2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint=" : 포획 / 중성화 / 방사 게이지바 "
-                    android:text="1"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    segmentedgroup:sc_border_width="2dp"
+                    segmentedgroup:sc_corner_radius="10dp">
+
+                    <RadioButton
+                        android:id="@+id/cattnr_seg1"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="안함" />
+
+                    <RadioButton
+                        android:id="@+id/cattnr_seg2"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="진행" />
+
+                    <RadioButton
+                        android:id="@+id/cattnr_seg3"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="완료" />
+                </info.hoang8f.android.segmented.SegmentedGroup>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

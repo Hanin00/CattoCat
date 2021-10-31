@@ -44,8 +44,8 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
         val chair = arguments?.getString("chair")
         val csocks = arguments?.getString("csocks")
         val clocate = arguments?.getString("clocate")
-        val cmom = arguments?.getString("cmom")
-        val ctnr = arguments?.getString("ctnr")
+        val cmom = arguments?.getString("cmom")?.toInt()
+        val ctnr = arguments?.getString("ctnr")?.toInt()
         val cprefer = arguments?.getString("cprefer")
         val cspecial = arguments?.getString("cspecial")
 
@@ -55,8 +55,39 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
         binding.mycatEdHair.setText(chair)
         binding.mycatEdSocks.setText(csocks)
         binding.mycatinfoEdLocate.setText(clocate)
-        binding.mycatinfoEdMom.setText(cmom)
-        binding.mycatEdTnr.setText(ctnr)
+
+
+
+        if (cmom == 0) {
+            binding.catmomSeg1.isChecked = true
+            binding.catmomSeg2.isChecked = false
+            binding.catmomSeg3.isChecked = false
+        }else if (cmom == 1) {
+            binding.catmomSeg1.isChecked = false
+            binding.catmomSeg2.isChecked = true
+            binding.catmomSeg3.isChecked = false
+
+        } else {
+            binding.catmomSeg1.isChecked = false
+            binding.catmomSeg2.isChecked = false
+            binding.catmomSeg3.isChecked = true
+        }
+
+
+        if (ctnr == 0) {
+            binding.cattnrSeg1.isChecked = true
+            binding.cattnrSeg2.isChecked = false
+            binding.cattnrSeg3.isChecked = false
+        }else if (ctnr == 1) {
+            binding.cattnrSeg1.isChecked = false
+            binding.cattnrSeg2.isChecked = true
+            binding.cattnrSeg3.isChecked = false
+
+        } else {
+            binding.cattnrSeg1.isChecked = false
+            binding.cattnrSeg2.isChecked = false
+            binding.cattnrSeg3.isChecked = true
+        }
 
         binding.mycatinfoEdPrefer.setText(cprefer)
         binding.mycatinfoEdSpecial.setText(cspecial)
@@ -71,8 +102,28 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
                 val chair = binding.mycatEdHair.text.toString()
                 val csocks = binding.mycatEdSocks.text.toString()
                 val clocate = binding.mycatinfoEdLocate.text.toString()
-                val cmom = binding.mycatinfoEdMom.text.toString()
-                val ctnr = binding.mycatEdTnr.text.toString()
+
+                var cmom = 0
+                var ctnr = 0
+
+
+                if (binding.catmomSeg1.isChecked == true) {
+                    cmom = 0
+                } else if(binding.catmomSeg2.isChecked == true) {
+                    cmom = 1
+                }else{
+                    cmom = 2
+                }
+
+                if (binding.cattnrSeg1.isChecked == true) {
+                    ctnr = 0
+
+                } else if(binding.cattnrSeg2.isChecked == true)  {
+                    ctnr = 1
+                }else{
+                    ctnr = 2
+                }
+
                 val cprefer = binding.mycatinfoEdPrefer.text.toString()
                 val cspecial = binding.mycatinfoEdSpecial.text.toString()
 
@@ -87,16 +138,33 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
 
                 MyCatInfoService(
                     this, cat_id,
-                    MyCatItem(cat_id, USERID, cname, ceye,chair,csocks,clocate,cmom.toInt(),ctnr.toInt(),
-                    cprefer,cspecial,cprofimg,cimg,xlocation,ylocations,isactive)
+                    MyCatItem(
+                        cat_id,
+                        USERID,
+                        cname,
+                        ceye,
+                        chair,
+                        csocks,
+                        clocate,
+                        cmom,
+                        ctnr.toInt(),
+                        cprefer,
+                        cspecial,
+                        cprofimg,
+                        cimg,
+                        xlocation,
+                        ylocations,
+                        isactive
+                    )
                 ).tryPutMyCatInfo()
 
-                val mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_cat_modify, null)
+                val mDialogView =
+                    LayoutInflater.from(context).inflate(R.layout.dialog_cat_modify, null)
                 val mBuilder = AlertDialog.Builder(context)
                     .setView(mDialogView)
-                  //  .setTitle("Login Form")
+                //  .setTitle("Login Form")
 
-                val  mAlertDialog = mBuilder.show()
+                val mAlertDialog = mBuilder.show()
 
                 val okButton = mDialogView.findViewById<AppCompatButton>(R.id.dialog_modify_btn)
                 okButton.setOnClickListener {
@@ -116,12 +184,10 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
     }
 
 
-
     override fun onPutCatInfoFailure(message: String) {
 
         Log.e("Test", "onPutCatInfoFailure: $message")
     }
-
 
 
 }

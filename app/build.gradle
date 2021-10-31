@@ -38,6 +38,11 @@ android {
 }
 
 dependencies {
+    //https://github.com/baoyongzhang/android-PullRefreshLayout
+    implementation 'com.baoyz.pullrefreshlayout:library:1.2.0'
+
+    //https://github.com/Kaopiz/android-segmented-control
+   implementation 'info.hoang8f:android-segmented:1.0.6'
 
     //Looping ViewPager - https://github.com/siralam/LoopingViewPager
     implementation 'com.asksira.android:loopingviewpager:1.4.1'
