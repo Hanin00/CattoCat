@@ -44,12 +44,8 @@
         <activity
             android:name=".src.main.board.BoardActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
-            android:name="com.example.cattocat.src.main.home.ad.AdActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.example.cattocat.src.main.setting.notice.noticeview.NoticeViewActivity"
+            android:name="com.example.cattocat.src.main.setting.notice.viewer.ViewerActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.main.setting.notice.NoticeActivity"
@@ -66,6 +62,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.addcat.AddCatActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".src.main.setting.myreply.MyPostActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
     </application>

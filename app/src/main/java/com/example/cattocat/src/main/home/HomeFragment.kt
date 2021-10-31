@@ -9,26 +9,28 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.example.cattocat.Companion.Companion.USERID
 import com.example.cattocat.R
 import com.example.cattocat.databinding.FragmentHomeBinding
-import com.example.cattocat.src.main.home.ad.AdActivity
+import com.example.cattocat.src.main.MainActivity
+import com.example.cattocat.src.main.board.posting.PostActivity
 import com.example.cattocat.src.main.home.model.*
 import com.example.cattocat.src.main.home.viewpager.InfoViewRecyAdapter
 import com.example.cattocat.src.main.home.viewpager.MyIntroPagerRecyAdapter
 import com.example.cattocat.src.main.home.viewpager.NoticeRecyAdapter
-import com.example.cattocat.src.main.setting.notice.noticeview.NoticeViewActivity
+import com.example.cattocat.src.main.setting.notice.viewer.ViewerActivity
 import com.example.cattocat.util.Constants
 import java.lang.Math.abs
 
 //main Home
-class HomeFragment : Fragment(),HomeView {
+class HomeFragment : Fragment(), HomeView {
     private lateinit var binding: FragmentHomeBinding
     private var pageItemList = ArrayList<HomePostItem>()
     private var homeNoticeItemList = ArrayList<HomeNoticeItem>()
     private var homeAdItemList = ArrayList<HomeInfoItem>()
     private lateinit var myIntroPagerRecyclerAdapter: MyIntroPagerRecyAdapter
     private lateinit var noticeRecyAdapter: NoticeRecyAdapter
-    private lateinit var adViewRecyAdapter: InfoViewRecyAdapter
+    private lateinit var infoRecyAdapter: InfoViewRecyAdapter
 
 
     override fun onCreateView(
@@ -39,13 +41,8 @@ class HomeFragment : Fragment(),HomeView {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         //각 View에 접근(ex/ binding.myTextView.text = "바인딩이 잘 되었어요!!"
-
-
-
         return binding.root
     }
-
-
 
 
     //todo ImageView ItemClick Listener 만들어야함
@@ -55,12 +52,12 @@ class HomeFragment : Fragment(),HomeView {
         HomeService(this).tryGetHome()
     }
 
-
     private val postClickListener = { postIdx: Int ->
-        /*  val intent = Intent(context, HospitalInformationActivity::class.java)
-          intent.putExtra(Constants.HOSPITAL_IDX, hospitalIdx)
-          intent.putExtra(Constants.FROM_AD_BANNER, true)
-          startActivity(intent)*/
+        val intent = Intent(context, PostActivity::class.java)
+        Log.d("Test", "postIdx $postIdx")
+        intent.putExtra("isPostIdx", postIdx)
+        intent.putExtra("isUserIdx", USERID)
+        startActivity(intent)
     }
 
     private fun setListWithData(datalist: ArrayList<HomePostItem?>) {
@@ -70,10 +67,10 @@ class HomeFragment : Fragment(),HomeView {
     }
 
     private val noticeClickListener = { noticeIdx: Int ->
-        val intent = Intent(context, NoticeViewActivity::class.java)
-          intent.putExtra(Constants.NOTICE_IDX, noticeIdx)
-          intent.putExtra(Constants.FROM_AD_BANNER, true)
-          startActivity(intent)
+        val intent = Intent(context, ViewerActivity::class.java)
+        intent.putExtra(Constants.TEXT_ID, noticeIdx)
+        intent.putExtra(Constants.FROM_NOTICE, true)
+        startActivity(intent)
     }
 
     private fun noticeBannerAdapter(itemList: ArrayList<HomeNoticeItem?>) {
@@ -85,23 +82,23 @@ class HomeFragment : Fragment(),HomeView {
         // binding.homeTblIndicator.updateIndicatorCounts(bindinghomeVp2Banner.indicatorCount)
     }
 
-    private val adClickListener = { adIdx: Int ->
-        val intent = Intent(context, AdActivity::class.java)
-        intent.putExtra(Constants.AD_IDX, adIdx)
-        intent.putExtra(Constants.FROM_AD_BANNER, true)
+    private val infoClickListener = { infoIdx: Int ->
+        val intent = Intent(context, ViewerActivity::class.java)
+        intent.putExtra(Constants.TEXT_ID, infoIdx)
+        intent.putExtra(Constants.FROM_INFO, true)
         startActivity(intent)
     }
 
     private fun initInfoBannerAdapter(itemList: ArrayList<HomeInfoItem?>) {
-        adViewRecyAdapter = InfoViewRecyAdapter(itemList, true, requireContext(), adClickListener)
-        binding.homeVpAd.adapter = adViewRecyAdapter
+        infoRecyAdapter = InfoViewRecyAdapter(itemList, true, requireContext(), infoClickListener)
+        binding.homeVpAd.adapter = infoRecyAdapter
         binding.homeVpAd.onIndicatorProgress = { selectingPosition, progress ->
             //  binding.homeTblIndicator.onPageScrolled(selectingPosition, progress)
         }
         // binding.homeTblIndicator.updateIndicatorCounts(binding.homeVp2Banner.indicatorCount)
     }
 
-    private fun initAdapter(){
+    private fun initAdapter() {
         // 뷰페이저에 설정
         binding.homeVpPost.apply {
             adapter = myIntroPagerRecyclerAdapter
@@ -149,34 +146,19 @@ class HomeFragment : Fragment(),HomeView {
         Log.d("Test", "정상연결")
         Log.d("Test", "${result}")
 
-
-
         setListWithData(result.bestpost as ArrayList<HomePostItem?>)
         noticeBannerAdapter(result.noticelist as ArrayList<HomeNoticeItem?>)
         initInfoBannerAdapter(result.infolist as ArrayList<HomeInfoItem?>)
         initAdapter()
 
-
-      /*  if(result.bestpost != null){
-            setListWithData(result.bestpost as ArrayList<HomePostItem>)
-        }else{
-            Log.d("Test","등록된 게시글 X")
-        }
-
-        if(result.noticelist != null){
-            noticeBannerAdapter(result.noticelist as ArrayList<HomeNoticeItem>)
-        }else{
-            Log.d("Test","등록된 게시글 X")
-        }
-
-        if(result.infolist != null){
-            initInfoBannerAdapter(result.infolist as ArrayList<HomeInfoItem>)
-        }else{
-            Log.d("Test","등록된 게시글 X")
-        }*/
     }
 
     override fun onGetHomeFailure(message: String) {
         Log.e("Test", "onPostAddCatFailure: $message")
     }
+
+
+
+
+
 }

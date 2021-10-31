@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/noticeview_tv_title"
+        android:id="@+id/viewer_tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -13,9 +13,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="@dimen/shared_def_horizontal"
         android:layout_marginVertical="@dimen/shared_def_vertical"
-        android:text="웹뷰로 변경~ 뒤로가기 버튼 XX"
+        android:text="Title"
         android:textSize="@dimen/shared_title"
         android:textColor="@color/black"/>
+    <WebView
+        android:id="@+id/viewer_wb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:minHeight="600dp"
+        app:layout_constraintTop_toBottomOf="@id/viewer_tv_title"
+       />
+    <ImageView
+        android:id="@+id/viewer_iv_img"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/dummy_cat_01"
+        app:layout_constraintTop_toBottomOf="@id/viewer_wb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

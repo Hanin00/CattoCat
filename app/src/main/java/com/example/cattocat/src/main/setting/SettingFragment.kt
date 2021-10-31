@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.cattocat.R
 import com.example.cattocat.databinding.FragmentSettingBinding
+import com.example.cattocat.src.main.setting.myreply.MyPostActivity
+import com.example.cattocat.src.main.setting.myreply.MyReplyActivity
 import com.example.cattocat.src.main.setting.notice.NoticeActivity
 
 
@@ -31,6 +33,28 @@ class SettingFragment : Fragment() {
     }
 
     private fun initClick() {
+        //내가 쓴 글
+        binding.settingIvMenu1.setOnClickListener {
+            val intent = Intent(context, MyPostActivity::class.java)
+            startActivity(intent)
+        }
+
+        //내가 좋아한 글
+        binding.settingIvMenu2.setOnClickListener {
+            val intent = Intent(context, MyPostActivity::class.java)
+            startActivity(intent)
+        }
+
+        //내가 단 댓글
+        binding.settingIvMenu3.setOnClickListener {
+            val intent = Intent(context, MyReplyActivity::class.java)
+            startActivity(intent)
+        }
+
+
+
+
+
        //공지사항
         binding.settingTvMenu01.setOnClickListener {
             Log.d("Test", "Clicked ")

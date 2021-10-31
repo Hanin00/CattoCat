@@ -1,13 +1,12 @@
 package com.example.cattocat.src.main.setting.notice
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cattocat.databinding.ActivityNoticeBinding
-import com.example.cattocat.src.main.board.model.BoardItem
 import com.example.cattocat.src.main.setting.notice.adapter.NoticeRecyAdapter
 import com.example.cattocat.src.main.setting.notice.model.NoticeItem
+import com.example.cattocat.src.main.setting.notice.viewer.notice.model.NoticeSingleItem
 
 class NoticeActivity : AppCompatActivity() {
     private lateinit var binding : ActivityNoticeBinding
@@ -26,7 +25,7 @@ class NoticeActivity : AppCompatActivity() {
         }
 
 
-        noticeItemList.add(NoticeItem(1,"디자인 업데이트 v1.1.2","https",))
+        noticeItemList.add(NoticeItem(1,"디자인 업데이트 v1.1.2","https"))
         noticeItemList.add(NoticeItem(2,"디자인 업데이트 v1.1.3","https",))
         noticeItemList.add(NoticeItem(3,"디자인 업데이트 v1.1.4","https",))
         noticeItemList.add(NoticeItem(5,"디자인 업데이트 v1.1.5","https",))

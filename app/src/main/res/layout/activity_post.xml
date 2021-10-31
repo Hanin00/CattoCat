@@ -95,7 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/post_titletovp_magin_top"
-                    android:text="고양이 밥 자꾸 주지 마세요"
+                    android:text="1일 8끼 먹는 고양이가 있다?"
                     android:textSize="@dimen/post_item_title"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@id/post_iv_user"
@@ -133,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/post_userinfo_magin_top"
-                    android:text="주는 분 엄청 많아서 1일 8끼ㅠ"
+                    android:text="주는 분 엄청 많아서 1일 8끼ㅠ 계속 먹더라고여ㅠㅠ; "
                     android:textSize="@dimen/post_item_content"
                     android:textStyle="normal"
                     app:layout_constraintStart_toStartOf="@id/post_iv_user"
@@ -154,12 +154,12 @@
                     android:id="@+id/post_tv_like"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="232"
+                    android:layout_marginStart="5dp"
+                    android:text="0"
                     android:textSize="14sp"
-                    app:layout_constraintTop_toBottomOf="@id/post_tv_content"
-                    app:layout_constraintStart_toEndOf="@id/post_iv_like" />
+                    app:layout_constraintStart_toEndOf="@+id/post_iv_like"
+                    app:layout_constraintTop_toBottomOf="@id/post_tv_content" />
 
                 <ImageView
                     android:id="@+id/post_iv_reply"
@@ -177,26 +177,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginStart="5dp"
-                    android:text="232"
+                    android:text="0"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@id/post_iv_reply"
                     app:layout_constraintStart_toEndOf="@id/post_iv_reply"
                     app:layout_constraintTop_toTopOf="@id/post_iv_reply" />
 
-                <View
-                    android:id="@+id/divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/home_darkgray"
-                    app:layout_constraintTop_toBottomOf="@id/post_iv_like" />
+
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/post_recy_reply"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    app:layout_constraintTop_toBottomOf="@id/divider"
+                    app:layout_constraintTop_toBottomOf="@id/post_tv_reply"
                     tools:listitem="@layout/item_post_reply" />
 
 

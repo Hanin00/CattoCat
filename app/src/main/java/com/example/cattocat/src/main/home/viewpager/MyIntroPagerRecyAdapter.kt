@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cattocat.Companion
 import com.example.cattocat.R
 import com.example.cattocat.src.main.board.posting.PostActivity
 import com.example.cattocat.src.main.home.model.HomePostItem
@@ -32,7 +33,8 @@ class MyIntroPagerRecyAdapter(private val homePostList: ArrayList<HomePostItem?>
 
             itemView.setOnClickListener {
                 val intent = Intent(context, PostActivity::class.java)
-                intent.putExtra("itemIdx", itemIdx)
+                intent.putExtra("isPostIdx", homePostItem.post_id)
+                intent.putExtra("isUserIdx", Companion.USERID)
                 Log.d("Test","MyIntroPagerRecyAdpater - clicked post id : ${homePostItem.post_id}")
                 Log.d("Test","MyIntroPagerRecyAdpater - clicked post id : ${itemIdx}")
                 itemView.context.startActivity(intent)

@@ -4,8 +4,10 @@ object Constants {
 
 
     const val AD_IDX = "AD_IDX"
-    const val NOTICE_IDX = "NOTICE_IDX"
-    const val FROM_AD_BANNER = "FROM_AD_BANNER"
+    const val TEXT_ID = "TEXT_ID"
+    const val FROM_NOTICE = "FROM_NOTICE"
+    const val FROM_INFO = "FROM_INFO"
+
 
 
 }

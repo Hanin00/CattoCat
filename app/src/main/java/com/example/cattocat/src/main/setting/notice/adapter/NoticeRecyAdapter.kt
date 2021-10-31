@@ -10,7 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cattocat.R
 import com.example.cattocat.src.main.setting.notice.model.NoticeItem
-import com.example.cattocat.src.main.setting.notice.noticeview.NoticeViewActivity
+import com.example.cattocat.src.main.setting.notice.viewer.notice.model.NoticeSingleItem
+import com.example.cattocat.src.main.setting.notice.viewer.ViewerActivity
 
 class NoticeRecyAdapter(var noticeItem : ArrayList<NoticeItem>, private val context : Context)
     : RecyclerView.Adapter<NoticeRecyAdapter.NoticeViewHolder>(){
@@ -21,7 +22,7 @@ class NoticeRecyAdapter(var noticeItem : ArrayList<NoticeItem>, private val cont
                 noticeTitle.text = item.noticeTitle
 
                 itemView.setOnClickListener {
-                    val intent = Intent(context, NoticeViewActivity::class.java)
+                    val intent = Intent(context, ViewerActivity::class.java)
                     intent.putExtra("noticeIdx", item.noticeIdx)
                     Log.d("Test","NoticeRecyclerItem 클릭 후 화면전환 Idx - ${item.noticeIdx}")
                     itemView.context.startActivity(intent)
