@@ -26,10 +26,6 @@ import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.overlay.Marker
 import com.example.cattocat.src.main.MainActivity
 
-
-
-
-
 class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var binding: ActivityMakeMarkerBinding

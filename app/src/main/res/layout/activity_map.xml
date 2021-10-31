@@ -5,38 +5,78 @@
     android:layout_height="match_parent">
 
 
+    <com.naver.maps.map.widget.LocationButtonView
+        android:id="@+id/map_btn_location"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.12" />
+
+    <com.naver.maps.map.MapView
+        android:id="@+id/map_navermap"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/map_iv_back"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/notice_def_vertical"
-        android:scaleType="fitXY"
-        app:layout_constraintWidth_percent="0.08"
-        android:src="@drawable/icon_back"
+        android:layout_marginTop="@dimen/shared_def_vertical"
         android:paddingVertical="5dp"
         android:paddingRight="10dp"
-        android:layout_marginTop="@dimen/shared_def_vertical"
-        app:layout_goneMarginStart="@dimen/shared_def_horizontal"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_back"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.08"
+        app:layout_goneMarginStart="@dimen/shared_def_horizontal" />
+
+    <TextView
+        android:id="@+id/map_tv_all"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="620dp"
+        android:background="@drawable/background_btn_map"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:text="all"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/map_tv_my"
+        app:layout_constraintStart_toStartOf="@id/map_tv_my"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.naver.maps.map.widget.LocationButtonView
-        android:id="@+id/map_btn_location"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.12"
+    <TextView
+        android:id="@+id/map_tv_my"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_btn_map"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:text="my"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/map_tv_all"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"/>
+        app:layout_constraintStart_toStartOf="@id/map_navermap" />
 
-    <com.naver.maps.map.MapView
-        android:id="@+id/map_navermap"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/map_vp_catinfo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

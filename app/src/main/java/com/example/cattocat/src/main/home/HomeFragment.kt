@@ -142,7 +142,6 @@ class HomeFragment : Fragment(), HomeView {
     }
 
     override fun onGetHomeSuccess(result: HomeResponse) {
-        Toast.makeText(context, "정상연결.", Toast.LENGTH_SHORT).show()
         Log.d("Test", "정상연결")
         Log.d("Test", "${result}")
 

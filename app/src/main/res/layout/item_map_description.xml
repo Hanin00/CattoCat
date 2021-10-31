@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_map_description"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="10dp"
+    android:background="@android:color/transparent">
+
+    <androidx.cardview.widget.CardView
+        app:contentPaddingLeft="@dimen/board_userinfo_magin_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="10dp"
+        android:layout_marginVertical="10dp"
+        android:clipToPadding="false"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="15dp"
+            >
+
+            <ImageView
+                android:id="@+id/item_map_iv"
+                android:layout_width="63dp"
+                android:layout_height="63dp"
+                android:layout_marginVertical="23.5dp"
+                android:src="@drawable/dummy_cat_01"
+                android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/item_map_tv_location"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/item_map_tv_cathair" />
+
+            <TextView
+                android:id="@+id/item_map_tv_cathair"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/btn_map_seleted"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="피부과"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@+id/item_map_iv"
+                app:layout_constraintTop_toTopOf="@+id/item_map_iv" />
+
+            <TextView
+                android:id="@+id/item_map_tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif"
+                android:text="체다"
+                android:textColor="@color/setting_text_black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@id/item_map_tv_cathair"
+                app:layout_constraintTop_toBottomOf="@id/item_map_tv_cathair" />
+
+
+            <TextView
+                android:id="@+id/item_map_tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="기숙사 문 앞"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/setting_text_black"
+                android:textSize="11sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="@id/item_map_tv_name"
+                app:layout_constraintTop_toBottomOf="@id/item_map_tv_name" />
+
+            <TextView
+                android:id="@+id/item_map_tv_tnr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif"
+                android:text="0"
+                android:textColor="@color/setting_text_black"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/item_map_tv_location"
+                app:layout_constraintBottom_toTopOf="@id/item_map_tv_location"
+                app:layout_constraintEnd_toStartOf="@id/item_map_iv_menu" />
+
+            <TextView
+                android:id="@+id/item_map_tv_mom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="sans-serif"
+                android:paddingBottom="10dp"
+                android:text="0"
+                android:textColor="@color/setting_text_black"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/item_map_tv_location"
+                app:layout_constraintBottom_toTopOf="@id/item_map_tv_location"
+                app:layout_constraintEnd_toStartOf="@id/item_map_tv_tnr" />
+
+            <TextView
+                android:id="@+id/item_map_tv_prefer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="sans-serif"
+                android:text="츄르 빨간색"
+                android:textColor="@color/setting_text_black"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/item_map_tv_location"
+                app:layout_constraintEnd_toStartOf="@id/item_map_iv_menu"
+                app:layout_constraintTop_toTopOf="@id/item_map_tv_location" />
+
+            <ImageView
+                android:id="@+id/item_map_iv_menu"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintWidth_percent="0.1"
+                android:src="@drawable/icon_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

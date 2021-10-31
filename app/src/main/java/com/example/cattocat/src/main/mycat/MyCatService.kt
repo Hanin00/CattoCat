@@ -9,7 +9,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class MyCatService(val view: MyCatActivity, val user_id:Int) {
+class MyCatService(val view: MyCatView, val user_id:Int) {
     fun tryGetMyCat(){
         val myCatRetrofitInterface = MyApplication.mRetrofit.create(MyCatRetrofitInterface::class.java)
 

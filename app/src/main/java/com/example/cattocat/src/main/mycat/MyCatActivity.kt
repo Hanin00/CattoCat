@@ -75,7 +75,6 @@ class MyCatActivity : AppCompatActivity(), MyCatView {
     }
 
     override fun onGetCatSuccess(result: MyCatResponse) {
-        Toast.makeText(this, "정상연결.", Toast.LENGTH_SHORT).show()
         Log.d("Test", "정상연결")
         Log.d("Test", "${result}")
 

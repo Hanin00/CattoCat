@@ -14,6 +14,7 @@
     <color name="shared_title_black">#222222</color>
     <color name="shared_title_white">#FFFFFFFF</color>
     <color name="main_yellow">#ffcc00</color>
+    <color name="transyellow">#60ffcc00</color>
 
 
     <!-- Home Fragment -->

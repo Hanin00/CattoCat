@@ -5,25 +5,37 @@ import android.content.ContentValues.TAG
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import com.example.cattocat.Companion
 import com.example.cattocat.Companion.Companion.LOCATION_PERMISSION_REQUEST_CODE
 import com.example.cattocat.databinding.ActivityMapBinding
+import com.example.cattocat.src.main.map.catmarker.CatMarkerService
+import com.example.cattocat.src.main.map.catmarker.CatMarkerView
+import com.example.cattocat.src.main.map.catmarker.model.CatMarkerItem
+import com.example.cattocat.src.main.mycat.MyCatService
+import com.example.cattocat.src.main.mycat.model.MyCatItem
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
+import com.naver.maps.map.overlay.Marker
+import com.naver.maps.map.overlay.Overlay
+import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.util.FusedLocationSource
 import com.naver.maps.map.widget.LocationButtonView
 
 
 //map
-class MapActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
+    Overlay.OnClickListener {
     private lateinit var binding: ActivityMapBinding
     private lateinit var mapView: MapView
     private lateinit var naverMap: NaverMap
     private var getLatitude: Double = 37.5548732
     private var getLongitude: Double = 127.0246126
     private lateinit var locationSource: FusedLocationSource //사용자 현재 위치
-
+    private var markers = mutableListOf<Marker>()
+    private lateinit var catTotalInfo: java.util.ArrayList<CatMarkerItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +46,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
         binding.mapNavermap.getMapAsync(this)
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
+
+        CatMarkerService(this).tryTotalCat()
+
     }
 
     override fun onMapReady(map: NaverMap) {
@@ -50,9 +65,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 LatLng(getLatitude, getLongitude),  // 위치 지정
                 9.0 // 줌 레벨
             )
-            
+
             //화면에서 표시하는 지도(카메라) 위치 조정
-            val cameraUpdate = CameraUpdate.scrollTo(LatLng(getLatitude,getLongitude))
+            val cameraUpdate = CameraUpdate.scrollTo(LatLng(getLatitude, getLongitude))
             naverMap.moveCamera(cameraUpdate)
 
             //지도 위 사용자 위치 표시 객체
@@ -60,43 +75,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             locationButton.map = naverMap
         }
     }
-
-
-    override fun onStart() {
-        super.onStart()
-        mapView.onStart()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        mapView.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        mapView.onPause()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        mapView.onSaveInstanceState(outState)
-    }
-
-    override fun onStop() {
-        super.onStop()
-        mapView.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mapView.onDestroy()
-    }
-
-    override fun onLowMemory() {
-        super.onLowMemory()
-        mapView.onLowMemory()
-    }
-
 
     //현재위치 표시를 위한 권한
     private val PERMISSION: Array<String> = arrayOf(
@@ -137,8 +115,152 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                    }
                }*/
 
-
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    override fun onGetTotalCatSuccess(result: ArrayList<CatMarkerItem>) {
+        Log.d("Test", "정상연결")
+        Log.d("Test", "${result}")
+
+        if (result != null) {
+            catTotalInfo = result as ArrayList<CatMarkerItem>
+            //todo viewpager 연결
+
+            if (catTotalInfo.size > 0) {
+                //     viewPager.visibility = View.VISIBLE
+
+                clearMarkers()
+                setRefreshMap(result)
+                moveCamera()
+                binding.mapNavermap.getMapAsync(this)
+
+            }
+        }
+    }
+
+
+    private fun clearMarkers() {
+        for (i in 0..markers.size - 1) {
+            markers[i].map = null
+        }
+        markers.clear()
+    }
+
+    private fun noResponse() {
+        clearMarkers()
+        moveCamera()
+    }
+
+    //맵 갱신
+    private fun setRefreshMap(response: java.util.ArrayList<CatMarkerItem>) {
+        //       setListWithdata(response)
+        //     viewPagerAdapter.notifyDataSetChanged()
+        clearMarkers()
+        setNaverMarker()
+        moveCamera()
+    }
+
+    //마커 생성
+    private fun setNaverMarker() {
+        if (catTotalInfo != null) {
+            for (i in 0 until catTotalInfo.size) {
+                markers += Marker().apply {
+                    position = LatLng(
+                        catTotalInfo[i].cat_ylocation.toString().toDouble(),
+                        catTotalInfo[i].cat_xlocation.toString().toDouble()
+                    )
+                    icon = OverlayImage.fromResource(R.drawable.navermap_default_marker_icon_yellow)
+                    map = naverMap
+                    width = Marker.SIZE_AUTO
+                    height = Marker.SIZE_AUTO
+                    captionText = catTotalInfo[i].cat_name.toString()
+
+                    captionMinZoom = 12.0 //최소 줌
+                    captionMaxZoom = 16.0//최대 줌
+                    tag = catTotalInfo[i].cat_id
+              //      onClickListener = this@MapActivity
+                }
+            }
+        }
+        //todo viewpager
+        //setListWithdata(catTotalInfo)
+    }
+
+
+    private fun moveCamera() {
+        val cameraUpdate =
+            CameraUpdate.scrollTo(
+                LatLng(
+                    getLatitude,
+                    getLongitude
+                )
+            ).animate(CameraAnimation.Fly)
+        naverMap.moveCamera(cameraUpdate)
+    }
+
+    override fun onGetTotalFailure(message: String) {
+        {
+            Log.e("Test", "onGetTotalFailure: $message")
+        }
+
+    }
+
+    //todo viewpager 와 연동 필요
+    override fun onClick(p0: Overlay): Boolean {
+/*        setListWithdata(mapItemList)
+        initHospitalViewPager()
+        val selectedModel = viewPagerAdapter.currentList.firstOrNull() {
+            it.hospitalIdx == overlay.tag
+        }
+        selectedModel?.let {
+            val position = viewPagerAdapter.currentList.indexOf(it)
+            for (i in 0 until markers.size) {
+                if (position != i) {
+                    markers[i].icon = OverlayImage.fromResource(R.drawable.ic_map_pin_small)
+                } else {
+                    markers[i].icon = OverlayImage.fromResource(R.drawable.ic_map_pin_big)
+                }
+            }
+            viewPager.currentItem = position
+        }*/
+        return true
+    }
+
+
+
+    override fun onStart() {
+        super.onStart()
+        mapView.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mapView.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mapView.onPause()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        mapView.onSaveInstanceState(outState)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mapView.onStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mapView.onDestroy()
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        mapView.onLowMemory()
     }
 
 }

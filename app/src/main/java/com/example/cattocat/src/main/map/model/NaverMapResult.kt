@@ -12,6 +12,7 @@ data class NaverMapResult (
     val jibunAddress: String,
 */
 
+
     @SerializedName("x") val x: String,
     @SerializedName("y") val y: String
 )
