@@ -13,8 +13,12 @@ import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.util.FusedLocationSource
 import com.naver.maps.map.widget.LocationButtonView
+import com.naver.maps.map.overlay.OverlayImage
 
-class MakeMarkerActivity : AppCompatActivity(),OnMapReadyCallback {
+import com.naver.maps.map.overlay.Marker
+
+
+class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var binding: ActivityMakeMarkerBinding
     private lateinit var mapView: MapView
@@ -22,7 +26,7 @@ class MakeMarkerActivity : AppCompatActivity(),OnMapReadyCallback {
     private var getLatitude: Double = 37.5548732
     private var getLongitude: Double = 127.0246126
     private lateinit var locationSource: FusedLocationSource //사용자 현재 위치
-
+    private var markers = mutableListOf<Marker>()
 
     private val xlocation = ""
     private val ylocation = ""
@@ -41,8 +45,8 @@ class MakeMarkerActivity : AppCompatActivity(),OnMapReadyCallback {
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 
 
-
     }
+
     override fun onMapReady(map: NaverMap) {
         naverMap = map
         naverMap.let {
@@ -59,25 +63,56 @@ class MakeMarkerActivity : AppCompatActivity(),OnMapReadyCallback {
             )
 
             //화면에서 표시하는 지도(카메라) 위치 조정
-            val cameraUpdate = CameraUpdate.scrollTo(LatLng(getLatitude,getLongitude))
+            val cameraUpdate = CameraUpdate.scrollTo(LatLng(getLatitude, getLongitude))
             naverMap.moveCamera(cameraUpdate)
             //지도 위 사용자 위치 표시 객체
-        //    val locationButton: LocationButtonView = binding.makemarkerBtnLocation
-         //   locationButton.map = naverMap
+            //    val locationButton: LocationButtonView = binding.makemarkerBtnLocation
+            //   locationButton.map = naverMap
 
             //onMapClick()
         }
 
+      //  val marker = Marker()
+        val marker = Marker()
+        if (markers.size < 2) {
+            naverMap.setOnMapClickListener { point, coord ->
+                Toast.makeText(
+                    this, "${coord.latitude}, ${coord.longitude}",
+                    Toast.LENGTH_SHORT
+                ).show()
+                marker.position = LatLng(coord.latitude, coord.longitude)
+                marker.map = naverMap
 
-        naverMap.setOnMapClickListener { point, coord ->
-            Toast.makeText(this, "${coord.latitude}, ${coord.longitude}",
-                Toast.LENGTH_SHORT).show()
+                
+            }
+        } else {
+            clearMarkers()
+            Log.d("test", "1보다 큼 - 마커 있음")
+           // setMark(coord.latitude, coord.longitude)
+        }
+
+    }
+
+    private fun setMark(latitude: Double, longitude: Double) {
+        markers += Marker().apply {
+            position = LatLng(
+                latitude,
+                longitude
+            )
+            //       icon = OverlayImage.fromResource(R.drawable.ic_map_pin_small)
+            width = Marker.SIZE_AUTO
+            height = Marker.SIZE_AUTO
+
         }
     }
 
 
-
-
+    private fun clearMarkers() {
+        for (i in 0..markers.size - 1) {
+            markers[i].map = null
+        }
+        markers.clear()
+    }
 
 
     override fun onStart() {
