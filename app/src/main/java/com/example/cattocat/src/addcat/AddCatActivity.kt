@@ -68,28 +68,42 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
             val special = binding.addcatEdSpecial.text.toString()
 
             if (name != "") {
-                Log.d("Test","xLocation : $xlocation")
-                Log.d("Test","yLocation : $ylocation")
-                AddCatService(this).tryPostAddCat(
-                    AddCatInfo(
-                        userId,
-                        name,
-                        eye,
-                        hair,
-                        socks,
-                        locate,
-                        catmom,
-                        tnr,
-                        prefer,
-                        special,
-                        profImg,
-                        image,
-                        xlocation,
-                        ylocation
-                    )
-                )
+                if (eye != "") {
+                    if (hair != "") {
+                        if (locate != "") {
 
+                            Log.d("Test", "xLocation : $xlocation")
+                            Log.d("Test", "yLocation : $ylocation")
+                            AddCatService(this).tryPostAddCat(
+                                AddCatInfo(
+                                    userId,
+                                    name,
+                                    eye,
+                                    hair,
+                                    socks,
+                                    locate,
+                                    catmom,
+                                    tnr,
+                                    prefer,
+                                    special,
+                                    profImg,
+                                    image,
+                                    xlocation,
+                                    ylocation
+                                )
+                            )
 
+                        } else {
+                            Toast.makeText(this, "위치를 설정해주세요", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(this, "털 색을 입력해주세요", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this, "눈 색을 입력해주세요", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, "이름을 입력해주세요", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -99,8 +113,34 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
         if (intent.hasExtra("xLocation")) {
             xlocation = intent.getStringExtra("xLocation").toString()
             ylocation = intent.getStringExtra("yLocation").toString()
+            val lacationName = intent.getStringExtra("lacationName").toString()
+            binding.addcatEdLocate.setText(lacationName)
+
+            Log.d("Test", "xlocation : $xlocation")
+            Log.d("Test", "ylocation : $ylocation")
+            Log.d("Test", "lacationName : $lacationName")
         }
     }
+/*
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == 200) {
+            if (intent.hasExtra("xLocation")) {
+                xlocation = intent.getStringExtra("xLocation").toString()
+                ylocation = intent.getStringExtra("yLocation").toString()
+                val lacationName = intent.getStringExtra("lacationName").toString()
+                binding.addcatEdLocate.setText(lacationName)
+
+
+                Log.d("Test", "xlocation : $xlocation")
+                Log.d("Test", "ylocation : $ylocation")
+                Log.d("Test", "lacationName : $lacationName")
+            }
+        }
+    }
+*/
 
 
     override fun onPostAddCatSuccess(result: AddCatInfo) {

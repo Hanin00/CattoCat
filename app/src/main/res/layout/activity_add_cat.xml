@@ -107,7 +107,10 @@
                 app:layout_constraintStart_toStartOf="@id/addcat_text_eye"
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_eye">
 
-                <TextView
+
+                <EditText
+                    android:background="@android:color/transparent"
+                    android:textSize="14sp"
                     android:id="@+id/addcat_ed_eye"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -146,7 +149,9 @@
                 app:layout_constraintStart_toStartOf="@id/addcat_text_hair"
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_hair">
 
-                <TextView
+                <EditText
+                    android:background="@android:color/transparent"
+                    android:textSize="14sp"
                     android:id="@+id/addcat_ed_hair"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -185,7 +190,9 @@
                 app:layout_constraintStart_toStartOf="@id/addcat_text_socks"
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_socks">
 
-                <TextView
+                <EditText
+                    android:background="@android:color/transparent"
+                    android:textSize="14sp"
                     android:id="@+id/addcat_ed_socks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

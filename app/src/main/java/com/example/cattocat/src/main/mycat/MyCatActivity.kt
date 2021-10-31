@@ -13,6 +13,7 @@ import com.example.cattocat.Companion.Companion.USERID
 import com.example.cattocat.R
 import com.example.cattocat.databinding.ActivityMycatBinding
 import com.example.cattocat.src.addcat.AddCatActivity
+import com.example.cattocat.src.addcat.map.MakeMarkerActivity
 import com.example.cattocat.src.main.mycat.adapter.MyCatRecyAdapter
 import com.example.cattocat.src.main.mycat.model.MyCatItem
 import com.example.cattocat.src.main.mycat.model.MyCatResponse
@@ -37,7 +38,7 @@ class MyCatActivity : AppCompatActivity(), MyCatView {
         transaction.replace(R.id.mycat_fl_info, fragmentA).commitAllowingStateLoss()
 
         binding.mycatClAdd.setOnClickListener {
-            val intent = Intent(this, AddCatActivity::class.java)
+            val intent = Intent(this, MakeMarkerActivity::class.java)
             startActivity(intent)
         }
 

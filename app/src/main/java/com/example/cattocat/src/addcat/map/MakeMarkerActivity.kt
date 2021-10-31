@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import com.example.cattocat.R
 import com.example.cattocat.databinding.ActivityMakeMarkerBinding
 import com.example.cattocat.src.addcat.AddCatActivity
@@ -52,6 +53,8 @@ class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
         mapView.onCreate(savedInstanceState)
 
 
+        binding.makemarkerCd.isVisible = false
+
         binding.makemarkerMap.getMapAsync(this)
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 
@@ -87,35 +90,29 @@ class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
         val marker = Marker()
         if (markers.size < 2) {
             naverMap.setOnMapClickListener { point, coord ->
-                Toast.makeText(
+              /*  Toast.makeText(
                     this, "${coord.latitude}, ${coord.longitude}",
                     Toast.LENGTH_SHORT
-                ).show()
+                ).show()*/
+
+                Log.d("test","latitude : ${coord.latitude}, longitude :  ${coord.longitude}")
+
                 marker.position = LatLng(coord.latitude, coord.longitude)
                 marker.map = naverMap
 
-                val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog_cat_locate, null)
-                val mBuilder = AlertDialog.Builder(this)
-                    .setView(mDialogView)
+                binding.makemarkerCd.isVisible = true
+                val lacationName = binding.makemarkerEdName.text
 
-                val  mAlertDialog = mBuilder.show()
-
-                val yesBtn = mDialogView.findViewById<AppCompatButton>(R.id.dialog_map_yes)
-                val noBtn = mDialogView.findViewById<AppCompatButton>(R.id.dialog_map_no)
-                yesBtn.setOnClickListener {
-                    // Fragment 클래스에서 사용 시
+                binding.makemarkerBtnYes.setOnClickListener {
                     val intent = Intent(this, AddCatActivity::class.java)
-                    intent.putExtra("xLocation",coord.longitude)
-                    intent.putExtra("yLocation",coord.latitude)
+                    intent.putExtra("xLocation",coord.longitude.toString())
+                    intent.putExtra("yLocation",coord.latitude.toString())
+                    intent.putExtra("lacationName",lacationName.toString())
 
-                    mAlertDialog.dismiss()
                     startActivity(intent)
                     finish()
                 }
-                noBtn.setOnClickListener {
-                    mAlertDialog.dismiss()
-                    // Fragment 클래스에서 사용 시
-                }
+
 
 
 
