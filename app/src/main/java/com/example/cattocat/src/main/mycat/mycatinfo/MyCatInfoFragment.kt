@@ -53,6 +53,7 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
 
         binding.mycatEdEye.setText(ceye)
         binding.mycatEdHair.setText(chair)
+
         binding.mycatEdSocks.setText(csocks)
         binding.mycatinfoEdLocate.setText(clocate)
 

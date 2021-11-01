@@ -1,14 +1,22 @@
 package com.example.cattocat.src.main.setting
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
+import com.example.cattocat.Companion.Companion.USERCITY
+import com.example.cattocat.Companion.Companion.USERID
+import com.example.cattocat.Companion.Companion.USERIMAGE
+import com.example.cattocat.Companion.Companion.USERNAME
 import com.example.cattocat.R
 import com.example.cattocat.databinding.FragmentSettingBinding
+import com.example.cattocat.src.auth.SignInActivity
 import com.example.cattocat.src.main.setting.myreply.MyPostActivity
 import com.example.cattocat.src.main.setting.myreply.MyReplyActivity
 import com.example.cattocat.src.main.setting.notice.NoticeActivity
@@ -29,10 +37,57 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //   val versionCode: Int = BuildConfig.VERSION_CODE
-        initClick()
+
+
+        if(USERID != 0){
+            initClick()
+        }else{
+            binding.settingTvUserName.setText("로그인이 필요합니다.")
+            binding.settingTvUserLocate.setText("")
+            //todo 이미지 엮기
+            //glide binding.settingIvUserImg.setImageResource(USERIMAGE)
+            binding.settingIvUserImg.setImageResource(R.drawable.dummy_cat_01)
+
+
+
+
+        }
     }
 
+    private fun LoginBtn(){
+        binding.settingBtnInfoModify.setOnClickListener {
+            val mDialogView =
+                LayoutInflater.from(context).inflate(R.layout.dialog_login, null)
+            val mBuilder = AlertDialog.Builder(context)
+                .setView(mDialogView)
+            //  .setTitle("Login Form")
+
+            val mAlertDialog = mBuilder.show()
+
+            val loginButton = mDialogView.findViewById<TextView>(R.id.dialog_login_login)
+            val calcelButton = mDialogView.findViewById<TextView>(R.id.dialog_login_cancle)
+            loginButton.setOnClickListener {
+                mAlertDialog.dismiss()
+                val intent = Intent(context, SignInActivity::class.java)
+                startActivity(intent)
+                // Fragment 클래스에서 사용 시
+            }
+            calcelButton.setOnClickListener {
+                mAlertDialog.dismiss()
+                // Fragment 클래스에서 사용 시
+
+            }
+
+
+
+        }
+    }
+
+
     private fun initClick() {
+        binding.settingTvUserName.setText(USERNAME)
+        binding.settingTvUserLocate.setText(USERCITY)
+
         //내가 쓴 글
         binding.settingIvMenu1.setOnClickListener {
             val intent = Intent(context, MyPostActivity::class.java)

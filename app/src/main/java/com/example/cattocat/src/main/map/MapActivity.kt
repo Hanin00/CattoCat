@@ -8,7 +8,9 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isInvisible
 import com.example.cattocat.Companion
+import com.example.cattocat.Companion.Companion.ISSTAFF
 import com.example.cattocat.Companion.Companion.LOCATION_PERMISSION_REQUEST_CODE
 import com.example.cattocat.Companion.Companion.USERID
 import com.example.cattocat.databinding.ActivityMapBinding
@@ -52,14 +54,26 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 
 
-        binding.mapBtnAll.setOnClickListener {
-            CatMarkerService(this,USERID).tryTotalCat()
-        }
-        binding.mapBtnMy.setOnClickListener {
-            CatMarkerService(this,USERID).tryMyCat()
-        }
+        if(ISSTAFF != 1){
+            binding.mapBtnAll.isInvisible = false
 
 
+            binding.mapBtnMy.setOnClickListener {
+                CatMarkerService(this,USERID).tryMyCat()
+            }
+
+        }else{
+            //staff 인 경우 all Btn 접근 가능.
+
+            binding.mapBtnAll.isInvisible = true
+            binding.mapBtnAll.setOnClickListener {
+                CatMarkerService(this,USERID).tryTotalCat()
+            }
+            binding.mapBtnMy.setOnClickListener {
+                CatMarkerService(this,USERID).tryMyCat()
+            }
+
+        }
     }
 
     override fun onMapReady(map: NaverMap) {
