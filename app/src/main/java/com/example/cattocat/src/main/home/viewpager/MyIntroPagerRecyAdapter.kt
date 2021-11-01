@@ -25,11 +25,26 @@ class MyIntroPagerRecyAdapter(private val homePostList: ArrayList<HomePostItem?>
         fun bind(homePostItem: HomePostItem) {
            //todo 사진 연결, 유저 이름 연결
          //   itemImage.setImageResource(homePostItem.imageSrc)
-            itemImage.setImageResource(R.drawable.dummy_cat_01)
             itemtitle?.text = homePostItem.title
             itemContent?.text = homePostItem.content
             //userNickname.text = homePostItem.user_id
             val itemIdx = homePostItem.post_id
+
+
+
+            if(homePostItem.image.toString().toInt() ==1){
+                itemImage.setImageResource(R.drawable.dummy_cat_14)
+            }else if(homePostItem.image.toString().toInt() ==2){
+                itemImage.setImageResource(R.drawable.dummy_cat_15)
+            }else if(homePostItem.image.toString().toInt() ==3){
+                itemImage.setImageResource(R.drawable.dummy_cat_16)
+            }else if(homePostItem.image.toString().toInt() ==4){
+                itemImage.setImageResource(R.drawable.dummy_cat_17)
+            }else{
+                itemImage.setImageResource(R.drawable.dummy_cat_08)
+            }
+
+
 
             itemView.setOnClickListener {
                 val intent = Intent(context, PostActivity::class.java)

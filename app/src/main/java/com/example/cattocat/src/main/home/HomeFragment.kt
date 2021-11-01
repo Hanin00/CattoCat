@@ -155,9 +155,4 @@ class HomeFragment : Fragment(), HomeView {
     override fun onGetHomeFailure(message: String) {
         Log.e("Test", "onPostAddCatFailure: $message")
     }
-
-
-
-
-
 }

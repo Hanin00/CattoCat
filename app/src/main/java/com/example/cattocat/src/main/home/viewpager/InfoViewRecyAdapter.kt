@@ -18,13 +18,12 @@ class InfoViewRecyAdapter(
 ) : LoopingPagerAdapter<HomeInfoItem>(itemList as List<HomeInfoItem>, isInfinite) {
 
     override fun bindView(convertView: View, listPosition: Int, viewType: Int) {
-        val adImgView = convertView.findViewById<ImageView?>(R.id.item_ad_vp_image)
+       // val adImgView = convertView.findViewById<ImageView?>(R.id.item_ad_vp_image)
         //val adImg = itemList?.get(listPosition)?
         val infoTitle = convertView.findViewById<TextView?>(R.id.item_ad_vp_title)
         infoTitle.setText(itemList?.get(listPosition)?.title)
 
-
-        adImgView.setOnClickListener {
+        infoTitle.setOnClickListener {
             Log.d("Test", "AdViewRecyAdapter - 클릭됨")
             val infoIdx = itemList?.get(listPosition)?.info_id
             if (infoIdx != null) {

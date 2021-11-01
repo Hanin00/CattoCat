@@ -40,7 +40,43 @@ private val context: Context
                 .into(iEventImg)*/
 
 
-           // userImg.setImageResource(item.)
+            if(item.image.toString().toInt() ==1){
+                userImg.setImageResource(R.drawable.dummy_cat_04)
+                userName.setText("멋진 캔따개")
+                userLocate.setText("AA 초등학교 앞")
+            }else if(item.image.toString().toInt() ==2){
+                userImg.setImageResource(R.drawable.dummy_cat_05)
+                userName.setText("멋진 캔따개")
+                userLocate.setText("BC 신발가게 옆")
+            }else if(item.image.toString().toInt() ==3){
+                userImg.setImageResource(R.drawable.dummy_cat_06)
+                userName.setText("가다랑어포 좋아")
+                userLocate.setText("CC 역 2번 출구")
+            }else if(item.image.toString().toInt() ==4){
+                userImg.setImageResource(R.drawable.dummy_cat_07)
+                userName.setText("오레오 오즈")
+                userLocate.setText("B 구청 앞")
+            }else{
+                userImg.setImageResource(R.drawable.dummy_cat_05)
+                userName.setText("야생의 집사")
+                userLocate.setText("A 아파트 놀이터 옆")
+            }
+            
+            if(item.image.toString().toInt() ==1){
+                dummyImg.setImageResource(R.drawable.dummy_cat_14)
+            }else if(item.image.toString().toInt() ==2){
+                dummyImg.setImageResource(R.drawable.dummy_cat_15)
+            }else if(item.image.toString().toInt() ==3){
+                dummyImg.setImageResource(R.drawable.dummy_cat_16)
+            }else if(item.image.toString().toInt() ==4){
+                dummyImg.setImageResource(R.drawable.dummy_cat_17)
+            }else{
+                dummyImg.setImageResource(R.drawable.dummy_cat_08)
+            }
+
+
+
+
           //  dummyImg.setImageResource(item.dummyImg)
 
 

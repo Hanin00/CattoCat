@@ -38,6 +38,8 @@ android {
 }
 
 dependencies {
+    //https://lottiefiles.com/
+    implementation "com.airbnb.android:lottie:3.4.0"
     //https://github.com/florent37/MaterialTextField
     implementation 'com.github.florent37:materialtextfield:1.0.7'
     //https://github.com/baoyongzhang/android-PullRefreshLayout

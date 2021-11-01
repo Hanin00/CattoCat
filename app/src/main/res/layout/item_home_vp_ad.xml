@@ -5,21 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/item_ad_vp_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/dummy_cat_15" />
-
     <TextView
         android:id="@+id/item_ad_vp_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:text="타이틀"
         android:maxEms="14"
+        android:textColor="@color/black"
+        android:gravity="center"
         android:ellipsize="end"
-        android:textSize="14sp"
+        android:lines="1"
+        android:textStyle="bold"
+        android:textSize="18sp"
+
+        android:background="@drawable/background_notice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 

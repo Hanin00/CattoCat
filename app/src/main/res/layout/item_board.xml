@@ -119,12 +119,15 @@
 
             <TextView
                 android:id="@+id/item_board_tv_content"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="주는 분 엄청 많아서 1일 8끼ㅠ"
                 android:textStyle="normal"
                 android:textSize="@dimen/board_item_content"
                 android:layout_marginTop="@dimen/board_userinfo_magin_top"
+                android:layout_marginEnd="20dp"
+                android:gravity="start"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/item_board_iv_user"
                 app:layout_constraintTop_toBottomOf="@id/item_board_iv_dummy" />
 
