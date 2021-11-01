@@ -12,7 +12,6 @@ import retrofit2.Response
 
 
 class AddCatService(val view:AddCatView) {
-
     fun tryPostAddCat(addCatInfo: AddCatInfo){
         val addCatInfoRetrofitInterface = mRetrofit.create(AddCatRetrofitInterface::class.java)
         addCatInfoRetrofitInterface.postAddCat(addCatInfo).enqueue(object:

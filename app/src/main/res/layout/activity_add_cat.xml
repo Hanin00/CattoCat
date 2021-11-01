@@ -13,41 +13,40 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            >
+            android:padding="20dp">
+
             <ImageView
                 android:id="@+id/addcat_iv_close"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@drawable/icon_close"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="10dp"
-                app:layout_constraintWidth_percent="0.1"
+                android:src="@drawable/icon_close"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                />
+                app:layout_constraintWidth_percent="0.1" />
 
             <ImageView
                 android:id="@+id/addcat_iv_profile"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintWidth_percent="0.3"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="70dp"
-                android:src="@drawable/dummy_cat_01"/>
+                android:src="@drawable/dummy_cat_01"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.3" />
 
             <ImageView
                 android:id="@+id/addcat_iv_name"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginTop="30dp"
                 android:src="@drawable/icon_paw_bldpi"
                 app:layout_constraintBottom_toBottomOf="@id/addcat_text_name"
                 app:layout_constraintDimensionRatio="1:1"
-                android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/addcat_iv_profile" />
 
@@ -56,10 +55,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/addcat_img_text_margins"
+                android:layout_marginTop="30dp"
                 android:hint="이름"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
-                android:layout_marginTop="30dp"
                 app:layout_constraintStart_toEndOf="@id/addcat_iv_name"
                 app:layout_constraintTop_toBottomOf="@id/addcat_iv_profile" />
 
@@ -71,9 +70,9 @@
                 android:layout_marginEnd="25dp"
                 android:background="@android:color/transparent"
                 android:hint="김막시무스 안드레아 2세"
-                android:singleLine="true"
                 android:lines="1"
                 android:maxLength="20"
+                android:singleLine="true"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -111,14 +110,14 @@
 
 
                 <EditText
-                    android:background="@android:color/transparent"
-                    android:textSize="14sp"
                     android:id="@+id/addcat_ed_eye"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
                     android:hint="임시"
-                    android:singleLine="true"
                     android:lines="1"
+                    android:singleLine="true"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -154,14 +153,14 @@
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_hair">
 
                 <EditText
-                    android:background="@android:color/transparent"
-                    android:textSize="14sp"
                     android:id="@+id/addcat_ed_hair"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
                     android:hint="임시"
-                    android:singleLine="true"
                     android:lines="1"
+                    android:singleLine="true"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -183,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/addcat_img_text_margins"
                 android:layout_marginTop="@dimen/shared_def_vertical"
-                android:hint="양말 색"
+                android:hint="양말 개수"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintStart_toEndOf="@id/addcat_iv_socks"
@@ -197,14 +196,14 @@
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_socks">
 
                 <EditText
-                    android:background="@android:color/transparent"
-                    android:textSize="14sp"
                     android:id="@+id/addcat_ed_socks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
                     android:hint="임시"
-                    android:singleLine="true"
                     android:lines="1"
+                    android:singleLine="true"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -239,9 +238,9 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="25dp"
                 android:background="@android:color/transparent"
-                android:singleLine="true"
-                android:lines="1"
                 android:hint="아이콘을 눌러 위치를 저장하세요:>"
+                android:lines="1"
+                android:singleLine="true"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -253,9 +252,9 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:src="@drawable/icon_mapldpi"
+                app:layout_constraintBottom_toBottomOf="@id/addcat_ed_locate"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/addcat_ed_locate"
                 app:layout_constraintTop_toTopOf="@id/addcat_ed_locate" />
 
 
@@ -275,7 +274,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/addcat_img_text_margins"
                 android:layout_marginTop="@dimen/shared_def_vertical"
-                android:hint="캣맘 유무"
+                android:hint="캣맘/캣대디 유무"
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintStart_toEndOf="@id/addcat_iv_catmom"
@@ -327,9 +326,9 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:src="@drawable/icon_paw_bldpi"
+                app:layout_constraintBottom_toBottomOf="@id/addcat_text_tnr"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/addcat_text_tnr"
                 app:layout_constraintTop_toTopOf="@id/addcat_text_tnr" />
 
             <TextView
@@ -414,8 +413,8 @@
                 android:id="@+id/addcat_cl_prefer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/addcat_text_prefer"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/addcat_text_prefer"
                 app:layout_constraintTop_toBottomOf="@id/addcat_text_prefer">
 
                 <EditText
@@ -428,11 +427,10 @@
                     android:hint="템테이션 하늘색 / 낚시 장난감"
                     android:textColor="@color/shared_title_black"
                     android:textSize="@dimen/shared_sub_title"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
@@ -475,24 +473,24 @@
                     android:hint="쫄보임 / 애교 많음 / 슬금슬금 다가옴 / 말많음"
                     android:textColor="@color/shared_title_black"
                     android:textSize="@dimen/shared_sub_title"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
                 android:id="@+id/addcat_btn_send"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@drawable/icon_paw_bldpi"
                 android:layout_marginTop="40dp"
-                app:layout_constraintTop_toBottomOf="@id/addcat_cl_special"
+                android:src="@drawable/icon_paw_bldpi"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintWidth_percent="0.1"
-                app:layout_constraintDimensionRatio="1:1"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/addcat_cl_special"
+                app:layout_constraintWidth_percent="0.1" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

@@ -47,9 +47,7 @@ class SettingFragment : Fragment() {
             //todo 이미지 엮기
             //glide binding.settingIvUserImg.setImageResource(USERIMAGE)
             binding.settingIvUserImg.setImageResource(R.drawable.dummy_cat_01)
-
-
-
+            LoginBtn()
 
         }
     }

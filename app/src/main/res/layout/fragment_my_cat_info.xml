@@ -447,8 +447,6 @@
                     android:paddingEnd="10dp"
                     android:textColor="@color/shared_title_black"
                     android:textSize="@dimen/shared_sub_title"
-                    android:singleLine="true"
-                    android:lines="1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

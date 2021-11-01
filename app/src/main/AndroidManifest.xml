@@ -67,6 +67,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".src.addcat.map.MakeMarkerActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".src.auth.SignInActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 

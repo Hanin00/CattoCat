@@ -64,6 +64,7 @@ class PostActivity : AppCompatActivity(), PostView {
 
 
 
+
                 }else{
                     Toast.makeText(this, "댓글을 입력해주세요.",Toast.LENGTH_SHORT).show()
                 }

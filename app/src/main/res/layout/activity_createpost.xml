@@ -12,7 +12,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:text="제목"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +29,7 @@
         android:hint="제목"
         android:singleLine="true"
         android:lines="1"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/crpost_tv_title"
         app:layout_constraintTop_toTopOf="@id/crpost_tv_title" />
@@ -52,7 +52,8 @@
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:gravity="top|left"
-                android:hint="고양이는 야옹야옹 강아지는 멍멍멍 오리는 꽥꽥 개발자는 왜 안되는거야..왜.. 이제 될 때도 됐잖아..."
+                android:textSize="16sp"
+                android:hint="ex) 고양이는 야옹야옹 강아지는 멍멍"
                 android:padding="20dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

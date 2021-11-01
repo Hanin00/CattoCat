@@ -17,6 +17,8 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
     private var xlocation = ""
     private var ylocation = ""
     private val locatefrommap = ""
+    private var cmom: Int = 0
+    private var ctnr: Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,29 +26,14 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
         super.onCreate(savedInstanceState)
         binding = ActivityAddCatBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        initClick()
         binding.addcatIvMarker.setOnClickListener {
             val intent = Intent(this, MakeMarkerActivity::class.java)
             startActivity(intent)
-
-
         }
 
 
         val userId = 1
-        /*
-             val name = "김안드레아"
-             val eye = "하늘색"
-             val hair = "치즈"
-             val socks= "앞발에만"
-             val locate = "중앙정보관"
-             val catmom = 1
-             val tnr= 1
-             //val catmom = binding.addcatEdMom.text.toString().toInt()
-             //val tnr= binding.addcatEdTnr.text.toString().toInt()
-             val prefer= "템테이션 하늘색"
-             val special= "쫄보임, 사람 좋아함"
-     */
         val profImg = ""
         val image = ""
 
@@ -57,41 +44,6 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
             val hair = binding.addcatEdHair.text.toString()
             val socks = binding.addcatEdSocks.text.toString()
             val locate = binding.addcatEdLocate.text.toString()
-            val cmom = 1
-            val ctnr = 1
-
-            if (cmom == 0) {
-                binding.catmomSeg1.isChecked = true
-                binding.catmomSeg2.isChecked = false
-                binding.catmomSeg3.isChecked = false
-            }else if (cmom == 1) {
-                binding.catmomSeg1.isChecked = false
-                binding.catmomSeg2.isChecked = true
-                binding.catmomSeg3.isChecked = false
-
-            } else {
-                binding.catmomSeg1.isChecked = false
-                binding.catmomSeg2.isChecked = false
-                binding.catmomSeg3.isChecked = true
-            }
-
-
-            if (ctnr == 0) {
-                binding.cattnrSeg1.isChecked = true
-                binding.cattnrSeg2.isChecked = false
-                binding.cattnrSeg3.isChecked = false
-            }else if (ctnr == 1) {
-                binding.cattnrSeg1.isChecked = false
-                binding.cattnrSeg2.isChecked = true
-                binding.cattnrSeg3.isChecked = false
-
-            } else {
-                binding.cattnrSeg1.isChecked = false
-                binding.cattnrSeg2.isChecked = false
-                binding.cattnrSeg3.isChecked = true
-            }
-            //val catmom = binding.addcatEdMom.text.toString().toInt()
-            //val tnr= binding.addcatEdTnr.text.toString().toInt()
 
 
             val prefer = binding.addcatEdPrefer.text.toString()
@@ -151,26 +103,52 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
             Log.d("Test", "lacationName : $lacationName")
         }
     }
-/*
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+    private fun initClick(){
+        binding.catmomSeg1.setOnClickListener {
+            cmom == 0
+            binding.catmomSeg1.isChecked = true
+            binding.catmomSeg2.isChecked = false
+            binding.catmomSeg3.isChecked = false
 
-        if (resultCode == 200) {
-            if (intent.hasExtra("xLocation")) {
-                xlocation = intent.getStringExtra("xLocation").toString()
-                ylocation = intent.getStringExtra("yLocation").toString()
-                val lacationName = intent.getStringExtra("lacationName").toString()
-                binding.addcatEdLocate.setText(lacationName)
+        }
+        binding.catmomSeg2.setOnClickListener {
+            cmom == 1
+            binding.catmomSeg1.isChecked = false
+            binding.catmomSeg2.isChecked = true
+            binding.catmomSeg3.isChecked = false
 
+        }
+        binding.catmomSeg3.setOnClickListener {
+            cmom == 2
+            binding.catmomSeg1.isChecked = false
+            binding.catmomSeg2.isChecked = false
+            binding.catmomSeg3.isChecked = true
 
-                Log.d("Test", "xlocation : $xlocation")
-                Log.d("Test", "ylocation : $ylocation")
-                Log.d("Test", "lacationName : $lacationName")
-            }
+        }
+
+        binding.cattnrSeg1.setOnClickListener {
+            ctnr == 0
+            binding.cattnrSeg1.isChecked = true
+            binding.cattnrSeg2.isChecked = false
+            binding.cattnrSeg3.isChecked = false
+
+        }
+        binding.cattnrSeg2.setOnClickListener {
+            ctnr == 1
+            binding.cattnrSeg1.isChecked = false
+            binding.cattnrSeg2.isChecked = true
+            binding.cattnrSeg3.isChecked = false
+
+        }
+        binding.cattnrSeg3.setOnClickListener {
+            ctnr == 2
+            binding.cattnrSeg1.isChecked = false
+            binding.cattnrSeg2.isChecked = false
+            binding.cattnrSeg3.isChecked = true
+
         }
     }
-*/
 
 
     override fun onPostAddCatSuccess(result: AddCatInfo) {

@@ -25,15 +25,11 @@ class PostService(val view: PostView, val post_id:Int, val user_id:Int) {
                 if(response.code()==400){
                     Log.d("Test","--")
                 }
-
             }
             override fun onFailure(call: Call<PostResponse>, t: Throwable) {
                 view.onGetPostInfoFailure(t.message ?: "단일 게시글 송신 관련 통신 오류")
-
             }
-
         })
-
     }
 
     fun tryPostReply(reply: ReplyListItem){

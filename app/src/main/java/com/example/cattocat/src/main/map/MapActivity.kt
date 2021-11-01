@@ -54,21 +54,20 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 
 
-        if(ISSTAFF != 1){
-            binding.mapBtnAll.isInvisible = false
-
-
+        if(ISSTAFF == 1){
+            //staff 인 경우 all Btn 접근 가능.
+            binding.mapBtnAll.isInvisible =false
+            binding.mapBtnAll.setOnClickListener {
+                CatMarkerService(this,USERID).tryTotalCat()
+            }
             binding.mapBtnMy.setOnClickListener {
                 CatMarkerService(this,USERID).tryMyCat()
             }
 
         }else{
-            //staff 인 경우 all Btn 접근 가능.
+
 
             binding.mapBtnAll.isInvisible = true
-            binding.mapBtnAll.setOnClickListener {
-                CatMarkerService(this,USERID).tryTotalCat()
-            }
             binding.mapBtnMy.setOnClickListener {
                 CatMarkerService(this,USERID).tryMyCat()
             }
@@ -132,21 +131,12 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
             return
         }
 
-        /*       if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
-                   if (grantResults[0] == PackageManager.PERMISSION_GRANTED &&
-                       grantResults[1] == PackageManager.PERMISSION_GRANTED
-                   ) {
-                       naverMap.locationTrackingMode = LocationTrackingMode.Follow
-                   }
-               }*/
-
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     override fun onGetTotalCatSuccess(result: ArrayList<CatMarkerItem>) {
         Log.d("Test", "정상연결")
         Log.d("Test", "${result}")
-
         if (result != null) {
             catTotalInfo = result as ArrayList<CatMarkerItem>
             //todo viewpager 연결
@@ -171,13 +161,13 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
         Log.d("Test", "정상연결")
         Log.d("Test", "${result}")
 
+        clearMarkers()
         if (result != null) {
             catTotalInfo = result.content as ArrayList<CatMarkerItem>
             //todo viewpager 연결
 
             if (catTotalInfo.size > 0) {
                 //     viewPager.visibility = View.VISIBLE
-
                 clearMarkers()
                 setRefreshMap(catTotalInfo)
                 moveCamera()

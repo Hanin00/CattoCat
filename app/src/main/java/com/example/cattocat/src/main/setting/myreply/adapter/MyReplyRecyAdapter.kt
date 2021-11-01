@@ -2,6 +2,7 @@ package com.example.cattocat.src.main.setting.myreply.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cattocat.Companion
 import com.example.cattocat.R
 import com.example.cattocat.src.main.board.posting.PostActivity
 import com.example.cattocat.src.main.setting.myreply.model.MyReplyItem
@@ -34,9 +36,9 @@ class MyReplyRecyAdapter(
          .into(iEventImg)*/
 
             //    todo 사진 붙여야함.  userImg.setImageResource(item.userImg)
-            userName.text = item.user_id.toString()
+            userName.text = Companion.USERNAME
             userComment.text = item.content
-            date.text = item.created_at
+            date.text = TextUtils.substring(item.created_at, 0, 10)
 
             itemView.setOnClickListener {
                 val intent = Intent(context, PostActivity::class.java)

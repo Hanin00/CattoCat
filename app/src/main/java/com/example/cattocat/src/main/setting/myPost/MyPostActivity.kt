@@ -51,6 +51,7 @@ class MyPostActivity : AppCompatActivity(), MyPostView {
         if (result.content.size >= 1) {
             Log.d("test", "replylist.size >=1")
             val replyItem = result.content
+
             myReplyRecyAdapter(replyItem)
         }
 

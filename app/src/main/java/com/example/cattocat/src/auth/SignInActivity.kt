@@ -3,8 +3,9 @@ package com.example.cattocat.src.auth
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cattocat.databinding.ActivitySigninBinding
+import com.example.cattocat.src.auth.model.SignInResponse
 
-class SignInActivity:AppCompatActivity() {
+class SignInActivity:AppCompatActivity(),SignInView {
     private lateinit var binding : ActivitySigninBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,16 +17,17 @@ class SignInActivity:AppCompatActivity() {
         val password = binding.signinEdPw.text.toString()
 
         binding.signinBtnSign.setOnClickListener {
-
             //todo login 연결
-
-            
-
+        SignInService(this,email, password).trySignIn()
 
         }
+    }
 
+    override fun onSignInSuccess(result: SignInResponse) {
+        TODO("Not yet implemented")
+    }
 
-
-
+    override fun oonSignInFailure(message: String) {
+        TODO("Not yet implemented")
     }
 }
