@@ -1,6 +1,7 @@
 package com.example.cattocat.src.auth
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cattocat.databinding.ActivitySigninBinding
 import com.example.cattocat.src.auth.model.SignInResponse
@@ -23,11 +24,14 @@ class SignInActivity:AppCompatActivity(),SignInView {
         }
     }
 
-    override fun onSignInSuccess(result: SignInResponse) {
-        TODO("Not yet implemented")
+    override fun onSignInSuccess(result: SignInResponse) {  
+        //todo sharedPreferences로 companion 저장
+        Log.d("test","body : ${result.signInItem}")
+        finish()
     }
 
     override fun oonSignInFailure(message: String) {
-        TODO("Not yet implemented")
+        Log.e("Test", "oonSignInFailure: $message")
+ 
     }
 }

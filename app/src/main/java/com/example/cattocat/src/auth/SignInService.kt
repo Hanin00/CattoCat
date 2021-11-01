@@ -3,6 +3,7 @@ package com.example.cattocat.src.auth
 import android.util.Log
 import com.example.cattocat.config.MyApplication
 import com.example.cattocat.src.auth.model.SignInResponse
+import com.example.cattocat.src.auth.model.SignRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -11,13 +12,16 @@ class SignInService(val view: SignInView, val email: String, val password: Strin
     fun trySignIn() {
         val signInRetrofitInterface =
             MyApplication.mRetrofit.create(SignInRetrofitInterface::class.java)
-        signInRetrofitInterface.postAddCat(email, password ).enqueue(object :
+        signInRetrofitInterface.postAddCat(SignRequest(email, password)).enqueue(object :
             Callback<SignInResponse> {
-            override fun onResponse(call: Call<SignInResponse>, response: Response<SignInResponse>) {
+            override fun onResponse(
+                call: Call<SignInResponse>,
+                response: Response<SignInResponse>
+            ) {
 
                 Log.d("Test", "msg : ${response.message()}")
                 Log.d("Test", "msg : ${response.body()}")
-                if(response.body() != null){
+                if (response.body() != null) {
                     view.onSignInSuccess(response.body() as SignInResponse)
                 }
 
@@ -30,7 +34,7 @@ class SignInService(val view: SignInView, val email: String, val password: Strin
             }
 
             override fun onFailure(call: Call<SignInResponse>, t: Throwable) {
-                view.oonSignInFailure(t.message ?:  "로그인 통신 오류")
+                view.oonSignInFailure(t.message ?: "로그인 통신 오류")
             }
 
         })

@@ -23,9 +23,24 @@ class MyCatRecyAdapter(
 
         fun bind(item: MyCatItem) {
             catName.text = item.cat_name
-
             catImg.setOnClickListener { itemClick(item) }
 
+            val imagenum = item.cat_image.toString().toInt()
+
+
+            if(imagenum == 1){
+                catImg.setImageResource(R.drawable.dummy_cat_03)
+
+            }else if(imagenum == 2){
+                catImg.setImageResource(R.drawable.dummy_cat_04)
+
+            }else if(imagenum == 3){
+                catImg.setImageResource(R.drawable.dummy_cat_06)
+
+            }else{
+                catImg.setImageResource(R.drawable.dummy_cat_06)
+
+            }
         }
 
     }

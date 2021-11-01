@@ -61,10 +61,6 @@ class PostActivity : AppCompatActivity(), PostView {
                     binding.postEdReply.setText("")
 
                     PostService(this, isPostIdx, isUserIdx).tryGetPostSingle(isPostIdx, isUserIdx)
-
-
-
-
                 }else{
                     Toast.makeText(this, "댓글을 입력해주세요.",Toast.LENGTH_SHORT).show()
                 }

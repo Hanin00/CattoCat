@@ -23,10 +23,8 @@ class BoardActivity : AppCompatActivity(),BoardView {
         setContentView(binding.root)
 
         binding.boardBtnCreate.setOnClickListener {
-
             val intent = Intent(this, CreatePostActivity::class.java)
             startActivity(intent)
-
         }
     }
 

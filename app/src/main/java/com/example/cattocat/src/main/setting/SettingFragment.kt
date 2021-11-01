@@ -44,9 +44,8 @@ class SettingFragment : Fragment() {
         }else{
             binding.settingTvUserName.setText("로그인이 필요합니다.")
             binding.settingTvUserLocate.setText("")
-            //todo 이미지 엮기
-            //glide binding.settingIvUserImg.setImageResource(USERIMAGE)
-            binding.settingIvUserImg.setImageResource(R.drawable.dummy_cat_01)
+         //   binding.settingIvUserImg.setImageResource(USERIMAGE)
+           binding.settingIvUserImg.setImageResource(R.drawable.dummy_cat_01)
             LoginBtn()
 
         }
@@ -85,6 +84,8 @@ class SettingFragment : Fragment() {
     private fun initClick() {
         binding.settingTvUserName.setText(USERNAME)
         binding.settingTvUserLocate.setText(USERCITY)
+        binding.settingIvUserImg.setImageResource(USERIMAGE)
+
 
         //내가 쓴 글
         binding.settingIvMenu1.setOnClickListener {

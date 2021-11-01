@@ -2,8 +2,10 @@ package com.example.cattocat.src.main.setting.notice.viewer
 
 import android.os.Bundle
 import android.util.Log
+import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
 import com.example.cattocat.databinding.ActivityViewerBinding
 import com.example.cattocat.src.main.setting.notice.viewer.info.InfoSingleService
 import com.example.cattocat.src.main.setting.notice.viewer.info.InfoSingleView
@@ -17,9 +19,9 @@ import com.example.cattocat.util.Constants.FROM_NOTICE
 import com.example.cattocat.util.Constants.TEXT_ID
 
 
-class ViewerActivity : AppCompatActivity(),NoticeSingleView,InfoSingleView{
-    private lateinit var binding : ActivityViewerBinding
-    private var noticeIdx : Int = 0
+class ViewerActivity : AppCompatActivity(), NoticeSingleView, InfoSingleView {
+    private lateinit var binding: ActivityViewerBinding
+    private var noticeIdx: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityViewerBinding.inflate(layoutInflater)
@@ -27,23 +29,22 @@ class ViewerActivity : AppCompatActivity(),NoticeSingleView,InfoSingleView{
 
 
         if (intent.hasExtra(TEXT_ID)) {
-            val isNotice= intent.getBooleanExtra(FROM_NOTICE,false)
-            val isInfo = intent.getBooleanExtra(FROM_INFO,false)
-            val idx = intent.getIntExtra(TEXT_ID,0)
+            val isNotice = intent.getBooleanExtra(FROM_NOTICE, false)
+            val isInfo = intent.getBooleanExtra(FROM_INFO, false)
+            val idx = intent.getIntExtra(TEXT_ID, 0)
 
-            if(isNotice == true){
+            if (isNotice == true) {
                 binding.viewerTvTitle.setText("공지사항")
 
                 NoticeSingleService(this, idx).tryGetNoticeSingle()
 
 
-
-            }else if(isInfo == true){
+            } else if (isInfo == true) {
                 binding.viewerTvTitle.setText("소식")
 
                 InfoSingleService(this, idx).tryGetNoticeSingle()
 
-            }else{
+            } else {
                 val editorTitle = intent.getStringExtra("editorTitle").toString()
                 binding.viewerTvTitle.setText(editorTitle)
             }
@@ -58,13 +59,17 @@ class ViewerActivity : AppCompatActivity(),NoticeSingleView,InfoSingleView{
 
         val noticelist = result.content
         binding.viewerTvTitle.setText(noticelist[0].title)
-       //todo glide 연결 binding.viewerIvImg.setText(noticelist[0].banner_image)
+        //todo glide 연결 binding.viewerIvImg.setText(noticelist[0].banner_image)
 
-        val html = noticelist[0].content
+        val content = noticelist[0].content
         //html 연결
-        if(html.length > 10){
-            binding.viewerWb.loadData( html,"text/html","UTF-8")
-            binding.viewerWb.loadDataWithBaseURL(null, html,"text/html","UTF-8",null)
+        if (content.length > 10) {
+            /* binding.viewerWb.loadData( html,"text/html","UTF-8")
+             binding.viewerWb.loadDataWithBaseURL(null, html,"text/html","UTF-8",null)
+ */
+            binding.viewerWb.isInvisible = true
+            binding.viewerText.setText(content)
+
 
         }
 
@@ -85,10 +90,13 @@ class ViewerActivity : AppCompatActivity(),NoticeSingleView,InfoSingleView{
 
         val html = infolist[0].content
         //html 연결
-        if(html.length > 10){
+        if (html.length > 10) {
+/*
             binding.viewerWb.loadData( html,"text/html","UTF-8")
             binding.viewerWb.loadDataWithBaseURL(null, html,"text/html","UTF-8",null)
-
+*/          binding.viewerText.isInvisible = false
+            binding.viewerWb.webViewClient = WebViewClient()
+            binding.viewerWb.loadUrl(html)
         }
     }
 

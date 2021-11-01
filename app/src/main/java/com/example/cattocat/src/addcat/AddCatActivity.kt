@@ -37,6 +37,13 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
         val profImg = ""
         val image = ""
 
+        binding.addcatIvClose.setOnClickListener {
+            finish()
+        }
+
+
+
+
         binding.addcatBtnSend.setOnClickListener {
 
             val name = binding.addcatEdName.text.toString()
@@ -74,7 +81,6 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
                                     ylocation
                                 )
                             )
-
                         } else {
                             Toast.makeText(this, "위치를 설정해주세요", Toast.LENGTH_SHORT).show()
                         }

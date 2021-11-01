@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -63,6 +64,11 @@ class MyCatActivity : AppCompatActivity(), MyCatView {
     }
 
     private fun myCatRecyAdapter(myCatItem: ArrayList<MyCatItem>) {
+
+        if(myCatItemList.size <= 0){
+            binding.mycatFlInfo.isInvisible=true
+        }
+
         myCatRecyAdapter = MyCatRecyAdapter(myCatItem, this) { myCatItem ->
 
             var fragment = MyCatInfoFragment()
@@ -72,6 +78,8 @@ class MyCatActivity : AppCompatActivity(), MyCatView {
             bundle.putString("ceye", myCatItem.cat_eye)
             bundle.putString("chair", myCatItem.cat_hair)
             bundle.putString("csocks", myCatItem.cat_socks)
+            bundle.putString("cprof", myCatItem.cat_prof_img)
+            bundle.putString("cimg", myCatItem.cat_image)
             bundle.putString("clocate", myCatItem.cat_locate)
             bundle.putString("cmom", myCatItem.cat_mom.toString())
             bundle.putString("ctnr", myCatItem.cat_tnr.toString())
@@ -81,6 +89,7 @@ class MyCatActivity : AppCompatActivity(), MyCatView {
             fragment.arguments = bundle
             this.supportFragmentManager!!.beginTransaction().replace(R.id.mycat_fl_info, fragment)
                 .commit()
+
         }
         binding.mycatRecyMycatProfile.apply {
             adapter = myCatRecyAdapter
@@ -99,9 +108,12 @@ class MyCatActivity : AppCompatActivity(), MyCatView {
         if (result.content != null) {
             val myCatItem = result.content as ArrayList<MyCatItem>
             myCatRecyAdapter(myCatItem)
+
+
         } else {
             Log.d("Test", "추가한고양이 없음 X")
         }
+
     }
 
     override fun onGetCatFailure(message: String) {

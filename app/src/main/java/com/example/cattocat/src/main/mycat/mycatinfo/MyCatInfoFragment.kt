@@ -46,6 +46,8 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
         val clocate = arguments?.getString("clocate")
         val cmom = arguments?.getString("cmom")?.toInt()
         val ctnr = arguments?.getString("ctnr")?.toInt()
+        val cimg = arguments?.getString("cimg")?.toInt()
+        val cprof = arguments?.getString("cprof")?.toInt()
         val cprefer = arguments?.getString("cprefer")
         val cspecial = arguments?.getString("cspecial")
 
@@ -56,6 +58,8 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
 
         binding.mycatEdSocks.setText(csocks)
         binding.mycatinfoEdLocate.setText(clocate)
+
+
 
 
 

@@ -113,7 +113,7 @@ class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
                 ).show()*/
 
                 Log.d("test","latitude : ${coord.latitude}, longitude :  ${coord.longitude}")
-
+                marker.icon = OverlayImage.fromResource(com.naver.maps.map.R.drawable.navermap_default_marker_icon_yellow)
                 marker.position = LatLng(coord.latitude, coord.longitude)
                 marker.map = naverMap
 

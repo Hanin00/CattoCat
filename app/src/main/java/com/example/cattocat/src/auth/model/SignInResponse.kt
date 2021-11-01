@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class  SignInResponse (
     @SerializedName("cusers")
-    val addCatInfo : ArrayList<SignInItem>
+    val signInItem : ArrayList<SignInItem>
 )

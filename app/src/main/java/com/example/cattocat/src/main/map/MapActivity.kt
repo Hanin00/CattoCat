@@ -139,7 +139,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
         Log.d("Test", "${result}")
         if (result != null) {
             catTotalInfo = result as ArrayList<CatMarkerItem>
-            //todo viewpager 연결
 
             if (catTotalInfo.size > 0) {
                 //     viewPager.visibility = View.VISIBLE
@@ -182,9 +181,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
     }
 
 
-
-
-
     private fun clearMarkers() {
         for (i in 0..markers.size - 1) {
             markers[i].map = null
@@ -221,7 +217,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
                     height = Marker.SIZE_AUTO
                     captionText = catTotalInfo[i].cat_name.toString()
 
-                    captionMinZoom = 8.0 //최소 줌
+                    captionMinZoom = 2.0 //최소 줌
                     captionMaxZoom = 16.0//최대 줌
                     tag = catTotalInfo[i].cat_id
                     //      onClickListener = this@MapActivity
