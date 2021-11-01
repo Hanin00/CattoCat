@@ -15,6 +15,8 @@ import com.example.cattocat.src.main.board.model.BoardItem
 class CreatePostActivity : AppCompatActivity(), CreatePostView {
     private lateinit var binding: ActivityCreatepostBinding
 
+    private var image = "1"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreatepostBinding.inflate(layoutInflater)
@@ -26,7 +28,23 @@ class CreatePostActivity : AppCompatActivity(), CreatePostView {
             val title = binding.crpostEdTitle.text.toString()
             val content = binding.crpostEdContent.text.toString()
             val user_id = 1
-            val image = "url~"
+
+            if(binding.crpostEdContent.length() <= 5){
+                image = "1"
+            }else if(binding.crpostEdContent.length() <= 10){
+                image = "2"
+            }else if(binding.crpostEdContent.length() <= 25){
+                image = "3"
+            }else{
+                if(binding.crpostEdContent.length() % 2 == 1){
+                    image = "4"
+                }else {
+                    image = "3"
+                }
+            }
+
+
+
 
             val request = CreatePostRequest(user_id, title, content, image, null)
 

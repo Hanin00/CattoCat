@@ -130,12 +130,15 @@
 
                 <TextView
                     android:id="@+id/post_tv_content"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/post_userinfo_magin_top"
                     android:text="주는 분 엄청 많아서 1일 8끼ㅠ 계속 먹더라고여ㅠㅠ; "
                     android:textSize="@dimen/post_item_content"
                     android:textStyle="normal"
+                    android:gravity="left"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/post_iv_user"
                     app:layout_constraintTop_toBottomOf="@id/post_iv_dummy" />
 
