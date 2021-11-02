@@ -75,34 +75,6 @@
                 app:layout_constraintStart_toStartOf="@id/item_map_tv_name"
                 app:layout_constraintTop_toBottomOf="@id/item_map_tv_name" />
 
-            <TextView
-                android:id="@+id/item_map_tv_tnr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif"
-                android:text="0"
-                android:textColor="@color/setting_text_black"
-                android:textSize="13sp"
-                app:layout_constraintBottom_toBottomOf="@id/item_map_tv_location"
-                app:layout_constraintBottom_toTopOf="@id/item_map_tv_location"
-                app:layout_constraintEnd_toStartOf="@id/item_map_iv_menu" />
-
-            <TextView
-                android:id="@+id/item_map_tv_mom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:fontFamily="sans-serif"
-                android:paddingBottom="10dp"
-                android:text="0"
-                android:textColor="@color/setting_text_black"
-                android:textSize="13sp"
-                app:layout_constraintBottom_toBottomOf="@id/item_map_tv_location"
-                app:layout_constraintBottom_toTopOf="@id/item_map_tv_location"
-                app:layout_constraintEnd_toStartOf="@id/item_map_tv_tnr" />
 
             <TextView
                 android:id="@+id/item_map_tv_prefer"

@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cattocat.R
 import com.example.cattocat.databinding.ActivityPostBinding
 import com.example.cattocat.src.main.board.model.ReplyItem
 import com.example.cattocat.src.main.board.posting.adapter.ReplyRecyAdapter
@@ -87,9 +88,9 @@ class PostActivity : AppCompatActivity(), PostView {
     }
 
     override fun onGetPostInfoSuccess(result: PostResponse) {
-        Toast.makeText(this, "정상연결.", Toast.LENGTH_SHORT).show()
         Log.d("Test", "정상연결")
         Log.d("Test", "${result}")
+
 
         if (result.replylist.size >= 1) {
             Log.d("test", "replylist.size >=1")
@@ -103,8 +104,10 @@ class PostActivity : AppCompatActivity(), PostView {
 
             val userInfoItem = result.userinfo as ArrayList<UserInfoItem>
             //user
-            userInfoItem[0].uname?.let { binding.postTvUser.setText(it) }
-            userInfoItem[0].uname?.let { binding.postTvUserLocate.setText(it) }
+          //  userInfoItem[0].uname?.let { binding.postTvUser.setText(it) }
+
+
+
             /*    userInfoItem.uname?.let { binding.postTvUser.setText(it) }
                 userInfoItem.city?.let { binding.postTvUserLocate.setText(it) }*/
 
@@ -124,6 +127,32 @@ class PostActivity : AppCompatActivity(), PostView {
             binding.postTvTitle.setText(postInfoItem[0].title)
             binding.postTvContent.setText(postInfoItem[0].content)
 
+            if(postInfoItem[0].image.toString().toInt() ==1){
+                binding.postIvDummy.setImageResource(R.drawable.dummy_cat_14)
+                binding.postIvUser.setImageResource(R.drawable.dummy_cat_04)
+                binding.postTvUser.setText("멋진 캔따개")
+                binding.postTvUserLocate.setText("AA 초등학교 앞")
+            }else if(postInfoItem[0].image.toString().toInt() ==2){
+                binding.postIvDummy.setImageResource(R.drawable.dummy_cat_15)
+                binding.postIvUser.setImageResource(R.drawable.dummy_cat_05)
+                binding.postTvUser.setText("멋진 캔따개")
+                binding.postTvUserLocate.setText("BC 신발가게 옆")
+            }else if(postInfoItem[0].image.toString().toInt() ==3){
+                binding.postIvDummy.setImageResource(R.drawable.dummy_cat_16)
+                binding.postIvUser.setImageResource(R.drawable.dummy_cat_06)
+                binding.postTvUser.setText("가다랑어포 좋아")
+                binding.postTvUserLocate.setText("CC 역 2번 출구")
+            }else if(postInfoItem[0].image.toString().toInt() ==4){
+                binding.postIvDummy.setImageResource(R.drawable.dummy_cat_17)
+                binding.postIvUser.setImageResource(R.drawable.dummy_cat_07)
+                binding.postTvUser.setText("오레오 오즈")
+                binding.postTvUserLocate.setText("B 구청 앞")
+            }else{
+                binding.postIvDummy.setImageResource(R.drawable.dummy_cat_08)
+                binding.postIvUser.setImageResource(R.drawable.dummy_cat_05)
+                binding.postTvUser.setText("야생의 집사")
+                binding.postTvUserLocate.setText("A 아파트 놀이터 옆")
+            }
         }
     }
 
@@ -132,7 +161,6 @@ class PostActivity : AppCompatActivity(), PostView {
     }
 
     override fun onPostReplySuccess(result: ReplyListItem) {
-        Toast.makeText(this, "정상연결.", Toast.LENGTH_SHORT).show()
         Log.d("Test", "댓글 입력됨")
 
     }

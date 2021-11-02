@@ -2,26 +2,32 @@ package com.example.cattocat.src.main.map
 
 import android.Manifest
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isInvisible
+import androidx.viewpager2.widget.ViewPager2
 import com.example.cattocat.Companion
 import com.example.cattocat.Companion.Companion.ISSTAFF
 import com.example.cattocat.Companion.Companion.LOCATION_PERMISSION_REQUEST_CODE
 import com.example.cattocat.Companion.Companion.USERID
 import com.example.cattocat.databinding.ActivityMapBinding
+import com.example.cattocat.src.main.map.adapter.MapVPAdapter
 import com.example.cattocat.src.main.map.catmarker.CatMarkerService
 import com.example.cattocat.src.main.map.catmarker.CatMarkerView
 import com.example.cattocat.src.main.map.catmarker.model.CatMarkerItem
 import com.example.cattocat.src.main.map.catmarker.model.CatMyResponse
+import com.example.cattocat.src.main.mycat.MyCatActivity
 import com.example.cattocat.src.main.mycat.MyCatService
 import com.example.cattocat.src.main.mycat.MyCatView
 import com.example.cattocat.src.main.mycat.model.MyCatItem
 import com.example.cattocat.src.main.mycat.model.MyCatResponse
+import com.example.cattocat.src.main.mycat.mycatinfo.MyCatInfoFragment
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
@@ -42,6 +48,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
     private lateinit var locationSource: FusedLocationSource //사용자 현재 위치
     private var markers = mutableListOf<Marker>()
     private lateinit var catTotalInfo: java.util.ArrayList<CatMarkerItem>
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -195,8 +204,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
 
     //맵 갱신
     private fun setRefreshMap(response: java.util.ArrayList<CatMarkerItem>) {
-        //       setListWithdata(response)
-        //     viewPagerAdapter.notifyDataSetChanged()
+
         clearMarkers()
         setNaverMarker()
         moveCamera()
@@ -220,14 +228,13 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
                     captionMinZoom = 2.0 //최소 줌
                     captionMaxZoom = 16.0//최대 줌
                     tag = catTotalInfo[i].cat_id
-                    //      onClickListener = this@MapActivity
+                    onClickListener = this@MapActivity
                 }
             }
         }
         //todo viewpager
-        //setListWithdata(catTotalInfo)
-    }
 
+    }
 
     private fun moveCamera() {
         val cameraUpdate =
@@ -240,26 +247,19 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
         naverMap.moveCamera(cameraUpdate)
     }
 
+    //고양이 정보 아이템 클릭 리스너 - 뷰페이저
+    private fun onCatClick(mapItem: CatMarkerItem) {
+        val intent = Intent(this, MyCatInfoFragment::class.java)
+        startActivity(intent)
+        finish()
+        Toast.makeText(this, "고양이 이름 : ${mapItem.cat_name}", Toast.LENGTH_SHORT).show()
+    }
+
 
 
     //todo viewpager 와 연동 필요
-    override fun onClick(p0: Overlay): Boolean {
-/*        setListWithdata(mapItemList)
-        initHospitalViewPager()
-        val selectedModel = viewPagerAdapter.currentList.firstOrNull() {
-            it.hospitalIdx == overlay.tag
-        }
-        selectedModel?.let {
-            val position = viewPagerAdapter.currentList.indexOf(it)
-            for (i in 0 until markers.size) {
-                if (position != i) {
-                    markers[i].icon = OverlayImage.fromResource(R.drawable.ic_map_pin_small)
-                } else {
-                    markers[i].icon = OverlayImage.fromResource(R.drawable.ic_map_pin_big)
-                }
-            }
-            viewPager.currentItem = position
-        }*/
+    override fun onClick(overlay: Overlay): Boolean {
+
         return true
     }
 

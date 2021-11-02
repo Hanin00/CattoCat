@@ -25,7 +25,6 @@ private val context: Context
         private val  menuBtn = itemView.findViewById<ImageView>(R.id.item_board_iv_menu)
         private val  userName = itemView.findViewById<TextView>(R.id.item_board_tv_user)
         private val  userLocate = itemView.findViewById<TextView>(R.id.item_board_tv_user_locate)
-        private val  boardLocate = itemView.findViewById<TextView>(R.id.item_board_tv_locate)
         private val  title = itemView.findViewById<TextView>(R.id.item_board_tv_title)
         private val  date = itemView.findViewById<TextView>(R.id.item_board_tv_date)
       //  private val  imgVp = itemView.findViewById<TextView>(R.id.item_board_vp_images)

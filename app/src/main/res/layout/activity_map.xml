@@ -72,11 +72,5 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="@id/map_navermap" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/map_vp_catinfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,7 @@ package com.example.cattocat
 class Companion {
     
     companion object{
-        val USERID = 5
+        val USERID = 6
         val ISSTAFF = 1
         val USERNAME = "야생의집사"
         val USERCITY = "대소원면"
