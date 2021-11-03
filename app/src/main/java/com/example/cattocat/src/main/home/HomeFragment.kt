@@ -121,7 +121,7 @@ class HomeFragment : Fragment(), HomeView {
                     page.translationX = myOffset
                 }
             }
-            
+
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)

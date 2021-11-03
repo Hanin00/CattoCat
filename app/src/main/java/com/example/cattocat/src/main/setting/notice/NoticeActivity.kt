@@ -26,20 +26,11 @@ class NoticeActivity : AppCompatActivity() {
         }else if(intent.hasExtra("isUserInfo")){
             binding.noticeTvTitle.setText("사용자 정보 변경")
         }
-        
-        
-        
-        
-        
 
 
         binding.noticeIvBack.setOnClickListener {
             finish()
         }
-
-
-
-
     }
 
     //todo recycler Adapter

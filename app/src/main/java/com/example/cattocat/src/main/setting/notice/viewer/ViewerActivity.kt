@@ -6,6 +6,7 @@ import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import com.example.cattocat.databinding.ActivityViewerBinding
 import com.example.cattocat.src.main.setting.notice.viewer.info.InfoSingleService
 import com.example.cattocat.src.main.setting.notice.viewer.info.InfoSingleView
@@ -93,9 +94,15 @@ class ViewerActivity : AppCompatActivity(), NoticeSingleView, InfoSingleView {
 /*
             binding.viewerWb.loadData( html,"text/html","UTF-8")
             binding.viewerWb.loadDataWithBaseURL(null, html,"text/html","UTF-8",null)
-*/          binding.viewerText.isInvisible = false
+         binding.viewerText.isInvisible = false
             binding.viewerWb.webViewClient = WebViewClient()
             binding.viewerWb.loadUrl(html)
+            */
+            binding.viewerWb.isVisible=false
+            binding.viewerTvTitle.setText(html)
+            binding.viewerTvTitle.isVisible=true
+
+
         }
     }
 
