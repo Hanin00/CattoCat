@@ -120,15 +120,20 @@ class MakeMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
                 binding.makemarkerCd.isVisible = true
                 val lacationName = binding.makemarkerEdName.text
 
-                binding.makemarkerBtnYes.setOnClickListener {
-                    val intent = Intent(this, AddCatActivity::class.java)
-                    intent.putExtra("xLocation",coord.longitude.toString())
-                    intent.putExtra("yLocation",coord.latitude.toString())
-                    intent.putExtra("lacationName",lacationName.toString())
+                if(binding.makemarkerEdName.text.toString() != ""){
+                    binding.makemarkerBtnYes.setOnClickListener {
+                        val intent = Intent(this, AddCatActivity::class.java)
+                        intent.putExtra("xLocation",coord.longitude.toString())
+                        intent.putExtra("yLocation",coord.latitude.toString())
+                        intent.putExtra("lacationName",lacationName.toString())
 
-                    startActivity(intent)
-                    finish()
+                        startActivity(intent)
+                        finish()
+                    }
+                }else{
+                    Toast.makeText(this,"장소를 입력해주세요",Toast.LENGTH_SHORT).show()
                 }
+
 
 
 

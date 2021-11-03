@@ -66,7 +66,7 @@ class MyCatActivity : AppCompatActivity(), MyCatView {
     private fun myCatRecyAdapter(myCatItem: ArrayList<MyCatItem>) {
 
         if(myCatItemList.size <= 0){
-            binding.mycatFlInfo.isInvisible=true
+            binding.mycatFlInfo.isInvisible=false
         }
 
         myCatRecyAdapter = MyCatRecyAdapter(myCatItem, this) { myCatItem ->

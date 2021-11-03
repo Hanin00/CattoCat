@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cattocat.Companion.Companion.USERID
 import com.example.cattocat.databinding.ActivityAddCatBinding
 import com.example.cattocat.src.addcat.map.MakeMarkerActivity
 import com.example.cattocat.src.addcat.model.AddCatInfo
@@ -33,7 +34,6 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
         }
 
 
-        val userId = 1
         val profImg = ""
         val image = ""
 
@@ -65,7 +65,7 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
                             Log.d("Test", "yLocation : $ylocation")
                             AddCatService(this).tryPostAddCat(
                                 AddCatInfo(
-                                    userId,
+                                    USERID,
                                     name,
                                     eye,
                                     hair,

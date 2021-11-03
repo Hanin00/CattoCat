@@ -60,9 +60,6 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
         binding.mycatinfoEdLocate.setText(clocate)
 
 
-
-
-
         if (cmom == 0) {
             binding.catmomSeg1.isChecked = true
             binding.catmomSeg2.isChecked = false
@@ -107,7 +104,6 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
                 val chair = binding.mycatEdHair.text.toString()
                 val csocks = binding.mycatEdSocks.text.toString()
                 val clocate = binding.mycatinfoEdLocate.text.toString()
-
                 var cmom = 0
                 var ctnr = 0
 
@@ -132,8 +128,8 @@ class MyCatInfoFragment : Fragment(), MyCatInfoView {
                 val cprefer = binding.mycatinfoEdPrefer.text.toString()
                 val cspecial = binding.mycatinfoEdSpecial.text.toString()
 
-                val cprofimg = "dummy url~"
-                val cimg = "dummy url~"
+                val cprofimg = "1"
+                val cimg = "1"
 
                 //todo longitude, latitude
                 val xlocation = "3.123"

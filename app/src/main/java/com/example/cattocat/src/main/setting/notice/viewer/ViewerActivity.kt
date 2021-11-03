@@ -53,8 +53,7 @@ class ViewerActivity : AppCompatActivity(), NoticeSingleView, InfoSingleView {
     }
 
     override fun onGetNoticeSingleSuccess(result: NoticeSingleResponse) {
-        Toast.makeText(this, "정상연결.", Toast.LENGTH_SHORT).show()
-        Log.d("Test", "정상연결")
+
         Log.d("Test", "${result}")
 
         val noticelist = result.content
