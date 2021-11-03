@@ -51,5 +51,5 @@ class PostService(val view: PostView, val post_id:Int, val user_id:Int) {
 
         })
 
-    }
+    }e
 }

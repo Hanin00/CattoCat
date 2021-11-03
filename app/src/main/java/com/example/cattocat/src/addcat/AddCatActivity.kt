@@ -44,6 +44,21 @@ class AddCatActivity : AppCompatActivity(), AddCatView {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         binding.addcatBtnSend.setOnClickListener {
 
             val name = binding.addcatEdName.text.toString()

@@ -27,7 +27,7 @@ class MyCatRecyAdapter(
             catImg.setOnClickListener { itemClick(item) }
 
             if (item.cat_image != null) {
-                if (item.cat_image != " uy") {
+                if (item.cat_image != "") {
                     val imagenum = item.cat_image.toString().toInt()
 
 

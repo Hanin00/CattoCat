@@ -139,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/addcat_img_text_margins"
                 android:layout_marginTop="@dimen/shared_def_vertical"
-                android:hint="털 색 "
+                android:text="털 색 "
                 android:textColor="@color/shared_title_black"
                 android:textSize="@dimen/shared_sub_title"
                 app:layout_constraintStart_toEndOf="@id/addcat_iv_hair"
