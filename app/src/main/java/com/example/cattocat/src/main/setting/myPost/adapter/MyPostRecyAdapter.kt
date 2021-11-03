@@ -29,16 +29,9 @@ class MyPostRecyAdapter(
         private val date = itemView.findViewById<TextView>(R.id.item_settings_tv_time)
 
         fun bind(item: MyPostItem) {
-            /*     Glide.with(context)
-         .load(item.userImg)
-         .fitCenter()
-         .override(100, 100)
-         .transforms(CenterCrop(), RoundedCorners(20))
-         .into(iEventImg)*/
-
             //    todo 사진 붙여야함.  userImg.setImageResource(item.userImg)
             userName.text = USERNAME
-            userComment.text = item.content
+            userComment.text = item.title
             date.text = substring(item.created_at,0, 10)
 
             itemView.setOnClickListener {

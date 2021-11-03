@@ -7,5 +7,7 @@ class MyPostItem (
     @SerializedName("user_id") val user_id : Int?,
     @SerializedName("post_id") val post_id : Int?,
     @SerializedName("content") val content : String?,
+    @SerializedName("title") val title : String?,
+    @SerializedName("image") val image : String?,
     @SerializedName("created_at") val created_at : String?,
 )

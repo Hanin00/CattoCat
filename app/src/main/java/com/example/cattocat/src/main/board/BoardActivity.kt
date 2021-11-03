@@ -28,7 +28,6 @@ class BoardActivity : AppCompatActivity(),BoardView {
         }
     }
 
-
     override fun onResume() {
         super.onResume()
         boardRecyAdapter(boardItemList)
@@ -56,7 +55,6 @@ class BoardActivity : AppCompatActivity(),BoardView {
         }else{
             Log.d("Test","등록된 게시글 X")
         }
-
     }
 
     override fun onGetBoardFailure(message: String) {

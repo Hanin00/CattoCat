@@ -36,23 +36,20 @@ class PostActivity : AppCompatActivity(), PostView {
         if (intent.hasExtra("isUserIdx")) {
             val isPostIdx = intent.getIntExtra("isPostIdx", 0)
             val isUserIdx = intent.getIntExtra("isUserIdx", 0)
-            Log.d("Test", "if 안 PostActivity - itemIdx from home - ${isUserIdx}")
-            Log.d("Test", "if 안 PostActivity - itemIdx from home - ${isPostIdx}")
+            Log.d("Test", "if 안 PostActivity - isUserIdx from home - ${isUserIdx}")
+            Log.d("Test", "if 안 PostActivity - isPostIdx from home - ${isPostIdx}")
 
             PostService(this, isPostIdx, isUserIdx).tryGetPostSingle(isPostIdx, isUserIdx)
-
 
             binding.postBtnReply.setOnClickListener {
                 val content = binding.postEdReply.text.toString()
                 //todo User_id - 로그인 되어있는
 
                 if(content != ""){
-
-
                     PostService(this, isPostIdx, isUserIdx).tryPostReply(
                         ReplyListItem(
                             null,
-                            isUserIdx,
+                            isUserIdx.toInt(),
                             isPostIdx.toInt(),
                             content,
                             null
@@ -174,6 +171,4 @@ class PostActivity : AppCompatActivity(), PostView {
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
     }
-
-
 }

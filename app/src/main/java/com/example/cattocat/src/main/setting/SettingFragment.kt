@@ -74,9 +74,6 @@ class SettingFragment : Fragment() {
                 // Fragment 클래스에서 사용 시
 
             }
-
-
-
         }
     }
 
@@ -95,19 +92,15 @@ class SettingFragment : Fragment() {
 
         //내가 좋아한 글
         binding.settingIvMenu2.setOnClickListener {
-            val intent = Intent(context, MyPostActivity::class.java)
-            startActivity(intent)
+         //   val intent = Intent(context, MyPostActivity::class.java)
+          //  startActivity(intent)
         }
 
         //내가 단 댓글
         binding.settingIvMenu3.setOnClickListener {
-            val intent = Intent(context, MyReplyActivity::class.java)
-            startActivity(intent)
+        //    val intent = Intent(context, MyReplyActivity::class.java)
+          //  startActivity(intent)
         }
-
-
-
-
 
        //공지사항
         binding.settingTvMenu01.setOnClickListener {
@@ -130,18 +123,21 @@ class SettingFragment : Fragment() {
         binding.settingTvMenu04.setOnClickListener {
             val intent = Intent(requireContext(), NoticeActivity::class.java)
             Log.d("Test", "Clicked ")
+            intent.putExtra("isUse",true)
             startActivity(intent)
         }
         //회원설정
         binding.settingTvMenu05.setOnClickListener {
             Log.d("Test", "Clicked ")
             val intent = Intent(requireContext(), NoticeActivity::class.java)
+            intent.putExtra("isUser",true)
             startActivity(intent)
         }
         //사용자정보 변경
         binding.settingBtnInfoModify.setOnClickListener {
             Log.d("Test", "Clicked ")
             val intent = Intent(requireContext(), NoticeActivity::class.java)
+            intent.putExtra("isUserInfo",true)
             startActivity(intent)
         }
 
@@ -153,9 +149,4 @@ class SettingFragment : Fragment() {
             Log.d("Test", "SettingFragment - Clicked Logout")
         }
     }
-
-
-    //todo login 상태 판별 후 true인 경우 user info binding
-
-
 }

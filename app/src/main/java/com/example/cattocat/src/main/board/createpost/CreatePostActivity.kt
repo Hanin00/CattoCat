@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cattocat.Companion.Companion.USERID
 import com.example.cattocat.databinding.ActivityBoardBinding
 import com.example.cattocat.databinding.ActivityCreatepostBinding
 import com.example.cattocat.src.main.board.BoardView
@@ -46,7 +47,7 @@ class CreatePostActivity : AppCompatActivity(), CreatePostView {
 
 
 
-            val request = CreatePostRequest(user_id, title, content, image, null)
+            val request = CreatePostRequest(USERID, title, content, image, null)
 
             if (title != "") {
                 if (content != "") {
@@ -56,7 +57,6 @@ class CreatePostActivity : AppCompatActivity(), CreatePostView {
                 } else {
                     Toast.makeText(this, "내용을 입력해주세요", Toast.LENGTH_SHORT).show()
                 }
-
             } else {
                 Toast.makeText(this, "제목을 입력해주세요", Toast.LENGTH_SHORT).show()
             }

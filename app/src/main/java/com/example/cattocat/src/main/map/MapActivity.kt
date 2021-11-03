@@ -58,7 +58,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
         setContentView(binding.root)
         mapView = binding.mapNavermap
         mapView.onCreate(savedInstanceState)
-
         binding.mapNavermap.getMapAsync(this)
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 
@@ -72,15 +71,11 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
             binding.mapBtnMy.setOnClickListener {
                 CatMarkerService(this,USERID).tryMyCat()
             }
-
         }else{
-
-
             binding.mapBtnAll.isInvisible = true
             binding.mapBtnMy.setOnClickListener {
                 CatMarkerService(this,USERID).tryMyCat()
             }
-
         }
     }
 
@@ -188,7 +183,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, CatMarkerView,
     override fun onGetMyFailure(message: String) {
         Log.e("Test", "onGetMyFailure: $message")
     }
-
 
     private fun clearMarkers() {
         for (i in 0..markers.size - 1) {

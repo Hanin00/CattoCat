@@ -19,28 +19,25 @@ class NoticeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+        if(intent.hasExtra("isUse")){
+            binding.noticeTvTitle.setText("사용안내")
+        }else if(intent.hasExtra("isUser")){
+            binding.noticeTvTitle.setText("회원설정")
+        }else if(intent.hasExtra("isUserInfo")){
+            binding.noticeTvTitle.setText("사용자 정보 변경")
+        }
+        
+        
+        
+        
+        
+
 
         binding.noticeIvBack.setOnClickListener {
             finish()
         }
 
 
-        noticeItemList.add(NoticeItem(1,"디자인 업데이트 v1.1.2","https"))
-        noticeItemList.add(NoticeItem(2,"디자인 업데이트 v1.1.3","https",))
-        noticeItemList.add(NoticeItem(3,"디자인 업데이트 v1.1.4","https",))
-        noticeItemList.add(NoticeItem(5,"디자인 업데이트 v1.1.5","https",))
-        noticeItemList.add(NoticeItem(6,"디자인 업데이트 v1.1.5","https",))
-        noticeItemList.add(NoticeItem(7,"디자인 업데이트 v1.1.5","https",))
-        noticeItemList.add(NoticeItem(8,"디자인 업데이트 v1.1.5","https",))
-        noticeItemList.add(NoticeItem(9,"디자인 업데이트 v1.1.5","https",))
-        noticeItemList.add(NoticeItem(1,"디자인 업데이트 v1.1.2","https",))
-        noticeItemList.add(NoticeItem(2,"디자인 업데이트 v1.1.3","https",))
-        noticeItemList.add(NoticeItem(3,"디자인 업데이트 v1.1.4","https",))
-        noticeItemList.add(NoticeItem(5,"디자인 업데이트 v1.1.5","https",))
-        noticeItemList.add(NoticeItem(6,"디자인 업데이트 v1.1.5","https",))
-        noticeItemList.add(NoticeItem(7,"디자인 업데이트 v1.1.5","https",))
-        noticeItemList.add(NoticeItem(8,"디자인 업데이트 v1.1.5","https",))
-        noticeItemList.add(NoticeItem(9,"디자인 업데이트 v1.1.5","https",))
 
 
     }
